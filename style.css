@@ -94,7 +94,7 @@ a#skoc {
     display: inline-block;
 
 }
-.film_obr:hover + .info_text{
+.dr:hover .info_text{
     visibility: visible;
 }
 
