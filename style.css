@@ -114,5 +114,5 @@ a#skoc {
     height: 100%;
     visibility: hidden;
     background-color: silver;
-    /*text-transform: none;*/
+    user-select: none;
 }
