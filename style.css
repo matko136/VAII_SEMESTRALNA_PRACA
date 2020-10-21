@@ -98,6 +98,7 @@ a#skoc {
     visibility: visible;
 }
 
+
 .film_obr:hover{
     visibility: hidden;
 }
@@ -113,4 +114,5 @@ a#skoc {
     height: 100%;
     visibility: hidden;
     background-color: silver;
+    /*text-transform: none;*/
 }
