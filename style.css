@@ -1,0 +1,116 @@
+body {
+    background-image: url('https://resize.indiatvnews.com/en/resize/newbucket/1200_-/2020/07/cinema-halls-rep1-1595657539.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.navbar-expand-lg {
+    background-color: black ;
+}
+.navbar-light.bg-light {
+    background-color:brown !important;
+}
+
+.prihlasenie.show {
+    background-color: brown;
+}
+
+.prihl_button{
+    width: 126px;
+    height: 38px;
+    background-color: deepskyblue;
+    font-weight: bold;
+    font-size: large;
+    font-family: monospace;
+    border-radius: 4%;
+}
+
+.vitajte {
+    position: absolute;
+    left:50%;
+    transform:translateX(-50%);
+    bottom:50%;
+
+}
+
+.plocha {
+    background-color: brown;
+    opacity: 90%;
+    margin: 100px;
+}
+
+#nadpis {
+    font-family: monospace;
+    text-align: center;
+    font-size: 100px;
+    background-color: brown;
+    color: black;
+    opacity: 70%;
+}
+
+#onas {
+    color:black;
+}
+
+a#skoc {
+    text-align: center;
+    font-size: 80px;
+    display: block;
+    color: black;
+    background-color: brown;
+    opacity: 70%;
+}
+
+.dramas {
+    width: 70%;
+    margin: auto;
+}
+
+.dr{
+    margin:auto;
+}
+
+.row{
+    padding: 10px;
+    margin: auto;
+}
+
+.nadpis_film {
+    background-color: orange;
+    opacity: 40%;
+    color: black;
+    font-weight: bold;
+    margin-top:10px;
+    margin-bottom: 0px;
+}
+
+.film_obr:hover div{
+    color: black;
+
+}
+.info {
+    position:relative;
+    display: inline-block;
+
+}
+.film_obr:hover + .info_text{
+    visibility: visible;
+}
+
+.film_obr:hover{
+    visibility: hidden;
+}
+.info .info_text {
+    position: absolute;
+    z-index: 999;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 0%; /* Adjust this value to move the positioned div up and down */
+    text-align: center;
+    width: 100%; /* Set the width of the positioned div */
+    height: 100%;
+    visibility: hidden;
+    background-color: silver;
+}
