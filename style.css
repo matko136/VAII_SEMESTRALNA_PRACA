@@ -98,19 +98,11 @@ a#skoc {
     visibility: visible;
 }
 
-
-.film_obr:hover{
-    visibility: hidden;
-}
 .info .info_text {
     position: absolute;
-    z-index: 999;
-    margin: 0 auto;
-    left: 0;
-    right: 0;
-    top: 0%; /* Adjust this value to move the positioned div up and down */
+    top: 0;
     text-align: center;
-    width: 100%; /* Set the width of the positioned div */
+    width: 100%;
     height: 100%;
     visibility: hidden;
     background-color: silver;
