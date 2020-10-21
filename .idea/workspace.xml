@@ -11,11 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32650f29-a09a-473b-8dbb-57f83d70ccd2" name="Default Changelist" comment="kontajnery po riadkoch">
-      <change afterPath="$PROJECT_DIR$/drama.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/o_nas.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html1.html" beforeDir="false" afterPath="$PROJECT_DIR$/html1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +53,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1603218505903</updated>
-      <workItem from="1603218506985" duration="25194000" />
+      <workItem from="1603218506985" duration="26321000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1603218777505</created>
@@ -86,7 +83,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603218963862</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="kontajnery po riadkoch">
+      <created>1603244352887</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1603244352887</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -118,9 +122,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="498" height="446" key="SwitcherDM/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603227936979" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1603219064225">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1603244372762">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603219064225" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603244372762" />
   </component>
 </project>
