@@ -46,6 +46,7 @@ if ($_SESSION['user'] != "") {
                         $name = $user['name'];
                         $surename = $user['surename'];
                         $email = $user['email'];
+                        break;
                     }
                 }
                    echo $name . ' ' . $surename . '</a>';
@@ -54,7 +55,7 @@ if ($_SESSION['user'] != "") {
                     <?php
                     echo '<a class="dropdown-item" href="#">' . $_SESSION['user'] . '</a>';
                         echo '<a class="dropdown-item" href="#">' . $email . '</a>';
-                        echo '<a class="dropdown-item" href="#">Nastavenia účtu</a>';
+                        echo '<a class="dropdown-item" href="nastavenia.php">Nastavenia účtu</a>';
                     ?>
                 </div>
             </li>

@@ -1,3 +1,4 @@
+
 <?php
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
@@ -73,10 +74,10 @@ if ($_SESSION['user'] == "") {
                     <div class="dropdown-menu registracia" aria-labelledby="navbarDropdown">
                         <form method="post" name="form">
                             <input type="text" placeholder="Meno" name="name" required>
-                            <input type="text" placeholder="Priezvisko" name="surename required">
-                            <input type="text" placeholder="Prihl. meno" name="log required">
-                            <input type="password" placeholder="Heslo" name="passwd required">
-                            <input type="text" placeholder="e-mail" name="email required">
+                            <input type="text" placeholder="Priezvisko" name="surename" required>
+                            <input type="text" placeholder="Prihl. meno" name="log" required>
+                            <input type="password" placeholder="Heslo" name="passwd" required>
+                            <input type="text" placeholder="e-mail" name="email" required>
                             <input type="submit" value="Registracia" name="reg">
                         </form>
                     </div>
