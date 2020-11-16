@@ -5,9 +5,7 @@ body {
     background-attachment: fixed;
 }
 
-.navbar-expand-lg {
-    background-color: black ;
-}
+
 .navbar-light.bg-light {
     background-color:brown !important;
 }
@@ -16,7 +14,7 @@ body {
     background-color: brown;
 }
 
-.prihl_button{
+.reg_log_button{
     width: 126px;
     height: 38px;
     background-color: deepskyblue;

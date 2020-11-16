@@ -2,7 +2,7 @@
 <html lang="sk">
 <head>
     <meta charset="UTF-8">
-    <title>Úvod</title>
+    <title>Dráma</title>
     <link rel="stylesheet" href="style.css">
     <!-- CSS -->
     <link rel="stylesheet" href
@@ -57,7 +57,45 @@
                         </form>
                     </nav>
                     <nav class="navbar navbar-light bg-light">
-                        <a class="nav-link prihl_button" href="#">prihlásiť</a>
+                        <a class="nav-link reg_log_button" href="#">prihlásiť</a>
+                    </nav>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Registrácia
+                </a>
+                <div class="dropdown-menu registracia" aria-labelledby="navbarDropdown">
+                    <nav class="navbar navbar-light bg-light">
+                        <form class="form-inline">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Meno" aria-label="Name">
+                            </div>
+                        </form>
+                    </nav>
+                    <nav class="navbar navbar-light bg-light">
+                        <form class="form-inline">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Priezvisko" aria-label="Surename">
+                            </div>
+                        </form>
+                    </nav>
+                    <nav class="navbar navbar-light bg-light">
+                        <form class="form-inline">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Prihl. meno" aria-label="Username">
+                            </div>
+                        </form>
+                    </nav>
+                    <nav class="navbar navbar-light bg-light">
+                        <form class="form-inline">
+                            <div class="input-group">
+                                <input type="password" class="form-control" placeholder="Heslo" aria-label="Username">
+                            </div>
+                        </form>
+                    </nav>
+                    <nav class="navbar navbar-light bg-light">
+                        <a class="nav-link reg_log_button" href="#">registrovať</a>
                     </nav>
                 </div>
             </li>
@@ -65,7 +103,18 @@
     </div>
 </nav>
 
-<img class="vitajte" src="text.gif" alt="Vitajte">
+<div class="dramas">
+    <div class="row">
+        <?php
+            $dbDram = new PDO('mysql:dbname=films;host=localhost', 'root', 'dtb456');
+            $dbDramas = $dbDram->query('SELECT * from dramas');
+            foreach ($dbDramas as $drama) {
+                echo '<div class="dr"><p class="nadpis_film">' . $drama['title'] . '</p><div class="info"><img class="film_obr" src=' . $drama['img'] . ' alt="obrazok filmu"><div class="info_text"><h5><br><br><br>' . $drama['about_film'] . '</h5></div></div></div>';
+            }
+        ?>
+    </div>
+
+</div>
 
 </body>
 </html>
