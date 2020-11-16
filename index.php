@@ -2,7 +2,7 @@
 <html lang="sk">
 <head>
     <meta charset="UTF-8">
-    <title>Dráma</title>
+    <title>Úvod</title>
     <link rel="stylesheet" href="style.css">
     <!-- CSS -->
     <link rel="stylesheet" href
@@ -13,20 +13,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </head>
 <body>
-<?php include "./navbar.php" ?>
+<?php
+    include_once "./navbar.php";
+?>
 
-<div class="dramas">
-    <div class="row">
-        <?php
-            $dbDram = new PDO('mysql:dbname=films;host=localhost', 'root', 'dtb456');
-            $dbDramas = $dbDram->query('SELECT * from dramas');
-            foreach ($dbDramas as $drama) {
-                echo '<div class="dr"><p class="nadpis_film">' . $drama['title'] . '</p><div class="info"><img class="film_obr" src=' . $drama['img'] . ' alt="obrazok filmu"><div class="info_text"><h5><br><br><br>' . $drama['about_film'] . '</h5></div></div></div>';
-            }
-        ?>
-    </div>
-
-</div>
+<img class="vitajte" src="text.gif" alt="Vitajte">
 
 </body>
 </html>
