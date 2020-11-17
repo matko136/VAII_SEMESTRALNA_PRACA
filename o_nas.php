@@ -14,7 +14,7 @@
 </head>
 <body>
 <?php include "./navbar.php" ?>
-<h1 id="nadpis">Niečo málo o nás</h1>
+<h1 class="nadpis">Niečo málo o nás</h1>
 
 <div class="plocha">
 <h2 id="onas">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed volutpat consectetur commodo. Cras volutpat fringilla ipsum eu tempus. Donec sed aliquam mauris. Duis ac sem posuere, venenatis lorem eget, lacinia magna. Vivamus iaculis euismod velit quis sodales. Nulla suscipit rhoncus ligula laoreet viverra. Donec erat turpis, dictum in molestie sed, venenatis id diam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam non vestibulum leo. In hac habitasse platea dictumst. Aenean fringilla dolor neque, at fringilla ante dapibus non.

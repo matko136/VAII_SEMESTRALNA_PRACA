@@ -62,7 +62,7 @@ body {
     opacity: 90%;
 }
 
-#nadpis {
+.nadpis {
     font-family: monospace;
     text-align: center;
     font-size: 100px;

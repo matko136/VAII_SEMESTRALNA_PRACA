@@ -54,6 +54,7 @@ if ($_SESSION['user'] != "") {
                         echo '<a class="dropdown-item" href="#">' . $email . '</a>';
                         echo '<a class="dropdown-item" href="nastavenia.php">Nastavenia účtu</a>';
                     ?>
+                    <a class="dropdown-item" href="favorite.php">Obľúbené filmy</a>
                     <form method="post" name="form">
                         <input class="dropdown-item" type="submit" value="Odhlásiť" name="log_out">
                     </form>
