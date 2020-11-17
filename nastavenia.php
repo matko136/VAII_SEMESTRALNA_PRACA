@@ -16,11 +16,28 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
+
 if (isset($_POST['edit_data'])) {
     $db = new PDO('mysql:dbname=cinema;host=localhost', 'root', 'dtb456');
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = "UPDATE user SET name=?, surename=?, email=? WHERE log=?";
     $db->prepare($sql)->execute([$_POST['name'], $_POST['surename'], $_POST['email'], $_SESSION['user']]);
+} elseif (isset($_POST['passwd_chng'])) {
+    $db = new PDO('mysql:dbname=cinema;host=localhost', 'root', 'dtb456');
+    $dbUsers = $db->query('SELECT * from user');
+    $success = 0;
+    foreach ($dbUsers as $user) {
+        if($_POST['passwd_old'] == $user['passwd']) {
+            $sql = "UPDATE user SET passwd=? WHERE log=?";
+            $db->prepare($sql)->execute([$_POST['passwd_new'], $_SESSION['user']]);
+            $success = 1;
+        }
+    }
+    if($success == 1) {
+        echo '<p style="background-color: red"> Heslo úspešne zmenené </p>';
+    } else {
+        echo '<p style="background-color: red"> Heslo úspešne zmenené </p>';
+    }
 }
 include_once "./navbar.php";
 ?>
@@ -59,9 +76,9 @@ include_once "./navbar.php";
             <br><h3>Zmena hesla</h3><br>
             <form method="post" name="form">
                 <label for="name">Zadajte staré heslo:</label>
-                <input type="text" name="passwd" required><br><br>
+                <input type="text" name="passwd_old" required><br><br>
                 <label for="name">Zadajte nové heslo:</label>
-                <input type="text" name="passwd" required><br><br>
+                <input type="text" name="passwd_new" required><br><br>
                 <input type="submit" value="Zmeniť heslo" name="passwd_chng">
             </form>
         </div>

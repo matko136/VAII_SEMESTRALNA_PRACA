@@ -1,6 +1,8 @@
 <?php
 if (isset($_POST['log_out'])) {
     $_SESSION['user']="";
+    header("Location:index.php");
+    exit();
 }
 if ($_SESSION['user'] != "") {
 ?>
