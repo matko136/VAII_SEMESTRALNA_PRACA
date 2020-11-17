@@ -30,12 +30,36 @@ body {
     transform:translateX(-50%);
     bottom:50%;
 
+
 }
 
 .plocha {
     background-color: brown;
     opacity: 90%;
     margin: 100px;
+}
+
+.udaje{
+
+    position: relative;
+    left:+50%;
+    top: 50%;
+    transform:translate(-50%,-50%);
+
+
+}
+
+.nastavenia {
+    overflow: scroll;
+    margin-top: 80px;
+    position: absolute;
+    background-color: cyan;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width: 90%;
+    height: 70%;
+    opacity: 90%;
 }
 
 #nadpis {

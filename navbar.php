@@ -29,7 +29,8 @@
             echo 'Connection failed: ' . $e->getMessage();
         }
     }
-if ($_SESSION['user'] == "") {
+    $session = $_SESSION['user'];
+    if ($session == null || $session == "") {
     ?>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="index.php">

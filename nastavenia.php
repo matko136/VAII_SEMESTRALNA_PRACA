@@ -39,13 +39,11 @@ if (isset($_POST['edit_data'])) {
         echo '<p style="background-color: red"> Zle zadané staré heslo </p>';
     }
 }
-include_once "./navbar.php";
 ?>
 <body>
-
-<img class="vitajte" src="text.gif" alt="Vitajte">
+    <?php include "./navbar.php" ?>
     <div class="nastavenia">
-        <div>
+        <div class="udaje">
             <h3>Údaje používateľa</h3><br>
             <form method="post" name="form">
                 <?php

@@ -14,7 +14,7 @@
 </head>
 <body>
 <?php
-    include_once "./navbar.php";
+    include "./navbar.php";
 ?>
 
 <img class="vitajte" src="text.gif" alt="Vitajte">
