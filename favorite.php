@@ -15,7 +15,7 @@
 <body>
 <?php include "./navbar.php" ?>
 
-<div class="dramas">
+<div class="films">
     <h1 class="nadpis">Drámy</h1><br>
     <div class="row">
         <?php
@@ -31,10 +31,10 @@
     <div class="row">
         <?php
         $dbFilms = new PDO('mysql:dbname=films;host=localhost', 'root', 'dtb456');
-        $sql = "SELECT * from dramas d join favorite_actions f on d.title = f.title WHERE user='".$_SESSION['user']."'";
-        $dbDramas = $dbFilms->query($sql);
-        foreach ($dbDramas as $drama) {
-            echo '<div class="dr"><p class="nadpis_film">' . $drama['title'] . '</p><div class="info"><img class="film_obr" src=' . $drama['img'] . ' alt="obrazok filmu"><div class="info_text"><h5><br><br><br>' . $drama['about_film'] . '</h5></div></div></div>';
+        $sql = "SELECT * from actions d join favorite_actions f on d.title = f.title WHERE user='".$_SESSION['user']."'";
+        $dbActions = $dbFilms->query($sql);
+        foreach ($dbActions as $action) {
+            echo '<div class="dr"><p class="nadpis_film">' . $action['title'] . '</p><div class="info"><img class="film_obr" src=' . $action['img'] . ' alt="obrazok filmu"><div class="info_text"><h5><br><br><br>' . $action['about_film'] . '</h5></div></div></div>';
         }
         ?>
     </div>
@@ -42,10 +42,10 @@
     <div class="row">
         <?php
         $dbFilms = new PDO('mysql:dbname=films;host=localhost', 'root', 'dtb456');
-        $sql = "SELECT * from dramas d join favorite_romantics f on d.title = f.title WHERE user='".$_SESSION['user']."'";
-        $dbDramas = $dbFilms->query($sql);
-        foreach ($dbDramas as $drama) {
-            echo '<div class="dr"><p class="nadpis_film">' . $drama['title'] . '</p><div class="info"><img class="film_obr" src=' . $drama['img'] . ' alt="obrazok filmu"><div class="info_text"><h5><br><br><br>' . $drama['about_film'] . '</h5></div></div></div>';
+        $sql = "SELECT * from romantic d join favorite_romantics f on d.title = f.title WHERE user='".$_SESSION['user']."'";
+        $dbRomantics = $dbFilms->query($sql);
+        foreach ($dbRomantics as $rom) {
+            echo '<div class="dr"><p class="nadpis_film">' . $rom['title'] . '</p><div class="info"><img class="film_obr" src=' . $rom['img'] . ' alt="obrazok filmu"><div class="info_text"><h5><br><br><br>' . $rom['about_film'] . '</h5></div></div></div>';
         }
         ?>
     </div>

@@ -84,7 +84,7 @@ a#skoc {
     opacity: 70%;
 }
 
-.dramas {
+.films {
     width: 70%;
     margin: auto;
 }
@@ -128,5 +128,6 @@ a#skoc {
     height: 100%;
     visibility: hidden;
     background-color: silver;
+    opacity: 85%;
     user-select: none;
 }

@@ -38,7 +38,7 @@ if (isset($_POST['remFavDrama'])) {
 ?>
 
 
-<div class="dramas">
+<div class="films">
     <div class="row">
         <?php
             $dbDram = new PDO('mysql:dbname=films;host=localhost', 'root', 'dtb456');

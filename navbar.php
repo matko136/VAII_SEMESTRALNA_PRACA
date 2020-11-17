@@ -51,9 +51,9 @@
                         Filmy
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Akčné</a>
+                        <a class="dropdown-item" href="action.php">Akčné</a>
                         <a class="dropdown-item" href="drama.php">Dráma</a>
-                        <a class="dropdown-item" href="#">Romantické</a>
+                        <a class="dropdown-item" href="romantic.php">Romantické</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
