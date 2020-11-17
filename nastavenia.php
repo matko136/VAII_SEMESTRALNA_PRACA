@@ -36,7 +36,7 @@ if (isset($_POST['edit_data'])) {
     if($success == 1) {
         echo '<p style="background-color: red"> Heslo úspešne zmenené </p>';
     } else {
-        echo '<p style="background-color: red"> Heslo úspešne zmenené </p>';
+        echo '<p style="background-color: red"> Zle zadané staré heslo </p>';
     }
 }
 include_once "./navbar.php";
@@ -76,9 +76,9 @@ include_once "./navbar.php";
             <br><h3>Zmena hesla</h3><br>
             <form method="post" name="form">
                 <label for="name">Zadajte staré heslo:</label>
-                <input type="text" name="passwd_old" required><br><br>
+                <input type="password" name="passwd_old" required><br><br>
                 <label for="name">Zadajte nové heslo:</label>
-                <input type="text" name="passwd_new" required><br><br>
+                <input type="password" name="passwd_new" required><br><br>
                 <input type="submit" value="Zmeniť heslo" name="passwd_chng">
             </form>
         </div>

@@ -30,11 +30,6 @@ if ($_SESSION['user'] != "") {
                     <a class="dropdown-item" href="#">Romantické</a>
                 </div>
             </li>
-            <li class="nav-item active">
-                <form method="post" name="form">
-                    <input type="submit" value="Odhlásiť" name="log_out">
-                </form>
-            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <?php
@@ -59,6 +54,9 @@ if ($_SESSION['user'] != "") {
                         echo '<a class="dropdown-item" href="#">' . $email . '</a>';
                         echo '<a class="dropdown-item" href="nastavenia.php">Nastavenia účtu</a>';
                     ?>
+                    <form method="post" name="form">
+                        <input class="dropdown-item" type="submit" value="Odhlásiť" name="log_out">
+                    </form>
                 </div>
             </li>
         </ul>
