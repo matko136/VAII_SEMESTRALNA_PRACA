@@ -41,26 +41,34 @@ if (isset($_POST['remFavRom'])) {
 <div class="films">
     <div class="row">
         <?php
+        if($_SESSION['user'] != "") {
+            $dbRom = new PDO('mysql:dbname=films;host=localhost', 'root', 'dtb456');
+            $dbRoms = $dbRom->query('SELECT * from romantic');
+            foreach ($dbRoms as $roman) {
+                $sql = "SELECT * from romantic d join favorite_romantics f on d.title = f.title WHERE user='" . $_SESSION['user'] . "'";
+                $dbFavRoms = $dbRom->query($sql);
+                $isFavorite = 0;
+                foreach ($dbFavRoms as $favRom) {
+                    if ($favRom['title'] == $roman['title']) {
+                        $isFavorite = 1;
+                        break;
+                    }
+                }
+                echo '<div class="dr"><p class="nadpis_film">' . $roman['title'] . '</p><div class="info"><img class="film_obr" src=' . $roman['img'] . ' alt="obrazok filmu"><div class="info_text"><h5><br><br><br>' . $roman['about_film'] . '</h5><form method="post" name="form">';
+                if ($isFavorite == 0) {
+                    echo '  <input type="hidden" name="title" value="' . $roman['title'] . '"/>';
+                    echo '<input type="submit" value="Pridať do obľúbených" name="addFavRom"></form></div></div></div>';
+                } else {
+                    echo '  <input type="hidden" name="title" value="' . $roman['title'] . '"/>';
+                    echo '<input type="submit" value="Odobrať z obľúbených" name="remFavRom"></form></div></div></div>';
+                }
+            }
+        } else {
         $dbRom = new PDO('mysql:dbname=films;host=localhost', 'root', 'dtb456');
         $dbRoms = $dbRom->query('SELECT * from romantic');
         foreach ($dbRoms as $roman) {
-            $sql = "SELECT * from romantic d join favorite_romantics f on d.title = f.title WHERE user='".$_SESSION['user']."'";
-            $dbFavRoms = $dbRom->query($sql);
-            $isFavorite = 0;
-            foreach ($dbFavRoms as $favRom) {
-                if($favRom['title'] == $roman['title']) {
-                    $isFavorite = 1;
-                    break;
-                }
-            }
-            echo '<div class="dr"><p class="nadpis_film">' . $roman['title'] . '</p><div class="info"><img class="film_obr" src=' . $roman['img'] . ' alt="obrazok filmu"><div class="info_text"><h5><br><br><br>' . $roman['about_film'] . '</h5><form method="post" name="form">';
-            if ($isFavorite == 0) {
-                echo '  <input type="hidden" name="title" value="' . $roman['title'] . '"/>';
-                echo '<input type="submit" value="Pridať do obľúbených" name="addFavRom"></form></div></div></div>';
-            } else {
-                echo '  <input type="hidden" name="title" value="' . $roman['title'] . '"/>';
-                echo '<input type="submit" value="Odobrať z obľúbených" name="remFavRom"></form></div></div></div>';
-            }
+            echo '<div class="dr"><p class="nadpis_film">' . $roman['title'] . '</p><div class="info"><img class="film_obr" src=' . $roman['img'] . ' alt="obrazok filmu"><div class="info_text"><h5><br><br><br>' . $roman['about_film'] . '</h5></div></div></div>';
+        }
         }
         ?>
     </div>

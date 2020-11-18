@@ -41,14 +41,15 @@ if (isset($_POST['remFavDrama'])) {
 <div class="films">
     <div class="row">
         <?php
+        if($_SESSION['user'] != "") {
             $dbDram = new PDO('mysql:dbname=films;host=localhost', 'root', 'dtb456');
             $dbDramas = $dbDram->query('SELECT * from dramas');
             foreach ($dbDramas as $drama) {
-                $sql = "SELECT * from dramas d join favorite_dramas f on d.title = f.title WHERE user='".$_SESSION['user']."'";
+                $sql = "SELECT * from dramas d join favorite_dramas f on d.title = f.title WHERE user='" . $_SESSION['user'] . "'";
                 $dbFavDramas = $dbDram->query($sql);
                 $isFavorite = 0;
                 foreach ($dbFavDramas as $favDrama) {
-                    if($favDrama['title'] == $drama['title']) {
+                    if ($favDrama['title'] == $drama['title']) {
                         $isFavorite = 1;
                         break;
                     }
@@ -62,6 +63,13 @@ if (isset($_POST['remFavDrama'])) {
                     echo '<input type="submit" value="Odobrať z obľúbených" name="remFavDrama"></form></div></div></div>';
                 }
             }
+        } else {
+        $dbDram = new PDO('mysql:dbname=films;host=localhost', 'root', 'dtb456');
+        $dbDramas = $dbDram->query('SELECT * from dramas');
+        foreach ($dbDramas as $drama) {
+            echo '<div class="dr"><p class="nadpis_film">' . $drama['title'] . '</p><div class="info"><img class="film_obr" src=' . $drama['img'] . ' alt="obrazok filmu"><div class="info_text"><h5><br><br><br>' . $drama['about_film'] . '</h5></div></div></div>';
+        }
+        }
         ?>
     </div>
 

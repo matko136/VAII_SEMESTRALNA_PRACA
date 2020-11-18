@@ -2,6 +2,7 @@
 <?php
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
+        $_SESSION['user'] = "";
     }
     if (isset($_POST['prihl'])) {
         $db = new PDO('mysql:dbname=cinema;host=localhost', 'root', 'dtb456');
@@ -29,8 +30,7 @@
             echo 'Connection failed: ' . $e->getMessage();
         }
     }
-    $session = $_SESSION['user'];
-    if ($session == null || $session == "") {
+    if ($_SESSION['user'] == "") {
     ?>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="index.php">

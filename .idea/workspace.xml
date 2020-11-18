@@ -10,15 +10,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32650f29-a09a-473b-8dbb-57f83d70ccd2" name="Default Changelist" comment="pridanie funkcie na pirdavanie resp. odoberanie obľúbených filmov">
-      <change afterPath="$PROJECT_DIR$/action.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/romantic.php" afterDir="false" />
+    <list default="true" id="32650f29-a09a-473b-8dbb-57f83d70ccd2" name="Default Changelist" comment="zobrazovanie oblubenych filmov pouzivatela rozdelenych do kategorii dramy, akcne, romanticke">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/action.php" beforeDir="false" afterPath="$PROJECT_DIR$/action.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/drama.php" beforeDir="false" afterPath="$PROJECT_DIR$/drama.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/favorite.php" beforeDir="false" afterPath="$PROJECT_DIR$/favorite.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/navbar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navbar_log.php" beforeDir="false" afterPath="$PROJECT_DIR$/navbar_log.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/romantic.php" beforeDir="false" afterPath="$PROJECT_DIR$/romantic.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +86,9 @@
       <workItem from="1605609196827" duration="7347000" />
       <workItem from="1605626926822" duration="208000" />
       <workItem from="1605627144637" duration="8899000" />
-      <workItem from="1605636687673" duration="16000" />
+      <workItem from="1605636687673" duration="109000" />
+      <workItem from="1605648607173" duration="1858000" />
+      <workItem from="1605668319634" duration="1193000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1603218777505</created>
@@ -224,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605632717424</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="zobrazovanie oblubenych filmov pouzivatela rozdelenych do kategorii dramy, akcne, romanticke">
+      <created>1605636754015</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1605636754015</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,7 +266,8 @@
     <MESSAGE value="uprava odhlasovacieho tlacidla, presmerovanie pri odhlaseni na uvodnu stranku" />
     <MESSAGE value="uprava stylu nastaveni" />
     <MESSAGE value="pridanie funkcie na pirdavanie resp. odoberanie obľúbených filmov" />
-    <option name="LAST_COMMIT_MESSAGE" value="pridanie funkcie na pirdavanie resp. odoberanie obľúbených filmov" />
+    <MESSAGE value="zobrazovanie oblubenych filmov pouzivatela rozdelenych do kategorii dramy, akcne, romanticke" />
+    <option name="LAST_COMMIT_MESSAGE" value="zobrazovanie oblubenych filmov pouzivatela rozdelenych do kategorii dramy, akcne, romanticke" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605479858496">
@@ -272,25 +279,29 @@
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605483788594" />
     <state x="2660" y="275" key="FileChooserDialogImpl/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1605573367530" />
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1605636548072">
+    <state width="1293" height="282" key="GridCell.Tab.0.bottom" timestamp="1605668382518">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605636548072" />
+    <state width="1293" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1605668382518" />
+    <state width="1293" height="282" key="GridCell.Tab.0.bottom/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605648680755" />
     <state width="1877" height="348" key="GridCell.Tab.0.bottom/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1605576085351" />
-    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1605636548071">
+    <state width="1293" height="282" key="GridCell.Tab.0.center" timestamp="1605668382518">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.center/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605636548071" />
+    <state width="1293" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1605668382518" />
+    <state width="1293" height="282" key="GridCell.Tab.0.center/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605648680755" />
     <state width="1877" height="348" key="GridCell.Tab.0.center/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1605576085351" />
-    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1605636548071">
+    <state width="1293" height="282" key="GridCell.Tab.0.left" timestamp="1605668382518">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.left/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605636548071" />
+    <state width="1293" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1605668382518" />
+    <state width="1293" height="282" key="GridCell.Tab.0.left/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605648680755" />
     <state width="1877" height="348" key="GridCell.Tab.0.left/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1605576085351" />
-    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1605636548071">
+    <state width="1293" height="282" key="GridCell.Tab.0.right" timestamp="1605668382518">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.right/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605636548071" />
+    <state width="1293" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605668382518" />
+    <state width="1293" height="282" key="GridCell.Tab.0.right/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605648680755" />
     <state width="1877" height="348" key="GridCell.Tab.0.right/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1605576085351" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1605636548072">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -345,10 +356,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="498" height="446" key="SwitcherDM/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603227936979" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1605632720856">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1605636759794">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605632720856" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605636759794" />
     <state x="2472" y="253" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1605574305655" />
     <state x="859" y="397" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1605626980673">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -359,11 +370,19 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="846" y="407" width="316" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605480631976" />
-    <state x="631" y="266" width="563" height="524" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1605627647023">
+    <state x="631" y="266" width="563" height="524" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1605649805117">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="631" y="266" width="563" height="524" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605627647023" />
+    <state x="631" y="266" width="563" height="524" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605649805117" />
     <state x="2551" y="266" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1605622638087" />
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605636714883">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605636714883" />
+    <state x="623" y="225" key="search.everywhere.popup" timestamp="1605669219383">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605669219383" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -395,7 +414,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/drama.php</url>
-          <line>43</line>
+          <line>44</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -415,27 +434,27 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/navbar.php</url>
-          <line>6</line>
+          <line>7</line>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/navbar.php</url>
-          <line>9</line>
+          <line>10</line>
           <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/navbar.php</url>
-          <line>12</line>
+          <line>13</line>
           <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/navbar.php</url>
-          <line>13</line>
+          <line>14</line>
           <option name="timeStamp" value="46" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/navbar.php</url>
-          <line>11</line>
+          <line>12</line>
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -515,13 +534,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/navbar.php</url>
-          <line>4</line>
+          <line>5</line>
           <option name="timeStamp" value="70" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/navbar.php</url>
-          <line>31</line>
-          <option name="timeStamp" value="74" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/favorite.php</url>
@@ -545,22 +559,22 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/drama.php</url>
-          <line>58</line>
+          <line>59</line>
           <option name="timeStamp" value="79" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/drama.php</url>
-          <line>61</line>
+          <line>62</line>
           <option name="timeStamp" value="80" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/drama.php</url>
-          <line>60</line>
+          <line>61</line>
           <option name="timeStamp" value="82" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/drama.php</url>
-          <line>57</line>
+          <line>58</line>
           <option name="timeStamp" value="83" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">

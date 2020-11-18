@@ -41,26 +41,34 @@ if (isset($_POST['remFavAction'])) {
 <div class="films">
     <div class="row">
         <?php
+        if($_SESSION['user'] != "") {
+            $dbAct = new PDO('mysql:dbname=films;host=localhost', 'root', 'dtb456');
+            $dbActs = $dbAct->query('SELECT * from actions');
+            foreach ($dbActs as $action) {
+                $sql = "SELECT * from actions d join favorite_actions f on d.title = f.title WHERE user='" . $_SESSION['user'] . "'";
+                $dbFavActions = $dbAct->query($sql);
+                $isFavorite = 0;
+                foreach ($dbFavActions as $favAction) {
+                    if ($favAction['title'] == $action['title']) {
+                        $isFavorite = 1;
+                        break;
+                    }
+                }
+                echo '<div class="dr"><p class="nadpis_film">' . $action['title'] . '</p><div class="info"><img class="film_obr" src=' . $action['img'] . ' alt="obrazok filmu"><div class="info_text"><h5><br><br><br>' . $action['about_film'] . '</h5><form method="post" name="form">';
+                if ($isFavorite == 0) {
+                    echo '  <input type="hidden" name="title" value="' . $action['title'] . '"/>';
+                    echo '<input type="submit" value="Pridať do obľúbených" name="addFavAction"></form></div></div></div>';
+                } else {
+                    echo '  <input type="hidden" name="title" value="' . $action['title'] . '"/>';
+                    echo '<input type="submit" value="Odobrať z obľúbených" name="remFavAction"></form></div></div></div>';
+                }
+            }
+        } else {
         $dbAct = new PDO('mysql:dbname=films;host=localhost', 'root', 'dtb456');
         $dbActs = $dbAct->query('SELECT * from actions');
         foreach ($dbActs as $action) {
-            $sql = "SELECT * from actions d join favorite_actions f on d.title = f.title WHERE user='".$_SESSION['user']."'";
-            $dbFavActions = $dbAct->query($sql);
-            $isFavorite = 0;
-            foreach ($dbFavActions as $favAction) {
-                if($favAction['title'] == $action['title']) {
-                    $isFavorite = 1;
-                    break;
-                }
-            }
-            echo '<div class="dr"><p class="nadpis_film">' . $action['title'] . '</p><div class="info"><img class="film_obr" src=' . $action['img'] . ' alt="obrazok filmu"><div class="info_text"><h5><br><br><br>' . $action['about_film'] . '</h5><form method="post" name="form">';
-            if ($isFavorite == 0) {
-                echo '  <input type="hidden" name="title" value="' . $action['title'] . '"/>';
-                echo '<input type="submit" value="Pridať do obľúbených" name="addFavAction"></form></div></div></div>';
-            } else {
-                echo '  <input type="hidden" name="title" value="' . $action['title'] . '"/>';
-                echo '<input type="submit" value="Odobrať z obľúbených" name="remFavAction"></form></div></div></div>';
-            }
+            echo '<div class="dr"><p class="nadpis_film">' . $action['title'] . '</p><div class="info"><img class="film_obr" src=' . $action['img'] . ' alt="obrazok filmu"><div class="info_text"><h5><br><br><br>' . $action['about_film'] . '</h5></div></div></div>';
+        }
         }
         ?>
     </div>
