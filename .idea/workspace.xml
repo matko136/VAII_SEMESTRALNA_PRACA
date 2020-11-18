@@ -10,12 +10,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32650f29-a09a-473b-8dbb-57f83d70ccd2" name="Default Changelist" comment="zobrazovanie oblubenych filmov pouzivatela rozdelenych do kategorii dramy, akcne, romanticke">
+    <list default="true" id="32650f29-a09a-473b-8dbb-57f83d70ccd2" name="Default Changelist" comment="upravenie pridavania a odoberania filmov aby to bolo mozne len po prihlaseni, vytvorenie premennej user v session hned na zaciatku">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/action.php" beforeDir="false" afterPath="$PROJECT_DIR$/action.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drama.php" beforeDir="false" afterPath="$PROJECT_DIR$/drama.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/navbar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/romantic.php" beforeDir="false" afterPath="$PROJECT_DIR$/romantic.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +85,7 @@
       <workItem from="1605627144637" duration="8899000" />
       <workItem from="1605636687673" duration="109000" />
       <workItem from="1605648607173" duration="1858000" />
-      <workItem from="1605668319634" duration="1193000" />
+      <workItem from="1605668319634" duration="2034000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1603218777505</created>
@@ -230,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605636754015</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="upravenie pridavania a odoberania filmov aby to bolo mozne len po prihlaseni, vytvorenie premennej user v session hned na zaciatku">
+      <created>1605669610840</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1605669610840</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,7 +271,8 @@
     <MESSAGE value="uprava stylu nastaveni" />
     <MESSAGE value="pridanie funkcie na pirdavanie resp. odoberanie obľúbených filmov" />
     <MESSAGE value="zobrazovanie oblubenych filmov pouzivatela rozdelenych do kategorii dramy, akcne, romanticke" />
-    <option name="LAST_COMMIT_MESSAGE" value="zobrazovanie oblubenych filmov pouzivatela rozdelenych do kategorii dramy, akcne, romanticke" />
+    <MESSAGE value="upravenie pridavania a odoberania filmov aby to bolo mozne len po prihlaseni, vytvorenie premennej user v session hned na zaciatku" />
+    <option name="LAST_COMMIT_MESSAGE" value="upravenie pridavania a odoberania filmov aby to bolo mozne len po prihlaseni, vytvorenie premennej user v session hned na zaciatku" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605479858496">
@@ -356,9 +361,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="498" height="446" key="SwitcherDM/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603227936979" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1605636759794">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1605669616829">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1605669616829" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605636759794" />
     <state x="2472" y="253" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1605574305655" />
     <state x="859" y="397" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1605626980673">
@@ -434,27 +440,27 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/navbar.php</url>
-          <line>7</line>
+          <line>9</line>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/navbar.php</url>
-          <line>10</line>
+          <line>12</line>
           <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/navbar.php</url>
-          <line>13</line>
+          <line>15</line>
           <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/navbar.php</url>
-          <line>14</line>
+          <line>16</line>
           <option name="timeStamp" value="46" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/navbar.php</url>
-          <line>12</line>
+          <line>14</line>
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -519,7 +525,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/navbar.php</url>
-          <line>32</line>
+          <line>34</line>
           <option name="timeStamp" value="67" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -534,7 +540,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/navbar.php</url>
-          <line>5</line>
+          <line>7</line>
           <option name="timeStamp" value="70" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">

@@ -2,7 +2,9 @@
 <?php
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
-        $_SESSION['user'] = "";
+        if(!isset($_SESSION['user'])) {
+            $_SESSION['user'] = "";
+        }
     }
     if (isset($_POST['prihl'])) {
         $db = new PDO('mysql:dbname=cinema;host=localhost', 'root', 'dtb456');
