@@ -30,7 +30,7 @@ if (isset($_POST['edit_data'])) {
     $dbUsers = $db->query('SELECT * from user');
     $success = 0;
     foreach ($dbUsers as $user) {
-        if($_POST['passwd_old'] == $user['passwd']) {
+        if($_POST['passwd_old'] == $user['passwd'] && $user['log'] == $_SESSION['user']) {
             $sql = "UPDATE user SET passwd=? WHERE log=?";
             $db->prepare($sql)->execute([$_POST['passwd_new'], $_SESSION['user']]);
             $success = 1;
