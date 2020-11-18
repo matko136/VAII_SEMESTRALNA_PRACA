@@ -13,8 +13,29 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </head>
 <body>
-<?php include "./navbar.php" ?>
-
+<?php include "./navbar.php";
+if (isset($_POST['remFavFilm'])) {
+try {
+$db = new PDO('mysql:dbname=films;host=localhost', 'root', 'dtb456');
+$typdat = "";
+    switch ($_POST['typ_fil']) {
+        case 1:
+            $typdat = 'favorite_dramas';
+            break;
+        case 2:
+            $typdat = 'favorite_actions';
+            break;
+        case 3:
+            $typdat = 'favorite_romantics';
+            break;
+    }
+$sql = "DELETE FROM " . $typdat . " WHERE user='".$_SESSION['user']. "'" . " and title='".$_POST['title']."'";
+$db->prepare($sql)->execute();
+} catch (PDOException $e) {
+echo 'Connection failed: ' . $e->getMessage();
+}
+}
+?>
 <div class="films">
     <h1 class="nadpis">Drámy</h1><br>
     <div class="row">
@@ -23,7 +44,10 @@
         $sql = "SELECT * from dramas d join favorite_dramas f on d.title = f.title WHERE user='".$_SESSION['user']."'";
         $dbDramas = $dbFilms->query($sql);
         foreach ($dbDramas as $drama) {
-            echo '<div class="dr"><p class="nadpis_film">' . $drama['title'] . '</p><div class="info"><img class="film_obr" src=' . $drama['img'] . ' alt="obrazok filmu"><div class="info_text"><h5><br><br><br>' . $drama['about_film'] . '</h5></div></div></div>';
+            echo '<div class="dr"><p class="nadpis_film">' . $drama['title'] . '</p><div class="info"><img class="film_obr" src=' . $drama['img'] . ' alt="obrazok filmu"><div class="info_text"><h5><br><br><br>' . $drama['about_film'] . '</h5><form method="post" name="form">';
+            echo '  <input type="hidden" name="title" value="' . $drama['title'] . '"/>';
+            echo '  <input type="hidden" name="typ_fil" value=1/>';
+            echo '<input type="submit" value="Odobrať z obľúbených" name="remFavFilm"></form></div></div></div>';
         }
         ?>
     </div>
@@ -34,7 +58,10 @@
         $sql = "SELECT * from actions d join favorite_actions f on d.title = f.title WHERE user='".$_SESSION['user']."'";
         $dbActions = $dbFilms->query($sql);
         foreach ($dbActions as $action) {
-            echo '<div class="dr"><p class="nadpis_film">' . $action['title'] . '</p><div class="info"><img class="film_obr" src=' . $action['img'] . ' alt="obrazok filmu"><div class="info_text"><h5><br><br><br>' . $action['about_film'] . '</h5></div></div></div>';
+            echo '<div class="dr"><p class="nadpis_film">' . $action['title'] . '</p><div class="info"><img class="film_obr" src=' . $action['img'] . ' alt="obrazok filmu"><div class="info_text"><h5><br><br><br>' . $action['about_film'] . '</h5><form method="post" name="form">';
+            echo '  <input type="hidden" name="title" value="' . $action['title'] . '"/>';
+            echo '  <input type="hidden" name="typ_fil" value=2/>';
+            echo '<input type="submit" value="Odobrať z obľúbených" name="remFavFilm"></form></div></div></div>';
         }
         ?>
     </div>
@@ -45,7 +72,10 @@
         $sql = "SELECT * from romantic d join favorite_romantics f on d.title = f.title WHERE user='".$_SESSION['user']."'";
         $dbRomantics = $dbFilms->query($sql);
         foreach ($dbRomantics as $rom) {
-            echo '<div class="dr"><p class="nadpis_film">' . $rom['title'] . '</p><div class="info"><img class="film_obr" src=' . $rom['img'] . ' alt="obrazok filmu"><div class="info_text"><h5><br><br><br>' . $rom['about_film'] . '</h5></div></div></div>';
+            echo '<div class="dr"><p class="nadpis_film">' . $rom['title'] . '</p><div class="info"><img class="film_obr" src=' . $rom['img'] . ' alt="obrazok filmu"><div class="info_text"><h5><br><br><br>' . $rom['about_film'] . '</h5><form method="post" name="form">';
+            echo '  <input type="hidden" name="title" value="' . $rom['title'] . '"/>';
+            echo '  <input type="hidden" name="typ_fil" value=3/>';
+            echo '<input type="submit" value="Odobrať z obľúbených" name="remFavFilm"></form></div></div></div>';
         }
         ?>
     </div>
