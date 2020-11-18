@@ -15,6 +15,9 @@
 <?php
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
+    if(!isset($_SESSION['user'])) {
+        $_SESSION['user'] = "";
+    }
 }
 
 if (isset($_POST['edit_data'])) {
@@ -41,6 +44,7 @@ if (isset($_POST['edit_data'])) {
 }
 ?>
 <body>
+    <div class="nastavenia_page">
     <?php include "./navbar.php" ?>
     <div class="nastavenia">
         <div class="udaje">
@@ -80,6 +84,7 @@ if (isset($_POST['edit_data'])) {
                 <input type="submit" value="Zmeniť heslo" name="passwd_chng">
             </form>
         </div>
+    </div>
     </div>
 </body>
 </html>

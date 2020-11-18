@@ -40,19 +40,20 @@ body {
 }
 
 .udaje{
-    margin-top: 200px;
-    background-color: cyan;
+    background-color: silver;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
     display:inline-block;
+    font-size: xx-large;
 }
 
 .nastavenia {
-    position: absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
+    margin-top: 10px;
+
+   position: relative;
+    left: 50%;
+    transform: translateX(-50%);
     width: 90%;
     height: 90%;
     opacity: 90%;
