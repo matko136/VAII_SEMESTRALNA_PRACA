@@ -57,10 +57,10 @@ if (isset($_POST['remFavAction'])) {
                 echo '<div class="dr"><p class="nadpis_film">' . $action['title'] . '</p><div class="info"><img class="film_obr" src=' . $action['img'] . ' alt="obrazok filmu"><div class="info_text"><h5><br><br><br>' . $action['about_film'] . '</h5><form method="post" name="form">';
                 if ($isFavorite == 0) {
                     echo '  <input type="hidden" name="title" value="' . $action['title'] . '"/>';
-                    echo '<input type="submit" value="Pridať do obľúbených" name="addFavAction"></form></div></div></div>';
+                    echo '<input type="submit" value="Pridať do obľúbených" name="addFavAction" style="background-color: green"></form></div></div></div>';
                 } else {
                     echo '  <input type="hidden" name="title" value="' . $action['title'] . '"/>';
-                    echo '<input type="submit" value="Odobrať z obľúbených" name="remFavAction"></form></div></div></div>';
+                    echo '<input type="submit" value="Odobrať z obľúbených" name="remFavAction" style="background-color: red"></form></div></div></div>';
                 }
             }
         } else {

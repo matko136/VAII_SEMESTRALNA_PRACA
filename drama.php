@@ -57,10 +57,10 @@ if (isset($_POST['remFavDrama'])) {
                 echo '<div class="dr"><p class="nadpis_film">' . $drama['title'] . '</p><div class="info"><img class="film_obr" src=' . $drama['img'] . ' alt="obrazok filmu"><div class="info_text"><h5><br><br><br>' . $drama['about_film'] . '</h5><form method="post" name="form">';
                 if ($isFavorite == 0) {
                     echo '  <input type="hidden" name="title" value="' . $drama['title'] . '"/>';
-                    echo '<input type="submit" value="Pridať do obľúbených" name="addFavDrama"></form></div></div></div>';
+                    echo '<input type="submit" value="Pridať do obľúbených" name="addFavDrama" style="background-color: green"></form></div></div></div>';
                 } else {
                     echo '  <input type="hidden" name="title" value="' . $drama['title'] . '"/>';
-                    echo '<input type="submit" value="Odobrať z obľúbených" name="remFavDrama"></form></div></div></div>';
+                    echo '<input type="submit" value="Odobrať z obľúbených" name="remFavDrama" style="background-color: red"></form></div></div></div>';
                 }
             }
         } else {

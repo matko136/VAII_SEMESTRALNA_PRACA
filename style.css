@@ -40,26 +40,23 @@ body {
 }
 
 .udaje{
-
+    margin-top: 200px;
+    background-color: cyan;
     position: relative;
-    left:+50%;
-    top: 50%;
-    transform:translate(-50%,-50%);
-
-
+    left: 50%;
+    transform: translateX(-50%);
+    display:inline-block;
 }
 
 .nastavenia {
-    overflow: scroll;
-    margin-top: 80px;
     position: absolute;
-    background-color: cyan;
     left:50%;
     top:50%;
     transform:translate(-50%,-50%);
     width: 90%;
-    height: 70%;
+    height: 90%;
     opacity: 90%;
+    display:block;
 }
 
 .nadpis {

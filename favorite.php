@@ -47,7 +47,7 @@ echo 'Connection failed: ' . $e->getMessage();
             echo '<div class="dr"><p class="nadpis_film">' . $drama['title'] . '</p><div class="info"><img class="film_obr" src=' . $drama['img'] . ' alt="obrazok filmu"><div class="info_text"><h5><br><br><br>' . $drama['about_film'] . '</h5><form method="post" name="form">';
             echo '  <input type="hidden" name="title" value="' . $drama['title'] . '"/>';
             echo '  <input type="hidden" name="typ_fil" value=1/>';
-            echo '<input type="submit" value="Odobrať z obľúbených" name="remFavFilm"></form></div></div></div>';
+            echo '<input type="submit" value="Odobrať z obľúbených" name="remFavFilm" style="background-color: red"></form></div></div></div>';
         }
         ?>
     </div>
@@ -61,7 +61,7 @@ echo 'Connection failed: ' . $e->getMessage();
             echo '<div class="dr"><p class="nadpis_film">' . $action['title'] . '</p><div class="info"><img class="film_obr" src=' . $action['img'] . ' alt="obrazok filmu"><div class="info_text"><h5><br><br><br>' . $action['about_film'] . '</h5><form method="post" name="form">';
             echo '  <input type="hidden" name="title" value="' . $action['title'] . '"/>';
             echo '  <input type="hidden" name="typ_fil" value=2/>';
-            echo '<input type="submit" value="Odobrať z obľúbených" name="remFavFilm"></form></div></div></div>';
+            echo '<input type="submit" value="Odobrať z obľúbených" name="remFavFilm" style="background-color: red"></form></div></div></div>';
         }
         ?>
     </div>
@@ -75,7 +75,7 @@ echo 'Connection failed: ' . $e->getMessage();
             echo '<div class="dr"><p class="nadpis_film">' . $rom['title'] . '</p><div class="info"><img class="film_obr" src=' . $rom['img'] . ' alt="obrazok filmu"><div class="info_text"><h5><br><br><br>' . $rom['about_film'] . '</h5><form method="post" name="form">';
             echo '  <input type="hidden" name="title" value="' . $rom['title'] . '"/>';
             echo '  <input type="hidden" name="typ_fil" value=3/>';
-            echo '<input type="submit" value="Odobrať z obľúbených" name="remFavFilm"></form></div></div></div>';
+            echo '<input type="submit" value="Odobrať z obľúbených" name="remFavFilm" style="background-color: red"></form></div></div></div>';
         }
         ?>
     </div>
