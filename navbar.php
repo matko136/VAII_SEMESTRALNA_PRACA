@@ -26,8 +26,15 @@
     } elseif (isset($_POST['reg'])) {
         try {
             $db = new PDO('mysql:dbname=cinema;host=localhost', 'root', 'dtb456');
-            $sql = 'INSERT INTO user(log, name, surename, passwd, email) VALUES (?, ?, ?, ?, ?)';
-            $db->prepare($sql)->execute([$_POST['log'], $_POST['name'], $_POST['surename'], $_POST['passwd'], $_POST['email']]);
+            $dbUser = $db->query("SELECT * from user where log='" .  $_POST['log'] . "'");
+            $result = $dbUser->rowCount();
+            if ($dbUser->rowCount() == 0) {
+                $sql = 'INSERT INTO user(log, name, surename, passwd, email) VALUES (?, ?, ?, ?, ?)';
+                $db->prepare($sql)->execute([$_POST['log'], $_POST['name'], $_POST['surename'], $_POST['passwd'], $_POST['email']]);
+                echo '<p style="background-color: red"> Úspešná registrácia. Môžete sa prihlásiť </p>';
+            } else {
+                echo '<p style="background-color: red">Zadané prihl. meno už je registrované </p>';
+            }
         } catch (PDOException $e) {
             echo 'Connection failed: ' . $e->getMessage();
         }
