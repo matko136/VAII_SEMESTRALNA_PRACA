@@ -35,7 +35,7 @@ class App
      */
     public function __construct()
     {
-        $this->authController = new AuthController();
+        $this->authController = AuthController::getInstance();
         $this->router = new Router();
         $this->request = new Request();
     }

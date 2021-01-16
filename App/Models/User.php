@@ -11,7 +11,7 @@ class User extends Model
     protected $name;
     protected $surename;
     protected $email;
-    protected $psswd;
+    protected $passwd;
     protected $user_type;
 
 
@@ -22,6 +22,12 @@ class User extends Model
     public function __construct($log = "", $name = "", $surename = "", $email = "", $passwd = "", $user_type = 0)
     {
         self::$pkColumn = "id_user";
+        $this->log = $log;
+        $this->name = $name;
+        $this->surename = $surename;
+        $this->email = $email;
+        $this->passwd = $passwd;
+        $this->user_type = $user_type;
         /*$this->title = $title;
         $this->text = $text;*/
 
@@ -106,17 +112,17 @@ class User extends Model
     /**
      * @return mixed
      */
-    public function getPsswd()
+    public function getPasswd()
     {
-        return $this->psswd;
+        return $this->passwd;
     }
 
     /**
-     * @param mixed $psswd
+     * @param mixed $passwd
      */
-    public function setPsswd($psswd)
+    public function setPasswd($passwd)
     {
-        $this->psswd = $psswd;
+        $this->passwd = $passwd;
     }
 
     /**

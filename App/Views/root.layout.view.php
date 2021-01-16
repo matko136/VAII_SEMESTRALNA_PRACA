@@ -1,3 +1,7 @@
+<?php
+/** @var string $contentHTML */
+/** @var \App\Controllers\AuthController $authController */
+?>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -13,7 +17,11 @@
 </head>
 <body>
 <?php
-include "public" . DIRECTORY_SEPARATOR . "navbar.php";
+if(!$authController->isLog()) {
+    include "public" . DIRECTORY_SEPARATOR . "navbar.php";
+} else {
+    include "public" . DIRECTORY_SEPARATOR . "navbar_log.php";
+}
 ?>
 
 

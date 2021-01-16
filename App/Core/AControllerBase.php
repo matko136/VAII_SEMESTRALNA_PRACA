@@ -4,6 +4,7 @@ namespace App\Core;
 
 use App\App;
 use App\Core\Responses\JsonResponse;
+use App\Core\Responses\RedirectResponse;
 use App\Core\Responses\Response;
 use App\Core\Responses\ViewResponse;
 
@@ -61,9 +62,17 @@ abstract class AControllerBase
         } else {
             $viewName = is_string($viewName) ? ($this->app->getRouter()->getControllerName() . DIRECTORY_SEPARATOR . $viewName) : ($viewName['0'] . DIRECTORY_SEPARATOR . $viewName['1']);
         }
-        return new ViewResponse($viewName, $data);
+        return new ViewResponse($this->app, $viewName, $data);
     }
 
+    protected function redirect($data = null, $viewName = null) : RedirectResponse {
+        if ($viewName == null) {
+            $viewName = $this->app->getRouter()->getControllerName() . DIRECTORY_SEPARATOR . $this->app->getRouter()->getAction();
+        } else {
+            $viewName = is_string($viewName) ? ($viewName) : ($viewName['0'] . DIRECTORY_SEPARATOR . $viewName['1']);
+        }
+        return new RedirectResponse($this->app, $viewName, $data);
+    }
     /**
      * Helper method for returning response type JsonResponse
      * @param $data

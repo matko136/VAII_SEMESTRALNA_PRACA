@@ -2,6 +2,8 @@
 
 namespace App\Core;
 
+use App\Controllers\AuthController;
+
 /**
  * Class Router
  * Very simple router (controller and action name gets from an URL)
@@ -16,7 +18,11 @@ class Router
     public function processURL()
     {
         $fullControllerName = $this->getFullControllerName();
-        $this->controller = new $fullControllerName();
+        if($fullControllerName == "App\Controllers\authController") {
+            $this->controller = AuthController::getInstance();
+        } else {
+            $this->controller = new $fullControllerName();
+        }
 
         $this->controllerName = $this->getControllerName();
 

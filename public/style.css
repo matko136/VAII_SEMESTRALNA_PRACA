@@ -129,3 +129,8 @@ a#skoc {
     opacity: 85%;
     user-select: none;
 }
+
+div .col{
+    background-color: aqua;
+
+}

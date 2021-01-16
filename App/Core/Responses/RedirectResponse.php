@@ -1,22 +1,17 @@
 <?php
 
+
 namespace App\Core\Responses;
 
 use App\Config\Configuration;
 use App\App;
 
-/**
- * Class ViewResponse
- * Response returning view
- * @package App\Core\Responses
- */
-class ViewResponse extends Response
+class RedirectResponse extends Response
 {
     private App $app;
     private $viewName;
     private $layoutName = Configuration::ROOT_LAYOUT;
     private $data;
-
     public function __construct($app, $viewName, $data)
     {
         $this->app = $app;
@@ -24,25 +19,15 @@ class ViewResponse extends Response
         $this->data = $data;
     }
 
-    public function generate() {
+    public function generate()
+    {
         $data = $this->data;
         $authController = $this->app->getAuthController();
 
-        require "App" . DIRECTORY_SEPARATOR . "Views" . DIRECTORY_SEPARATOR . $this->viewName . ".view.php";
+        require "App" . DIRECTORY_SEPARATOR . "Views" . DIRECTORY_SEPARATOR . $this->viewName . DIRECTORY_SEPARATOR . "index.view.php";
 
         $contentHTML = ob_get_clean();
 
         require "App" . DIRECTORY_SEPARATOR . "Views" . DIRECTORY_SEPARATOR . $this->layoutName;
-
     }
-
-    /**
-     * @param mixed $layoutName
-     */
-    public function setLayoutName($layoutName)
-    {
-        $this->layoutName = $layoutName;
-        return $this;
-    }
-
 }

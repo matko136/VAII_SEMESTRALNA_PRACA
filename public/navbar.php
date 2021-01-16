@@ -1,4 +1,11 @@
+<?php
 
+if(!isset($_SESSION['user'])) {
+   $_SESSION['user'] = "";
+}
+
+if($_SESSION['user'] == "") {
+?>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="?c=home">
             <img src="https://library.kissclipart.com/20181207/zxe/kissclipart-movie-clipart-film-clapperboard-clip-art-e347e3ac0f7eaf95.jpg" width="50" class="d-inline-block align-top" alt="" loading="lazy">
@@ -21,6 +28,7 @@
                         Filmy
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="?c=film&a=index">Všetky</a>
                         <a class="dropdown-item" href="?c=film&a=action">Akčné</a>
                         <a class="dropdown-item" href="?c=film&a=drama">Dráma</a>
                         <a class="dropdown-item" href="?c=film&a=romantic">Romantické</a>
@@ -31,10 +39,12 @@
                         Prihlásenie
                     </a>
                     <div class="dropdown-menu prihlasenie" aria-labelledby="navbarDropdown">
-                        <form method="post" name="form">
+                        <form action="/VAII_SEMESTRALNA_PRACA?c=auth&a=login" method="post" name="form">
                             <input type="text" placeholder="Prihl. meno" name="log" required>
                             <input type="password" placeholder="Heslo" name="passwd" required>
-                            <input type="submit" value="Prihlasenie" name="prihl">
+                            <!--<input type="hidden" value="Prihlasenie" name="submit">
+                            <a href="?c=auth&a=login">Prihlasenie</a>-->
+                            <input type="submit" value="Prihlasenie" name="submit"></a>
                         </form>
                     </div>
                 </li>
@@ -43,17 +53,19 @@
                         Registrácia
                     </a>
                     <div class="dropdown-menu registracia" aria-labelledby="navbarDropdown">
-                        <form method="post" name="form">
+                        <form action="/VAII_SEMESTRALNA_PRACA?c=auth&a=reg" method="post" name="form">
                             <input type="text" placeholder="Meno" name="name" required>
                             <input type="text" placeholder="Priezvisko" name="surename" required>
                             <input type="text" placeholder="Prihl. meno" name="log" required>
                             <input type="password" placeholder="Heslo" name="passwd" required>
                             <input type="text" placeholder="e-mail" name="email" required>
-                            <input type="submit" value="Registracia" name="reg">
+                            <input type="submit" value="Registracia" name="submit">
                         </form>
                     </div>
                 </li>
             </ul>
         </div>
     </nav>
-
+<?php } else {
+    include "navbar_log.php";
+}

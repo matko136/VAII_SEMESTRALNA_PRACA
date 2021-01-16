@@ -1,4 +1,6 @@
 <?php
+/** @var \App\Controllers\AuthController $authController */
+$user = $authController->getUser();
 if (isset($_POST['log_out'])) {
     $_SESSION['user']="";
     header("Location:index.php");
@@ -7,7 +9,7 @@ if (isset($_POST['log_out'])) {
 if ($_SESSION['user'] != "") {
 ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="index.php">
+    <a class="navbar-brand" href="?c=home">
         <img src="https://library.kissclipart.com/20181207/zxe/kissclipart-movie-clipart-film-clapperboard-clip-art-e347e3ac0f7eaf95.jpg" width="50" class="d-inline-block align-top" alt="" loading="lazy">
 
     </a>
@@ -20,42 +22,33 @@ if ($_SESSION['user'] != "") {
             <li class="nav-item active">
                 <a class="nav-link" href="o_nas.php">O nás <span class="sr-only">(current)</span></a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="?c=user">User <span class="sr-only">(current)</span></a>
+            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Filmy
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="action.php">Akčné</a>
-                    <a class="dropdown-item" href="drama.php">Dráma</a>
-                    <a class="dropdown-item" href="romantic.php">Romantické</a>
+                    <a class="dropdown-item" href="?c=film&a=index">Všetky</a>
+                    <a class="dropdown-item" href="?c=film&a=action">Akčné</a>
+                    <a class="dropdown-item" href="?c=film&a=drama">Dráma</a>
+                    <a class="dropdown-item" href="?c=film&a=romantic">Romantické</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <?php
-                $db = new PDO('mysql:dbname=cinema;host=localhost', 'root', 'dtb456');
-                $dbUsers = $db->query('SELECT * from user');
-                $name = "";
-                $surename = "";
-                $email = "";
-                foreach ($dbUsers as $user) {
-                    if($user['log'] == $_SESSION['user']) {
-                        $name = $user['name'];
-                        $surename = $user['surename'];
-                        $email = $user['email'];
-                        break;
-                    }
-                }
-                   echo $name . ' ' . $surename . '</a>';
+                   echo $user->getName() . ' ' . $user->getSurename() . '</a>';
                    ?>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <?php
-                    echo '<a class="dropdown-item" href="#">' . $_SESSION['user'] . '</a>';
-                        echo '<a class="dropdown-item" href="#">' . $email . '</a>';
+                    echo '<a class="dropdown-item" href="#">' . $user->getLog() . '</a>';
+                        echo '<a class="dropdown-item" href="#">' . $user->getEmail() . '</a>';
                         echo '<a class="dropdown-item" href="nastavenia.php">Nastavenia účtu</a>';
                     ?>
                     <a class="dropdown-item" href="favorite.php">Obľúbené filmy</a>
-                    <form method="post" name="form">
+                    <form action="/VAII_SEMESTRALNA_PRACA?c=auth&a=logOut" method="post" name="form">
                         <input class="dropdown-item" type="submit" value="Odhlásiť" name="log_out">
                     </form>
                 </div>
