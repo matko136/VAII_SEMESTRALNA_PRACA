@@ -28,7 +28,7 @@ if($_SESSION['user'] == "") {
                         Filmy
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="?c=film">Všetky</a>
+                        <a class="dropdown-item" href="?c=film&a=index">Všetky</a>
                         <a class="dropdown-item" href="?c=film&a=action">Akčné</a>
                         <a class="dropdown-item" href="?c=film&a=drama">Dráma</a>
                         <a class="dropdown-item" href="?c=film&a=romantic">Romantické</a>

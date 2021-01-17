@@ -12,19 +12,19 @@ class FavFilmController extends AControllerBase
 
     public function index()
     {
-        return $this->html(FavFilm::getAll("film_type = 1 and id_user =" . $_SESSION['user']));
+        return $this->json(FavFilm::getAll("id_user =" . $_SESSION['user']));
     }
 
     public function drama() {
-        return $this->json(FavFilm::getAll("film_type = 1 and id_user =" . $_SESSION['user']));
+        return $this->json(FavFilm::getAll("id_user =" . $_SESSION['user']));
     }
 
     public function action() {
-        return $this->json(FavFilm::getAll("film_type = 2 and id_user =" . $_SESSION['user']));
+        return $this->json(FavFilm::getAll("id_user =" . $_SESSION['user']));
     }
 
     public function romantic() {
-        return $this->json(FavFilm::getAll("film_type = 3 and id_user =" . $_SESSION['user']));
+        return $this->json(FavFilm::getAll("id_user =" . $_SESSION['user']));
     }
 
     public function add() {
