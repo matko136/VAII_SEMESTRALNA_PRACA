@@ -11,18 +11,18 @@ class FilmController extends AControllerBase
 
     public function index()
     {
-        return $this->html(Film::getAll());
+        return $this->html();
     }
 
     public function drama() {
-        return $this->html(Film::getAll("film_type = 1"));
+        return $this->json(Film::getAll("film_type = 1"));
     }
 
     public function action() {
-        return $this->html(Film::getAll("film_type = 2"));
+        return $this->json(Film::getAll("film_type = 2"));
     }
 
     public function romantic() {
-        return $this->html(Film::getAll("film_type = 3"));
+        return $this->json(Film::getAll("film_type = 3"));
     }
 }

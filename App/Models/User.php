@@ -14,14 +14,8 @@ class User extends Model
     protected $passwd;
     protected $user_type;
 
-
-    /*protected function setPkColumn() {
-        self::$pkColumn = "id_user";
-    }*/
-
     public function __construct($log = "", $name = "", $surename = "", $email = "", $passwd = "", $user_type = 0)
     {
-        self::$pkColumn = "id_user";
         $this->log = $log;
         $this->name = $name;
         $this->surename = $surename;
@@ -147,5 +141,10 @@ class User extends Model
     public function getIdUser()
     {
         return $this->id_user;
+    }
+
+    static public function setPkColumn()
+    {
+        return 'id_user';
     }
 }

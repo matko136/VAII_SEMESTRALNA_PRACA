@@ -29,8 +29,6 @@ class Film extends Model
 
     public function __construct($img = "", $title = "", $about_film = "", $film_type = 0)
     {
-        self::$pkColumn = 'id_film';
-
         $this->img = $img;
         $this->title = $title;
         $this->about_film = $about_film;
@@ -117,5 +115,10 @@ class Film extends Model
     public function getIdFilm()
     {
         return $this->id_film;
+    }
+
+    static public function setPkColumn()
+    {
+        return 'id_film';
     }
 }

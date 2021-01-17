@@ -14,16 +14,11 @@ use PDOException;
 abstract class Model implements \JsonSerializable
 {
     private static $connection = null;
-    protected static $pkColumn = "id_user";
-    //abstract protected function setPkColumn();
+    abstract static public function setPkColumn();
     abstract static public function setDbColumns();
-
     abstract static public function setTableName();
 
 
-    /*public function __construct() {
-        $this->setPkColumn();
-    }*/
     /**
      * Gets a db columns from a model
      * @return mixed
@@ -42,6 +37,12 @@ abstract class Model implements \JsonSerializable
         return static::setTableName();
     }
 
+    private static function getPkColumn()
+    {
+        return static::setPkColumn();
+    }
+
+
     /**
      * Gets DB connection for other model methods
      * @return null
@@ -59,11 +60,11 @@ abstract class Model implements \JsonSerializable
      * @return static[]
      * @throws \Exception
      */
-    static public function getAll(string $whereClause = NULL, array $whereParams = [])
+    static public function getAll(string $whereClause = NULL, array $whereParams = [], string $joinTable = NULL)
     {
         self::connect();
         try {
-            $sql = "SELECT * FROM " . self::getTableName() . ($whereClause=='' ? '' : " WHERE $whereClause");
+            $sql = "SELECT * FROM " . self::getTableName() . ($joinTable=='' ? '' : " " . $joinTable) . ($whereClause=='' ? '' : " WHERE $whereClause");
 
             $stmt = self::$connection->prepare($sql);
             $stmt->execute($whereParams);
@@ -89,13 +90,14 @@ abstract class Model implements \JsonSerializable
      * @param $id
      * @throws \Exception
      */
-    static public function getOne($id)
+    static public function getOne($id, string $whereClause = NULL)
     {
         if ($id == null) return null;
 
         self::connect();
         try {
-            $sql = "SELECT * FROM " . self::getTableName() . " WHERE " . self::$pkColumn . "=?";
+
+            $sql = "SELECT * FROM " . self::getTableName() . ($whereClause=='' ? " WHERE " . self::getPkColumn() . "=?" : " WHERE $whereClause");
             $stmt = self::$connection->prepare($sql);
             $stmt->execute([$id]);
             $model = $stmt->fetch();
@@ -118,7 +120,7 @@ abstract class Model implements \JsonSerializable
      * Saves the current model to DB (if model id is set, updates it, else creates a new model)
      * @return mixed
      */
-    public function save()
+    public function save(array $pkS = [], string $whereClause = NULL)
     {
         self::connect();
         try {
@@ -126,7 +128,17 @@ abstract class Model implements \JsonSerializable
             foreach ($data as $key => &$item) {
                 $item = $this->$key;
             }
-            if ($data[self::$pkColumn] == null) {
+            $notYet = true;
+            if(count($pkS) == 0){
+                if($data[self::getPkColumn()] != null)
+                    $notYet = false;
+            }
+            /*foreach ($pkS as $pk) {
+                if($data[$pk] == null) {
+                    $notYet = true;
+                }
+            }*/
+            if ($notYet) {
                 $arrColumns = array_map(fn($item) => (':' . $item), array_keys($data));
                 $columns = implode(',', array_keys($data));
                 $params = implode(',', $arrColumns);
@@ -137,10 +149,11 @@ abstract class Model implements \JsonSerializable
             } else {
                 $arrColumns = array_map(fn($item) => ($item . '=:' . $item), array_keys($data));
                 $columns = implode(',', $arrColumns);
-                $sql = "UPDATE " . self::getTableName() . " SET $columns WHERE id=:" . self::$pkColumn;
+
+                $sql = "UPDATE " . self::getTableName() . " SET $columns" .  ($whereClause=='' ? " WHERE id=:" . self::getPkColumn() : " WHERE $whereClause");
                 $stmt = self::$connection->prepare($sql);
                 $stmt->execute($data);
-                return $data[self::$pkColumn];
+                return $data[self::getPkColumn()];
             }
         } catch (PDOException $e) {
             throw new \Exception('Query failed: ' . $e->getMessage());
@@ -151,16 +164,20 @@ abstract class Model implements \JsonSerializable
      * Deletes current model from DB
      * @throws \Exception If model not exists, throw an exception
      */
-    public function delete()
+    public function delete(string $whereClause = NULL)
     {
-        if ($this->{self::$pkColumn} == null) {
+        if ($this->{self::getPkColumn()} == null) {
             return;
         }
         self::connect();
         try {
-            $sql = "DELETE FROM " . self::getTableName() . " WHERE id=?";
+            $sql = "DELETE FROM " . self::getTableName() . ($whereClause=='' ? " WHERE id=?" : " WHERE $whereClause");
             $stmt = self::$connection->prepare($sql);
-            $stmt->execute([$this->{self::$pkColumn}]);
+            if($whereClause=='') {
+                $stmt->execute([$this->{self::getPkColumn()}]);
+            } else {
+                $stmt->execute();
+            }
             if ($stmt->rowCount() == 0) {
                 throw new \Exception('Model not found!');
             }
