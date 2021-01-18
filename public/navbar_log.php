@@ -45,9 +45,9 @@ if ($_SESSION['user'] != "") {
                     <?php
                     echo '<a class="dropdown-item" href="#">' . $user->getLog() . '</a>';
                         echo '<a class="dropdown-item" href="#">' . $user->getEmail() . '</a>';
-                        echo '<a class="dropdown-item" href="nastavenia.php">Nastavenia účtu</a>';
+                        echo '<a class="dropdown-item" href="?c=setting">Nastevenia účtu</a>';
                     ?>
-                    <a class="dropdown-item" href="favorite.php">Obľúbené filmy</a>
+                    <a class="dropdown-item" href="?c=FavFilm">Obľúbené filmy</a>
                     <form action="/VAII_SEMESTRALNA_PRACA?c=auth&a=logOut" method="post" name="form">
                         <input class="dropdown-item" type="submit" value="Odhlásiť" name="log_out">
                     </form>

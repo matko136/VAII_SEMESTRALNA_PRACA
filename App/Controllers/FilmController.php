@@ -32,15 +32,15 @@ class FilmController extends AControllerBase
     }
 
     public function drama() {
-        return $this->html(Film::getAll("film_type = 1"));
+        return $this->html();
     }
 
     public function action() {
-        return $this->html(Film::getAll("film_type = 2"));
+        return $this->html();
     }
 
     public function romantic() {
-        return $this->html(Film::getAll("film_type = 3"));
+        return $this->html();
     }
 
 }

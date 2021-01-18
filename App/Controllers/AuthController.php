@@ -3,7 +3,9 @@
 
 namespace App\Controllers;
 use App\Core\AControllerBase;
+use App\Core\Model;
 use App\Core\Responses\Response;
+use App\Models\FavFilm;
 use App\Models\User;
 
 class AuthController extends AControllerBase
@@ -79,6 +81,26 @@ class AuthController extends AControllerBase
                 return true;
             else
                 return false;
+        }
+    }
+
+    public function editData() {
+        $form_data = $this->app->getRequest()->getPost();
+        $this->user->setName($_POST['name']);
+        $this->user->setSurename($_POST['surename']);
+        $this->user->setEmail($_POST['email']);
+        $this->user->save();
+        return $this->json(array("Úspešná zmena údajov"));
+    }
+
+    public function editPasswd() {
+        $oldPass = $_POST['old'];
+        if(password_verify($oldPass, $this->user->getPasswd())) {
+            $this->user->setPasswd(password_hash($_POST['new'], PASSWORD_DEFAULT));
+            $this->user->save();
+            return $this->json(array("Úspešná zmena hesla"));
+        } else {
+            return $this->json(array("Zle zadané staré heslo"));
         }
     }
 

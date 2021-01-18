@@ -10,16 +10,24 @@ use App\Models\Film;
 class FavFilmController extends AControllerBase
 {
 
-    public function index()
-    {
-        if($_SESSION['user'] == "") {
-            $notlogged = array('NotLogged');
-            return $this->json($notlogged);
-        }
-        return $this->json(FavFilm::getAll("id_user =" . $_SESSION['user']));
+    public function index() {
+        return $this->html();
     }
 
     public function drama() {
+        return $this->html();
+    }
+
+    public function action() {
+        return $this->html();
+    }
+
+    public function romantic() {
+        return $this->html();
+    }
+
+    public function index_get()
+    {
         if($_SESSION['user'] == "") {
             $notlogged = array('NotLogged');
             return $this->json($notlogged);
@@ -29,20 +37,34 @@ class FavFilmController extends AControllerBase
         return $this->json($dataa);
     }
 
-    public function action() {
+    public function drama_get() {
         if($_SESSION['user'] == "") {
             $notlogged = array('NotLogged');
             return $this->json($notlogged);
         }
-        return $this->json(FavFilm::getAll("id_user =" . $_SESSION['user']));
+        $dataa = FavFilm::getAll("id_user =" . $_SESSION['user'] . " and EXISTS(SELECT id_film from film where favorite_film.id_film = film.id_film and film_type=1)");
+        $dataa[count($dataa)] = $_SESSION['user'];
+        return $this->json($dataa);
     }
 
-    public function romantic() {
+    public function action_get() {
         if($_SESSION['user'] == "") {
             $notlogged = array('NotLogged');
             return $this->json($notlogged);
         }
-        return $this->json(FavFilm::getAll("id_user =" . $_SESSION['user']));
+        $dataa = FavFilm::getAll("id_user =" . $_SESSION['user'] . " and EXISTS(SELECT id_film from film where favorite_film.id_film = film.id_film and film_type=2)");
+        $dataa[count($dataa)] = $_SESSION['user'];
+        return $this->json($dataa);
+    }
+
+    public function romantic_get() {
+        if($_SESSION['user'] == "") {
+            $notlogged = array('NotLogged');
+            return $this->json($notlogged);
+        }
+        $dataa = FavFilm::getAll("id_user =" . $_SESSION['user'] . " and EXISTS(SELECT id_film from film where favorite_film.id_film = film.id_film and film_type=3)");
+        $dataa[count($dataa)] = $_SESSION['user'];
+        return $this->json($dataa);
     }
 
     public function add() {
@@ -52,7 +74,7 @@ class FavFilmController extends AControllerBase
             $pks = array('id_user', 'id_film');
             $fav->save($pks);
         }
-        return $this->redirect(Film::getAll("film_type = 1"), "Film");
+        return $this->nothing();
     }
 
     public function remove() {
