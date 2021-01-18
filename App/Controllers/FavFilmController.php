@@ -12,18 +12,36 @@ class FavFilmController extends AControllerBase
 
     public function index()
     {
+        if($_SESSION['user'] == "") {
+            $notlogged = array('NotLogged');
+            return $this->json($notlogged);
+        }
         return $this->json(FavFilm::getAll("id_user =" . $_SESSION['user']));
     }
 
     public function drama() {
-        return $this->json(FavFilm::getAll("id_user =" . $_SESSION['user']));
+        if($_SESSION['user'] == "") {
+            $notlogged = array('NotLogged');
+            return $this->json($notlogged);
+        }
+        $dataa = FavFilm::getAll("id_user =" . $_SESSION['user']);
+        $dataa[count($dataa)] = $_SESSION['user'];
+        return $this->json($dataa);
     }
 
     public function action() {
+        if($_SESSION['user'] == "") {
+            $notlogged = array('NotLogged');
+            return $this->json($notlogged);
+        }
         return $this->json(FavFilm::getAll("id_user =" . $_SESSION['user']));
     }
 
     public function romantic() {
+        if($_SESSION['user'] == "") {
+            $notlogged = array('NotLogged');
+            return $this->json($notlogged);
+        }
         return $this->json(FavFilm::getAll("id_user =" . $_SESSION['user']));
     }
 
@@ -39,9 +57,10 @@ class FavFilmController extends AControllerBase
 
     public function remove() {
         $form_data = $this->app->getRequest()->getPost();
-        if(isset($form_data['user']) && isset($form_data['film'])) {
-            $fav = FavFilm::getOne(0, " id_user =" . $form_data['user'] . " and id_film =" . $form_data['film'] );
-            $fav->delete(" id_user =" . $form_data['user'] . " and id_film =" . $form_data['film']);
+        if(isset($form_data['id_user']) && isset($form_data['id_film'])) {
+            $fav = FavFilm::getOne("0", " id_user =" . $form_data['id_user'] . " and id_film =" . $form_data['id_film'] );
+            $fav->delete(" id_user =" . $form_data['id_user'] . " and id_film =" . $form_data['id_film']);
         }
+        return $this->nothing();
     }
 }

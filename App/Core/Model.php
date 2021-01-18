@@ -176,7 +176,7 @@ abstract class Model implements \JsonSerializable
             if($whereClause=='') {
                 $stmt->execute([$this->{self::getPkColumn()}]);
             } else {
-                $stmt->execute();
+                $stmt->execute([]);
             }
             if ($stmt->rowCount() == 0) {
                 throw new \Exception('Model not found!');

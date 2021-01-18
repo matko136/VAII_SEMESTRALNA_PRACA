@@ -4,6 +4,7 @@ namespace App\Core;
 
 use App\App;
 use App\Core\Responses\JsonResponse;
+use App\Core\Responses\NoResponse;
 use App\Core\Responses\RedirectResponse;
 use App\Core\Responses\Response;
 use App\Core\Responses\ViewResponse;
@@ -81,6 +82,11 @@ abstract class AControllerBase
     public function json($data) : JsonResponse
     {
         return new JsonResponse($data);
+    }
+
+    public function nothing() : NoResponse
+    {
+        return new NoResponse();
     }
 
     /**
