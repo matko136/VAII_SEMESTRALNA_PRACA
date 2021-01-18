@@ -4,7 +4,7 @@ class Film {
     constructor() {
 
         this.getFilms();
-        setInterval(() => this.getFilms(), 2000);
+        //setInterval(() => this.getFilms(), 100);
     }
 
     async getFilms() {
@@ -126,9 +126,9 @@ class Film {
                         }
                         var html = `<div class="dr"><p class="nadpis_film"> ${film.title} </p><div class="info"><img class="film_obr" src=${film.img} alt="obrazok filmu"><div class="info_text"><h5><br><br><br> ${film.about_film} </h5>`;
                         if(favorite) {
-                            html += `<form action="/VAII_SEMESTRALNA_PRACA?c=FavFilm&a=remove" method="post" name="form"><input type="hidden" name="id_user" value= ${favoritefilm.id_user} /><input type="hidden" name="id_film" value= ${favoritefilm.id_film} /><input type="button" onclick="removeFavFilm(${favoritefilm.id_user}, ${favoritefilm.id_film})" value="Odobrať z obľúbených" name="remFav" style="background-color: #ff0000"></form></div></div></div>`;
+                            html += `<form action="/VAII_SEMESTRALNA_PRACA?c=FavFilm&a=remove" method="post" name="form"><input type="hidden" name="id_user" value= ${favoritefilm.id_user} /><input type="hidden" name="id_film" value= ${favoritefilm.id_film} /><input id="rem${favoritefilm.id_film}" type="button" onclick="removeFavFilm(${favoritefilm.id_user}, ${favoritefilm.id_film})" value="Odobrať z obľúbených" name="remFav" style="background-color: #ff0000"></form></div></div></div>`;
                         } else {
-                            html += `<form action="/VAII_SEMESTRALNA_PRACA?c=FavFilm&a=add" method="post" name="form"><input type="hidden" name="id_user" value= ${user} /><input type="hidden" name="id_film" value= ${film.id_film} /><input type="button" onclick="addFavFilm(${user}, ${film.id_film})" value="Pridať do obľúbených" name="addFav" style="background-color: green"></form></div></div></div>`;
+                            html += `<form action="/VAII_SEMESTRALNA_PRACA?c=FavFilm&a=add" method="post" name="form"><input type="hidden" name="id_user" value= ${user} /><input type="hidden" name="id_film" value= ${film.id_film} /><input id="add${film.id_film}" type="button" onclick="addFavFilm(${user}, ${film.id_film})" value="Pridať do obľúbených" name="addFav" style="background-color: green"></form></div></div></div>`;
                         }
                         //var html = `<div class="dr"><p class="nadpis_film">  ${film.title} </p><div class="info"><img class="film_obr" src=  ${film.img}  alt="obrazok filmu"><div class="info_text"><h5><br><br><br>  ${film.about_film}  </h5></div></div></div>`;
                         //list.append(html);
@@ -165,7 +165,14 @@ function removeFavFilm(id_user, id_film) {
             $('#msg').html(html);
         }*/
     });
-    this.getFilms();
+    var rem = document.getElementById('rem' + id_film);
+    //rem.onclick = "addFavFilm(" + id_user + ", " + id_film + ")";
+    rem.setAttribute('onclick', "addFavFilm(" + id_user + ", " + id_film + ")");
+    rem.value = "Pridať do obľúbených";
+    rem.name = "addFav"
+    rem.id = "add" + id_film;
+    rem.style = "background-color: green";
+    //this.getFilms();
     return false;
 }
 
@@ -185,7 +192,13 @@ function addFavFilm(id_user, id_film) {
             $('#msg').html(html);
         }*/
     });
-    this.getFilms();
+    var add = document.getElementById('add' + id_film);
+    add.setAttribute('onclick', "removeFavFilm(" + id_user + ", " + id_film + ")");
+    add.value = "Odobrať z obľúbených";
+    add.name = "remFav"
+    add.id = "rem" + id_film;
+    add.style = "background-color: #ff0000";
+    //this.getFilms();
     return false;
 }
 

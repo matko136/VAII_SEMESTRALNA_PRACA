@@ -14,6 +14,8 @@ function editData() {
         cache:false,
         success: function (msg, status, jqXHR) {
             document.getElementById('edit_data_info').innerHTML = msg;
+            document.getElementById('navname').innerHTML = name + " " + surename;
+            document.getElementById('navemail').innerHTML = email;
         }
         /*success: function (html)
         {

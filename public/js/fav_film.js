@@ -4,7 +4,7 @@ class Film {
     constructor() {
 
         this.getFilms();
-        setInterval(() => this.getFilms(), 2000);
+        //setInterval(() => this.getFilms(), 2000);
     }
 
     async getFilms() {
@@ -58,11 +58,7 @@ class Film {
                 let responsefavDrama = await fetch('?c=FavFilm&a=drama_get');
                 let favdramadata = await responsefavDrama.json();
 
-                let responsefavAction = await fetch('?c=FavFilm&a=action_get');
-                let favactiondata = await responsefavAction.json();
 
-                let responsefavRomantic = await fetch('?c=FavFilm&a=romantic_get');
-                let favromanticdata = await responsefavRomantic.json();
 
                 var list = document.getElementById('drama');
                 list.innerHTML = "";
@@ -74,7 +70,7 @@ class Film {
                                 var html = `<div class="dr"><p class="nadpis_film">  ${film.title} </p><div class="info"><img class="film_obr" src=  ${film.img}  alt="obrazok filmu"><div class="info_text"><h5><br><br><br>  ${film.about_film}  </h5></div></div></div>`;
                                 list.innerHTML += html;
                             } else {
-                                var html = `<div class="dr"><p class="nadpis_film"> ${film.title} </p><div class="info"><img class="film_obr" src=${film.img} alt="obrazok filmu"><div class="info_text"><h5><br><br><br> ${film.about_film} </h5>`;
+                                var html = `<div id="rem${favfilm.id_film}" class="dr"><p class="nadpis_film"> ${film.title} </p><div class="info"><img class="film_obr" src=${film.img} alt="obrazok filmu"><div class="info_text"><h5><br><br><br> ${film.about_film} </h5>`;
                                 html += `<form action="/VAII_SEMESTRALNA_PRACA?c=FavFilm&a=remove" method="post" name="form"><input type="hidden" name="id_user" value= ${favfilm.id_user} /><input type="hidden" name="id_film" value= ${favfilm.id_film} /><input type="button" onclick="removeFavFilm(${favfilm.id_user}, ${favfilm.id_film})" value="Odobrať z obľúbených" name="remFav" style="background-color: #ff0000"></form></div></div></div>`;
                                 list.innerHTML += html;
                             }
@@ -82,6 +78,9 @@ class Film {
                         }
                     }
                 });
+
+                let responsefavAction = await fetch('?c=FavFilm&a=action_get');
+                let favactiondata = await responsefavAction.json();
 
                 list = document.getElementById('action');
                 list.innerHTML = "";
@@ -93,7 +92,7 @@ class Film {
                                 var html = `<div class="dr"><p class="nadpis_film">  ${film.title} </p><div class="info"><img class="film_obr" src=  ${film.img}  alt="obrazok filmu"><div class="info_text"><h5><br><br><br>  ${film.about_film}  </h5></div></div></div>`;
                                 list.innerHTML += html;
                             } else {
-                                var html = `<div class="dr"><p class="nadpis_film"> ${film.title} </p><div class="info"><img class="film_obr" src=${film.img} alt="obrazok filmu"><div class="info_text"><h5><br><br><br> ${film.about_film} </h5>`;
+                                var html = `<div id="rem${favfilm.id_film}" class="dr"><p class="nadpis_film"> ${film.title} </p><div class="info"><img class="film_obr" src=${film.img} alt="obrazok filmu"><div class="info_text"><h5><br><br><br> ${film.about_film} </h5>`;
                                 html += `<form action="/VAII_SEMESTRALNA_PRACA?c=FavFilm&a=remove" method="post" name="form"><input type="hidden" name="id_user" value= ${favfilm.id_user} /><input type="hidden" name="id_film" value= ${favfilm.id_film} /><input type="button" onclick="removeFavFilm(${favfilm.id_user}, ${favfilm.id_film})" value="Odobrať z obľúbených" name="remFav" style="background-color: #ff0000"></form></div></div></div>`;
                                 list.innerHTML += html;
                             }
@@ -102,6 +101,8 @@ class Film {
                     }
                 });
 
+                let responsefavRomantic = await fetch('?c=FavFilm&a=romantic_get');
+                let favromanticdata = await responsefavRomantic.json();
                 list = document.getElementById('romantic');
                 list.innerHTML = "";
                 favromanticdata.forEach((favfilm) => {
@@ -112,7 +113,7 @@ class Film {
                                 var html = `<div class="dr"><p class="nadpis_film">  ${film.title} </p><div class="info"><img class="film_obr" src=  ${film.img}  alt="obrazok filmu"><div class="info_text"><h5><br><br><br>  ${film.about_film}  </h5></div></div></div>`;
                                 list.innerHTML += html;
                             } else {
-                                var html = `<div class="dr"><p class="nadpis_film"> ${film.title} </p><div class="info"><img class="film_obr" src=${film.img} alt="obrazok filmu"><div class="info_text"><h5><br><br><br> ${film.about_film} </h5>`;
+                                var html = `<div id="rem${favfilm.id_film}" class="dr"><p class="nadpis_film"> ${film.title} </p><div class="info"><img class="film_obr" src=${film.img} alt="obrazok filmu"><div class="info_text"><h5><br><br><br> ${film.about_film} </h5>`;
                                 html += `<form action="/VAII_SEMESTRALNA_PRACA?c=FavFilm&a=remove" method="post" name="form"><input type="hidden" name="id_user" value= ${favfilm.id_user} /><input type="hidden" name="id_film" value= ${favfilm.id_film} /><input type="button" onclick="removeFavFilm(${favfilm.id_user}, ${favfilm.id_film})" value="Odobrať z obľúbených" name="remFav" style="background-color: #ff0000"></form></div></div></div>`;
                                 list.innerHTML += html;
                             }
@@ -147,27 +148,10 @@ function removeFavFilm(id_user, id_film) {
             $('#msg').html(html);
         }*/
     });
-    this.getFilms();
+    var rem = document.getElementById('rem' + id_film);
+    return rem.parentNode.removeChild(rem);
+    //this.getFilms();
     return false;
 }
 
-function addFavFilm(id_user, id_film) {
-    $.ajax({
-        type: "post",
-        url: "?c=FavFilm&a=add",
-        data:
-            {
-                'id_user': id_user,
-                'id_film': id_film
-            },
-        cache: false
-        /*success: function (html)
-        {
-            alert('Data Send');
-            $('#msg').html(html);
-        }*/
-    });
-    this.getFilms();
-    return false;
-}
 

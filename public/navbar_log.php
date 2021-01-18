@@ -1,12 +1,12 @@
 <?php
 /** @var \App\Controllers\AuthController $authController */
 $user = $authController->getUser();
-if (isset($_POST['log_out'])) {
+/*if (isset($_POST['log_out'])) {
     $_SESSION['user']="";
     header("Location:index.php");
     exit();
 }
-if ($_SESSION['user'] != "") {
+if ($_SESSION['user'] != "") {*/
 ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="?c=home">
@@ -37,14 +37,14 @@ if ($_SESSION['user'] != "") {
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a id="navname" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <?php
                    echo $user->getName() . ' ' . $user->getSurename() . '</a>';
                    ?>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <?php
-                    echo '<a class="dropdown-item" href="#">' . $user->getLog() . '</a>';
-                        echo '<a class="dropdown-item" href="#">' . $user->getEmail() . '</a>';
+                    echo '<a id="navlog" class="dropdown-item" href="#">' . $user->getLog() . '</a>';
+                        echo '<a id="navemail" class="dropdown-item" href="#">' . $user->getEmail() . '</a>';
                         echo '<a class="dropdown-item" href="?c=setting">Nastevenia účtu</a>';
                     ?>
                     <a class="dropdown-item" href="?c=FavFilm">Obľúbené filmy</a>
@@ -57,6 +57,6 @@ if ($_SESSION['user'] != "") {
     </div>
 </nav>
 <?php
-} else {
+/*} else {
     include "./navbar.php";
-}
+}*/
