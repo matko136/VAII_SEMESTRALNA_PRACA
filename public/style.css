@@ -197,3 +197,22 @@ div .col{
 
 }
 
+#usersDiv {
+    position: absolute;
+    display: block;
+    width: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.userDiv {
+    background-color: green;
+    margin-top: 20px;
+    position: relative;
+}
+
+.userDivCont {
+
+left: 20%;
+    position: relative;
+}

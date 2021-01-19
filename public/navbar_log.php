@@ -50,17 +50,18 @@ if ($_SESSION['user'] != "") {*/
                     </form>
                 </div>
             </li>
-            <?php if($_SESSION != "") {?>
+            <?php if($_SESSION['user'] != "") {
+                    if($authController->getUser()->getUserType() == 2) {?>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Admin časť
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="?c=admin">Spravuj filmy</a>
-                    <a class="dropdown-item" href="?c=film&a=action">Spravuj užívateľov</a>
+                    <a class="dropdown-item" href="?c=admin&a=users">Spravuj užívateľov</a>
                 </div>
             </li>
-            <?php } ?>
+            <?php } } ?>
         </ul>
     </div>
 </nav>

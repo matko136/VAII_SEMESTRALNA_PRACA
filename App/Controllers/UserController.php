@@ -14,7 +14,7 @@ class UserController extends AControllerBase
         $user = $this->app->getAuthController()->getUser();
         if($user != null) {
             if($user->getUserType() == 2) {
-                return $this->html(User::getAll());
+                return $this->json(User::getAll());
             } else {
                 $notlogged = array('Not authorized');
                 return $this->json($notlogged);

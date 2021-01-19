@@ -7,7 +7,7 @@ use App\Core\AControllerBase;
 use App\Core\Responses\Response;
 use App\Models\FavFilm;
 use App\Models\Film;
-
+use App\Models\User;
 class AdminController extends AControllerBase
 {
 
@@ -17,6 +17,21 @@ class AdminController extends AControllerBase
         if ($user != null) {
             if ($user->getUserType() == 2) {
                 return $this->html(Film::getAll());
+            } else {
+                $notlogged = array('Not authorized');
+                return $this->json($notlogged);
+            }
+        } else {
+            $notlogged = array('Not logged');
+            return $this->json($notlogged);
+        }
+    }
+
+    public function users() {
+        $user = $this->app->getAuthController()->getUser();
+        if($user != null) {
+            if($user->getUserType() == 2) {
+                return $this->html(User::getAll());
             } else {
                 $notlogged = array('Not authorized');
                 return $this->json($notlogged);
@@ -81,6 +96,46 @@ class AdminController extends AControllerBase
                 }
                 $film = Film::getOne($form_data['id_film']);
                 $film->delete();
+            } else {
+                $notlogged = array('Not authorized');
+                return $this->json($notlogged);
+            }
+        } else {
+            $notlogged = array('Not logged');
+            return $this->json($notlogged);
+        }
+    }
+
+    public function editUserType() {
+        $user = $this->app->getAuthController()->getUser();
+        if ($user != null) {
+            if ($user->getUserType() == 2) {
+                $form_data = $this->app->getRequest()->getPost();
+                $user = User::getOne($form_data['id_user']);
+                $user->setUserType($form_data['user_type']);
+                $user->save();
+            } else {
+                $notlogged = array('Not authorized');
+                return $this->json($notlogged);
+            }
+        } else {
+            $notlogged = array('Not logged');
+            return $this->json($notlogged);
+        }
+    }
+
+    public function deleteUser() {
+        $user = $this->app->getAuthController()->getUser();
+        if ($user != null) {
+            if ($user->getUserType() == 2) {
+                $form_data = $this->app->getRequest()->getPost();
+                $favfilms = FavFilm::getAll("id_user =" . $form_data['id_user']);
+                foreach ($favfilms as $fav) {
+                    $fav->delete("id_user=" . $form_data['id_user']);
+                    break;
+                }
+                $user = User::getOne($form_data['id_user']);
+                $user->delete();
             } else {
                 $notlogged = array('Not authorized');
                 return $this->json($notlogged);
