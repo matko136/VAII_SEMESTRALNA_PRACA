@@ -171,7 +171,7 @@ abstract class Model implements \JsonSerializable
         }
         self::connect();
         try {
-            $sql = "DELETE FROM " . self::getTableName() . ($whereClause=='' ? " WHERE id=?" : " WHERE $whereClause");
+            $sql = "DELETE FROM " . self::getTableName() . ($whereClause=='' ? " WHERE " . self::getPkColumn() . "=?" : " WHERE $whereClause");
             $stmt = self::$connection->prepare($sql);
             if($whereClause=='') {
                 $stmt->execute([$this->{self::getPkColumn()}]);

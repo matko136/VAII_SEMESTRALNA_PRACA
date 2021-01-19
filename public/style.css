@@ -60,6 +60,58 @@ body {
     display:block;
 }
 
+.overlay {
+    top: 0;
+    left: 0;
+    margin-bottom: 10px;
+    z-index: 1;
+    position: fixed;
+    overflow-y: scroll;
+    top: 0; right: 0; bottom: 0; left: 0;
+    /*transform: translateX(-50%);*/
+    width: 100%;
+    height: 100%;
+    display:block;
+}
+
+#indiv {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    position: absolute;
+    top:8%;
+    height: 84%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: brown;
+    display:block;
+}
+
+#overlayback {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: purple;
+    opacity: 70%;
+    display:block;
+}
+
+.film_data {
+    font-size: xx-large;
+}
+
+#film_data_div {
+    position: relative;
+    top:50%;
+    transform: translateY(-50%);
+}
+
+/*#about_film {
+    width: 500px;
+    height: 500px;
+}*/
+
 .nadpis {
     font-family: monospace;
     text-align: center;
@@ -83,6 +135,7 @@ a#skoc {
 }
 
 .films {
+    position: relative;
     width: 70%;
     margin: auto;
 }
@@ -134,3 +187,4 @@ div .col{
     background-color: aqua;
 
 }
+

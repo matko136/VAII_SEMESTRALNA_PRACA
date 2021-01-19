@@ -100,7 +100,6 @@ class Film {
                         }
                     }
                 });
-
                 let responsefavRomantic = await fetch('?c=FavFilm&a=romantic_get');
                 let favromanticdata = await responsefavRomantic.json();
                 list = document.getElementById('romantic');

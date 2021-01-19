@@ -9,13 +9,6 @@ class Film {
 
     async getFilms() {
         try{
-            //var to = "<?= $_GET['to']; ?>";
-            //var $_GET = <?php  echo json_encode($_GET['a']); ?>;
-            //var action = <?= echo $_GET['a'] . '_get';?>;
-            //
-            //var $_GET = window.$_GET = location.search.substr(1).split("&").reduce((o,i)=>(u=decodeURIComponent,[k,v]=i.split("="),o[u(k)]=v&&u(v),o),{});
-            //var $_GET = <?= echo $_GET['a'];?>;
-            //var action = $_GET['a'];
             var parts = window.location.search.substr(1).split("&");
             var $_GET = {};
             for (var i = 0; i < parts.length; i++) {
@@ -25,23 +18,6 @@ class Film {
             let response = await fetch('?c=film&a=' + $_GET.a + "_get");
             let data = await response.json();
             var changeFilms = true;
-
-            /*if(this.lastData != null) {
-                data.forEach((film) => {
-                    var foundNew = true;
-                    this.lastData.forEach((lastFilm) => {
-                        if(film.id_film === lastFilm.id_film) {
-                            foundNew = false;
-                        }
-                    });
-                    if(foundNew == false) {
-                        change = false;
-                    } else {
-                        change = true;
-                        break;
-                    }
-                });
-            }*/
             if(this.lastData !== null) {
                 var deleted = new Array(this.lastData.length);
                 for (var j = 0; j < this.lastData.length; j++) {
@@ -104,8 +80,6 @@ class Film {
             }
 
             if(changeFilms || changeFavFilms) {
-                /*let responsefav = await fetch('?c=FavFilm&a=' + $_GET.a + "_get");
-                let favdata = await responsefav.json();*/
                 var list = document.getElementById('row');
                 list.innerHTML = "";
                 data.forEach((film) => {
@@ -130,15 +104,12 @@ class Film {
                         } else {
                             html += `<form action="/VAII_SEMESTRALNA_PRACA?c=FavFilm&a=add" method="post" name="form"><input type="hidden" name="id_user" value= ${user} /><input type="hidden" name="id_film" value= ${film.id_film} /><input id="add${film.id_film}" type="button" onclick="addFavFilm(${user}, ${film.id_film})" value="Pridať do obľúbených" name="addFav" style="background-color: green"></form></div></div></div>`;
                         }
-                        //var html = `<div class="dr"><p class="nadpis_film">  ${film.title} </p><div class="info"><img class="film_obr" src=  ${film.img}  alt="obrazok filmu"><div class="info_text"><h5><br><br><br>  ${film.about_film}  </h5></div></div></div>`;
-                        //list.append(html);
                         list.innerHTML += html;
                         this.lastfavData = favdata;
                     }
                 });
                 this.lastData = data;
             }
-            //echo '<div class="dr"><p class="nadpis_film">' . $film.title . '</p><div class="info"><img class="film_obr" src=' . $film->getImg() . ' alt="obrazok filmu"><div class="info_text"><h5><br><br><br>' . $film->getAboutFilm() . '</h5></div></div></div>';
         } catch (e) {
             console.error('Chyba' + e.message);
         }
@@ -159,20 +130,13 @@ function removeFavFilm(id_user, id_film) {
                 'id_film' :id_film
             },
         cache:false,
-        /*success: function (html)
-        {
-            alert('Data Send');
-            $('#msg').html(html);
-        }*/
     });
     var rem = document.getElementById('rem' + id_film);
-    //rem.onclick = "addFavFilm(" + id_user + ", " + id_film + ")";
     rem.setAttribute('onclick', "addFavFilm(" + id_user + ", " + id_film + ")");
     rem.value = "Pridať do obľúbených";
     rem.name = "addFav"
     rem.id = "add" + id_film;
     rem.style = "background-color: green";
-    //this.getFilms();
     return false;
 }
 
@@ -186,11 +150,6 @@ function addFavFilm(id_user, id_film) {
                 'id_film' :id_film
             },
         cache:false
-        /*success: function (html)
-        {
-            alert('Data Send');
-            $('#msg').html(html);
-        }*/
     });
     var add = document.getElementById('add' + id_film);
     add.setAttribute('onclick', "removeFavFilm(" + id_user + ", " + id_film + ")");
@@ -198,7 +157,6 @@ function addFavFilm(id_user, id_film) {
     add.name = "remFav"
     add.id = "rem" + id_film;
     add.style = "background-color: #ff0000";
-    //this.getFilms();
     return false;
 }
 
