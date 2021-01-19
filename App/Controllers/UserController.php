@@ -11,7 +11,18 @@ class UserController extends AControllerBase
 
     public function index()
     {
-        return $this->html(User::getAll());
+        $user = $this->app->getAuthController()->getUser();
+        if($user != null) {
+            if($user->getUserType() == 2) {
+                return $this->html(User::getAll());
+            } else {
+                $notlogged = array('Not authorized');
+                return $this->json($notlogged);
+            }
+        } else {
+            $notlogged = array('Not logged');
+            return $this->json($notlogged);
+        }
     }
 
     public function add() {

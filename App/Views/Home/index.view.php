@@ -8,6 +8,6 @@
                 echo "používateľ.";
             }?>
         </div>
-        <img class="vitajte" src="VAII_SEMESTRALNA_PRACA_mvc/public/text.gif" alt="Vitajte">
+        <img class="vitajte" src="VAII_SEMESTRALNA_PRACA/public/text.gif" alt="Vitajte">
     </div>
 </div>

@@ -13,15 +13,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4f9432f-502e-43bf-a1d1-5bb647be4262" name="Default Changelist" comment="aktualizovanie pridania filmov v oblubenych a jednotlivych kategoriach pomocou javascriptu a ajaxu, aktualizovanie nastaveni pomocou javascriptu">
-      <change afterPath="$PROJECT_DIR$/App/Controllers/AdminController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Views/Admin/index.view.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/admin.js" afterDir="false" />
+    <list default="true" id="d4f9432f-502e-43bf-a1d1-5bb647be4262" name="Default Changelist" comment="vymazanie filmu po stlaceni tlacidla pri filme v adminskej casti aplikacie">
+      <change afterPath="$PROJECT_DIR$/public/plus.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Core/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Core/Model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/root.layout.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/root.layout.view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/fav_film.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/fav_film.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/skript.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/skript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/FavFilmController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/FavFilmController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/Home/index.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/Home/index.view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/navbar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/navbar_log.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/navbar_log.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -92,7 +93,7 @@
       <workItem from="1610948649209" duration="102000" />
       <workItem from="1610969451660" duration="20216000" />
       <workItem from="1610990491062" duration="9575000" />
-      <workItem from="1611011925930" duration="7503000" />
+      <workItem from="1611011925930" duration="19829000" />
     </task>
     <task id="LOCAL-00001" summary="Prva verzia prerabana do mvc - pouzitie databazy na vyber filmov, pridanie controlerov na film, usera, autentifikaciu">
       <created>1610799057258</created>
@@ -157,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610978556719</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="vymazanie filmu po stlaceni tlacidla pri filme v adminskej casti aplikacie">
+      <created>1611019462153</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1611019462153</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,7 +204,8 @@
     <MESSAGE value="aktualizovanie udajov cez ajax, moznost editovania udajov a nastavenia noveho hesla, sfunkcnenie zalozky oblubene filmy." />
     <MESSAGE value="aktualizovanie pridania filmov v oblubenych a jednotlivych kategoriach pomocou javascriptu a ajaxu" />
     <MESSAGE value="aktualizovanie pridania filmov v oblubenych a jednotlivych kategoriach pomocou javascriptu a ajaxu, aktualizovanie nastaveni pomocou javascriptu" />
-    <option name="LAST_COMMIT_MESSAGE" value="aktualizovanie pridania filmov v oblubenych a jednotlivych kategoriach pomocou javascriptu a ajaxu, aktualizovanie nastaveni pomocou javascriptu" />
+    <MESSAGE value="vymazanie filmu po stlaceni tlacidla pri filme v adminskej casti aplikacie" />
+    <option name="LAST_COMMIT_MESSAGE" value="vymazanie filmu po stlaceni tlacidla pri filme v adminskej casti aplikacie" />
   </component>
   <component name="WindowStateProjectService">
     <state x="540" y="175" key="#Servers" timestamp="1610934439283">
@@ -223,66 +232,66 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1610944100298" />
-    <state width="1056" height="351" key="GridCell.Tab.0.bottom" timestamp="1611009191193">
+    <state width="1054" height="322" key="GridCell.Tab.0.bottom" timestamp="1611032697743">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1055" height="322" key="GridCell.Tab.0.bottom/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611030835635" />
+    <state width="1054" height="322" key="GridCell.Tab.0.bottom/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1611032697743" />
+    <state width="1054" height="322" key="GridCell.Tab.0.center" timestamp="1611032697743">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1055" height="322" key="GridCell.Tab.0.center/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611030835635" />
+    <state width="1054" height="322" key="GridCell.Tab.0.center/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1611032697743" />
+    <state width="1054" height="322" key="GridCell.Tab.0.left" timestamp="1611032697743">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1055" height="322" key="GridCell.Tab.0.left/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611030835635" />
+    <state width="1054" height="322" key="GridCell.Tab.0.left/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1611032697743" />
+    <state width="1054" height="322" key="GridCell.Tab.0.right" timestamp="1611032697743">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1055" height="322" key="GridCell.Tab.0.right/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611030835635" />
+    <state width="1054" height="322" key="GridCell.Tab.0.right/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1611032697743" />
+    <state width="1054" height="322" key="GridCell.Tab.1.bottom" timestamp="1611032718449">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1056" height="351" key="GridCell.Tab.0.bottom/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611009191193" />
-    <state width="1877" height="359" key="GridCell.Tab.0.bottom/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1610888079923" />
-    <state width="1056" height="351" key="GridCell.Tab.0.center" timestamp="1611009191193">
+    <state width="1054" height="322" key="GridCell.Tab.1.bottom/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611032718449" />
+    <state width="1054" height="322" key="GridCell.Tab.1.bottom/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1611032697657" />
+    <state width="1054" height="322" key="GridCell.Tab.1.center" timestamp="1611032718449">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1056" height="351" key="GridCell.Tab.0.center/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611009191193" />
-    <state width="1877" height="359" key="GridCell.Tab.0.center/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1610888079922" />
-    <state width="1056" height="351" key="GridCell.Tab.0.left" timestamp="1611009191192">
+    <state width="1054" height="322" key="GridCell.Tab.1.center/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611032718449" />
+    <state width="1054" height="322" key="GridCell.Tab.1.center/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1611032697657" />
+    <state width="1054" height="322" key="GridCell.Tab.1.left" timestamp="1611032718449">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1056" height="351" key="GridCell.Tab.0.left/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611009191192" />
-    <state width="1877" height="359" key="GridCell.Tab.0.left/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1610888079922" />
-    <state width="1056" height="351" key="GridCell.Tab.0.right" timestamp="1611009191193">
+    <state width="1054" height="322" key="GridCell.Tab.1.left/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611032718449" />
+    <state width="1054" height="322" key="GridCell.Tab.1.left/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1611032697657" />
+    <state width="1054" height="322" key="GridCell.Tab.1.right" timestamp="1611032718449">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1056" height="351" key="GridCell.Tab.0.right/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611009191193" />
-    <state width="1877" height="359" key="GridCell.Tab.0.right/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1610888079922" />
-    <state width="1056" height="351" key="GridCell.Tab.1.bottom" timestamp="1611009191193">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1054" height="322" key="GridCell.Tab.1.right/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611032718449" />
+    <state width="1054" height="322" key="GridCell.Tab.1.right/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1611032697657" />
+    <state width="1054" height="322" key="GridCell.Tab.2.bottom" timestamp="1611032697657">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1056" height="351" key="GridCell.Tab.1.bottom/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611009191193" />
-    <state width="1877" height="359" key="GridCell.Tab.1.bottom/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1610888079923" />
-    <state width="1056" height="351" key="GridCell.Tab.1.center" timestamp="1611009191193">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1055" height="322" key="GridCell.Tab.2.bottom/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611030835551" />
+    <state width="1054" height="322" key="GridCell.Tab.2.bottom/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1611032697657" />
+    <state width="1054" height="322" key="GridCell.Tab.2.center" timestamp="1611032697657">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1056" height="351" key="GridCell.Tab.1.center/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611009191193" />
-    <state width="1877" height="359" key="GridCell.Tab.1.center/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1610888079923" />
-    <state width="1056" height="351" key="GridCell.Tab.1.left" timestamp="1611009191193">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1055" height="322" key="GridCell.Tab.2.center/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611030835551" />
+    <state width="1054" height="322" key="GridCell.Tab.2.center/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1611032697657" />
+    <state width="1054" height="322" key="GridCell.Tab.2.left" timestamp="1611032697657">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1056" height="351" key="GridCell.Tab.1.left/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611009191193" />
-    <state width="1877" height="359" key="GridCell.Tab.1.left/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1610888079923" />
-    <state width="1056" height="351" key="GridCell.Tab.1.right" timestamp="1611009191193">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1055" height="322" key="GridCell.Tab.2.left/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611030835551" />
+    <state width="1054" height="322" key="GridCell.Tab.2.left/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1611032697657" />
+    <state width="1054" height="322" key="GridCell.Tab.2.right" timestamp="1611032697657">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1056" height="351" key="GridCell.Tab.1.right/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611009191193" />
-    <state width="1877" height="359" key="GridCell.Tab.1.right/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1610888079923" />
-    <state width="1056" height="351" key="GridCell.Tab.2.bottom" timestamp="1611009191193">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1056" height="351" key="GridCell.Tab.2.bottom/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611009191193" />
-    <state width="1877" height="359" key="GridCell.Tab.2.bottom/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1610888079923" />
-    <state width="1056" height="351" key="GridCell.Tab.2.center" timestamp="1611009191193">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1056" height="351" key="GridCell.Tab.2.center/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611009191193" />
-    <state width="1877" height="359" key="GridCell.Tab.2.center/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1610888079923" />
-    <state width="1056" height="351" key="GridCell.Tab.2.left" timestamp="1611009191193">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1056" height="351" key="GridCell.Tab.2.left/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611009191193" />
-    <state width="1877" height="359" key="GridCell.Tab.2.left/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1610888079923" />
-    <state width="1056" height="351" key="GridCell.Tab.2.right" timestamp="1611009191193">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1056" height="351" key="GridCell.Tab.2.right/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611009191193" />
-    <state width="1877" height="359" key="GridCell.Tab.2.right/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1610888079923" />
+    <state width="1055" height="322" key="GridCell.Tab.2.right/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611030835551" />
+    <state width="1054" height="322" key="GridCell.Tab.2.right/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1611032697657" />
     <state x="511" y="243" key="NewPhpClassDialog" timestamp="1610978709027">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -295,10 +304,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611005439536" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1610978559541">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1611019467769">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1610978559541" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611019467769" />
     <state x="859" y="397" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1610817662168">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -319,14 +328,14 @@
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1685" y="161" width="1074" height="640" maximized="true" key="dock-window-1/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611017215534" />
-    <state x="667" y="119" width="585" height="801" key="find.popup" timestamp="1610988568685">
+    <state x="667" y="119" width="585" height="801" key="find.popup" timestamp="1611029948120">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="667" y="119" width="585" height="801" key="find.popup/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1610988568685" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1610924838213">
+    <state x="667" y="119" width="585" height="801" key="find.popup/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611029948120" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1611021677214">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1610924838213" />
+    <state x="616" y="240" key="run.anything.popup/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611021677214" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1610973721998">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -337,7 +346,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/App/Controllers/UserController.php</url>
-          <line>13</line>
+          <line>16</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -532,12 +541,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/App/Controllers/FavFilmController.php</url>
-          <line>85</line>
+          <line>93</line>
           <option name="timeStamp" value="214" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/App/Controllers/FavFilmController.php</url>
-          <line>76</line>
+          <line>80</line>
           <option name="timeStamp" value="227" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -661,26 +670,6 @@
           <option name="timeStamp" value="267" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/App/Controllers/AdminController.php</url>
-          <line>29</line>
-          <option name="timeStamp" value="279" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/App/Controllers/AdminController.php</url>
-          <line>30</line>
-          <option name="timeStamp" value="280" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/App/Controllers/AdminController.php</url>
-          <line>32</line>
-          <option name="timeStamp" value="281" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/App/Controllers/AdminController.php</url>
-          <line>31</line>
-          <option name="timeStamp" value="282" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/App/Core/Model.php</url>
           <line>66</line>
           <option name="timeStamp" value="283" />
@@ -721,21 +710,6 @@
           <option name="timeStamp" value="290" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/App/Controllers/AdminController.php</url>
-          <line>35</line>
-          <option name="timeStamp" value="291" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/App/Controllers/AdminController.php</url>
-          <line>34</line>
-          <option name="timeStamp" value="292" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/App/Controllers/AdminController.php</url>
-          <line>33</line>
-          <option name="timeStamp" value="293" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/App/Core/Model.php</url>
           <line>173</line>
           <option name="timeStamp" value="294" />
@@ -749,11 +723,6 @@
           <url>file://$PROJECT_DIR$/App/Core/Model.php</url>
           <line>175</line>
           <option name="timeStamp" value="296" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/App/Controllers/AdminController.php</url>
-          <line>36</line>
-          <option name="timeStamp" value="297" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/App/Core/Model.php</url>
@@ -779,6 +748,26 @@
           <url>file://$PROJECT_DIR$/App/Core/DB/DebugStatement.php</url>
           <line>33</line>
           <option name="timeStamp" value="302" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/App/Core/Model.php</url>
+          <line>147</line>
+          <option name="timeStamp" value="314" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/App/Core/Model.php</url>
+          <line>146</line>
+          <option name="timeStamp" value="315" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/App/Controllers/UserController.php</url>
+          <line>13</line>
+          <option name="timeStamp" value="318" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/App/Controllers/UserController.php</url>
+          <line>14</line>
+          <option name="timeStamp" value="319" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/public/js/skript.js</url>

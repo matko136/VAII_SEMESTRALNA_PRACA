@@ -20,9 +20,6 @@ if($_SESSION['user'] == "") {
                 <li class="nav-item active">
                     <a class="nav-link" href="o_nas.php">O nás <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="?c=user">User <span class="sr-only">(current)</span></a>
-                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Filmy
