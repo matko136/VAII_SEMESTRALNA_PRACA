@@ -55,10 +55,10 @@ class User {
                     var html = `<div id="rem${user.id_user}" class="userDiv">
                                     <div class="userDivCont">
                                         <h1 id="info">Meno: ${user.name} ${user.surename}, Login: ${user.log} </h1>
-                                        <p>Zvoľte typ používateľa:</p>
+                                        <label for "selected_type${user.id_user}">Zvoľte typ používateľa:</label>
                                         <select id="selected_type${user.id_user}" name="types">
                                             <option ${firstSelectable} value="1">Bežný užívateľ</option>
-                                            <option ${secondSelectable} value="2">Administrátor</option></select><br><br>
+                                            <option ${secondSelectable} value="2">Administrátor</option></select><br>
                                         <input onclick="editUserType(${user.id_user})" type="button" value="Uložiť údaje">
                                         <input onclick="remUser(${user.id_user})" type="button" value="Vymazať užívateľa">
                                     </div>

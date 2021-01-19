@@ -99,11 +99,11 @@ function overlay(edit, id) {
     }
     var html = `<div id="film_data_div"><form method="post" name="form">
         <label class="film_data" for="title">Zadajte titulok filmu:</label><br>
-        <textarea cols="50" rows="2" input class="film_data" id="title" type="text" name="title" required maxlength="100">${title}</textarea><br><br>
+        <textarea cols="40" rows="2" input class="film_data" id="title" type="text" name="title" required maxlength="100">${title}</textarea><br><br>
         <label class="film_data" for="about_film">Zadajte popis</label><br>
-        <textarea cols="50" rows="10" class="film_data" id="about_film" name="about_film" required maxlength="1000">${about}</textarea><br><br>
+        <textarea cols="40" rows="10" class="film_data" id="about_film" name="about_film" required maxlength="1000">${about}</textarea><br><br>
         <label class="film_data" for="img">Zadajte url k obrazku filmu:</label><br>
-        <textarea cols="50" rows="2" class="film_data" id="img" type="text" name="img" required maxlength="1000">${img}</textarea><br><br>
+        <textarea cols="40" rows="2" class="film_data" id="img" type="text" name="img" required maxlength="1000">${img}</textarea><br><br>
         <label class="film_data" for="film_type">Vyberte typ filmu:</label><br>
         <select id="selected_type" name="types">`
         if(type_film == "1")

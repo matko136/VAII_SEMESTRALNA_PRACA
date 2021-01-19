@@ -13,15 +13,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4f9432f-502e-43bf-a1d1-5bb647be4262" name="Default Changelist" comment="pridane funkcionality do adminskej casti - moznost editacie filmu a vyskocenie okna editacia s doterajsimi udajmi - podobne pri pridavani noveho filmu bez prednastavenych hodnot">
-      <change afterPath="$PROJECT_DIR$/App/Views/Admin/users.view.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/admin_users.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/rand.js" afterDir="false" />
+    <list default="true" id="d4f9432f-502e-43bf-a1d1-5bb647be4262" name="Default Changelist" comment="pridane funkcionality do adminskej casti - moznost editacie manazovanie pouzivatelov - vymazat alebo nastavit prava v aplikacii. Priadana ikonka stranky">
+      <change afterPath="$PROJECT_DIR$/App/Controllers/About_usController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/App/Views/About_us/index.view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/root.layout.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/root.layout.view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/Home/index.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/Home/index.view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/admin_users.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin_users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/rand.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/rand.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/navbar.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/navbar_log.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/navbar_log.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/style.css" afterDir="false" />
     </list>
@@ -58,21 +59,22 @@
     <property name="DatabaseDriversLRU" value="mariadb" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/App" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\matob\Desktop\Škola\Vývoj aplikácií pre internet a intranet\php_mysql\www\VAII_SEMESTRALNA_PRACA\App" />
-      <recent name="C:\Users\matob\Desktop\Škola\Vývoj aplikácií pre internet a intranet\php_mysql\www\VAII_SEMESTRALNA_PRACA_mvc\App\Views" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\matob\Desktop\Škola\Vývoj aplikácií pre internet a intranet\php_mysql\www\VAII_SEMESTRALNA_PRACA\App\Views" />
       <recent name="C:\Users\matob\Desktop\Škola\Vývoj aplikácií pre internet a intranet\php_mysql\www\VAII_SEMESTRALNA_PRACA\public" />
       <recent name="C:\Users\matob\Desktop\Škola\Vývoj aplikácií pre internet a intranet\php_mysql\www\VAII_SEMESTRALNA_PRACA\public\js" />
       <recent name="C:\Users\matob\Desktop\Škola\Vývoj aplikácií pre internet a intranet\php_mysql\www\VAII_SEMESTRALNA_PRACA\App\Views\Film" />
       <recent name="C:\Users\matob\Desktop\Škola\Vývoj aplikácií pre internet a intranet\php_mysql\www\VAII_SEMESTRALNA_PRACA_mvc\public" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\matob\Desktop\Škola\Vývoj aplikácií pre internet a intranet\php_mysql\www\VAII_SEMESTRALNA_PRACA\App" />
+      <recent name="C:\Users\matob\Desktop\Škola\Vývoj aplikácií pre internet a intranet\php_mysql\www\VAII_SEMESTRALNA_PRACA_mvc\App\Views" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -95,7 +97,8 @@
       <workItem from="1610969451660" duration="20216000" />
       <workItem from="1610990491062" duration="9575000" />
       <workItem from="1611011925930" duration="21329000" />
-      <workItem from="1611057727269" duration="12068000" />
+      <workItem from="1611057727269" duration="19970000" />
+      <workItem from="1611082820890" duration="4669000" />
     </task>
     <task id="LOCAL-00001" summary="Prva verzia prerabana do mvc - pouzitie databazy na vyber filmov, pridanie controlerov na film, usera, autentifikaciu">
       <created>1610799057258</created>
@@ -174,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611033590679</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="pridane funkcionality do adminskej casti - moznost editacie manazovanie pouzivatelov - vymazat alebo nastavit prava v aplikacii. Priadana ikonka stranky">
+      <created>1611072773883</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1611072773883</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,7 +225,8 @@
     <MESSAGE value="aktualizovanie pridania filmov v oblubenych a jednotlivych kategoriach pomocou javascriptu a ajaxu, aktualizovanie nastaveni pomocou javascriptu" />
     <MESSAGE value="vymazanie filmu po stlaceni tlacidla pri filme v adminskej casti aplikacie" />
     <MESSAGE value="pridane funkcionality do adminskej casti - moznost editacie filmu a vyskocenie okna editacia s doterajsimi udajmi - podobne pri pridavani noveho filmu bez prednastavenych hodnot" />
-    <option name="LAST_COMMIT_MESSAGE" value="pridane funkcionality do adminskej casti - moznost editacie filmu a vyskocenie okna editacia s doterajsimi udajmi - podobne pri pridavani noveho filmu bez prednastavenych hodnot" />
+    <MESSAGE value="pridane funkcionality do adminskej casti - moznost editacie manazovanie pouzivatelov - vymazat alebo nastavit prava v aplikacii. Priadana ikonka stranky" />
+    <option name="LAST_COMMIT_MESSAGE" value="pridane funkcionality do adminskej casti - moznost editacie manazovanie pouzivatelov - vymazat alebo nastavit prava v aplikacii. Priadana ikonka stranky" />
   </component>
   <component name="WindowStateProjectService">
     <state x="540" y="175" key="#Servers" timestamp="1610934439283">
@@ -226,14 +237,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1610933091088" />
-    <state x="765" y="202" key="#com.intellij.ide.util.MemberChooser" timestamp="1610978762174">
+    <state x="765" y="202" key="#com.intellij.ide.util.MemberChooser" timestamp="1611074276145">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="202" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1610978762174" />
-    <state x="658" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1610810562335">
+    <state x="765" y="202" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611074276145" />
+    <state x="658" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1611074233914">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="658" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1610810562335" />
+    <state x="658" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611074233914" />
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1611058537830">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -302,22 +313,22 @@
     </state>
     <state width="1054" height="322" key="GridCell.Tab.2.right/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611035022358" />
     <state width="1054" height="322" key="GridCell.Tab.2.right/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1611032697657" />
-    <state x="511" y="243" key="NewPhpClassDialog" timestamp="1610978709027">
+    <state x="511" y="243" key="NewPhpClassDialog" timestamp="1611074407371">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="511" y="243" key="NewPhpClassDialog/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1610978709027" />
-    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1611058619852">
+    <state x="511" y="243" key="NewPhpClassDialog/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611074407371" />
+    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1611074154351">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="794" y="443" key="NewPhpFileDialog/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611058619852" />
+    <state x="794" y="443" key="NewPhpFileDialog/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611074154351" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1611005439536">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611005439536" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1611033594466">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1611072777606">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611033594466" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611072777606" />
     <state x="859" y="397" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1610817662168">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -334,14 +345,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1610743764993" />
-    <state x="2426" y="98" width="1057" height="669" key="dock-window-1" timestamp="1611071465964">
+    <state x="1920" y="0" width="1108" height="710" maximized="true" key="dock-window-1" timestamp="1611084759093">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2426" y="98" width="1057" height="669" key="dock-window-1/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611071465964" />
-    <state x="1920" y="0" width="1936" height="1048" key="dock-window-2" timestamp="1611072681874">
+    <state x="1920" y="0" width="1108" height="710" maximized="true" key="dock-window-1/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611084759093" />
+    <state x="1920" y="0" width="1936" height="1048" key="dock-window-2" timestamp="1611082860137">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="1920" y="0" width="1936" height="1048" key="dock-window-2/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611072681874" />
+    <state x="1920" y="0" width="1936" height="1048" key="dock-window-2/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611082860137" />
+    <state x="2013" y="207" width="1057" height="717" key="dock-window-3" timestamp="1611075319706">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2013" y="207" width="1057" height="717" key="dock-window-3/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611075319706" />
     <state x="667" y="119" width="585" height="801" key="find.popup" timestamp="1611029948120">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -500,12 +515,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/App/Views/Home/index.view.php</url>
-          <line>5</line>
+          <line>7</line>
           <option name="timeStamp" value="106" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/App/Views/Home/index.view.php</url>
-          <line>7</line>
+          <line>9</line>
           <option name="timeStamp" value="107" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
