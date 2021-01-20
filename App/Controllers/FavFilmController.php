@@ -68,7 +68,8 @@ class FavFilmController extends AControllerBase
     }
 
     public function add() {
-        if($_SESSION['user'] == "") {
+        $form_data = $this->app->getRequest()->getPost();
+        if($_SESSION['user'] == "" || $_SESSION['user'] != $form_data['id_user']) {
             $notlogged = array('NotLogged');
             return $this->json($notlogged);
         }
@@ -82,11 +83,11 @@ class FavFilmController extends AControllerBase
     }
 
     public function remove() {
-        if($_SESSION['user'] == "") {
+        $form_data = $this->app->getRequest()->getPost();
+        if($_SESSION['user'] == "" || $_SESSION['user'] != $form_data['id_user']) {
             $notlogged = array('NotLogged');
             return $this->json($notlogged);
         }
-        $form_data = $this->app->getRequest()->getPost();
         if(isset($form_data['id_user']) && isset($form_data['id_film'])) {
             $fav = FavFilm::getOne("0", " id_user =" . $form_data['id_user'] . " and id_film =" . $form_data['id_film'] );
             $fav->delete(" id_user =" . $form_data['id_user'] . " and id_film =" . $form_data['id_film']);

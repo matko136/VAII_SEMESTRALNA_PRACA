@@ -101,6 +101,8 @@ function remUser(id) {
         success: function (msg, status, jqXHR) {
         }
     });
+    var rem = document.getElementById('rem' + id);
+    return rem.parentNode.removeChild(rem);
 }
 
 document.addEventListener('DOMContentLoaded', () => {

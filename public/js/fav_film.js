@@ -141,11 +141,6 @@ function removeFavFilm(id_user, id_film) {
                 'id_film': id_film
             },
         cache: false,
-        /*success: function (html)
-        {
-            alert('Data Send');
-            $('#msg').html(html);
-        }*/
     });
     var rem = document.getElementById('rem' + id_film);
     return rem.parentNode.removeChild(rem);

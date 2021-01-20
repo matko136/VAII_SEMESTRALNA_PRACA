@@ -49,10 +49,14 @@ class AuthController extends AControllerBase
                 if(password_verify($form_data['passwd'], $user->getPasswd())) {
                     $_SESSION['user'] = $user->getIdUser();
                     $this->user = $user;
+                } else {
+                    return $this->redirect(['msg' => 'Zlé zadané meno alebo heslo'], "Home");
                 }
+            } else {
+                return $this->redirect(['msg' => 'Zlé zadané meno alebo heslo'], "Home");
             }
         }
-        return $this->redirect(NULL, "Home");
+        return $this->redirect(['msg' => 'Boli ste úspešne prihlásený/á'], "Home");
     }
 
     public function reg() {
@@ -62,15 +66,17 @@ class AuthController extends AControllerBase
             if(count($data) == 0) {
                 $user = new User($form_data['log'], $form_data['name'], $form_data['surename'], $form_data['email'], password_hash($form_data['passwd'], PASSWORD_DEFAULT), 1);
                 $user->save();
+            } else {
+                return $this->redirect(['msg' => 'Zadaný login je už použitý, použite iný'], "Home");
             }
         }
-        return $this->redirect(NULL, "Home");
+        return $this->redirect(['msg' => 'Boli ste úspešne zaregistrovaný/á, môžete sa prihlásiť'], "Home");
     }
 
     public function logOut() {
         $_SESSION['user'] = "";
         $this->user = NULL;
-        return $this->redirect(NULL, "Home");
+        return $this->redirect(['msg' => 'Boli ste úspešne odhlásený/á'], "Home");
     }
 
     public function isLog() {

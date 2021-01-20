@@ -23,10 +23,10 @@ if ($_SESSION['user'] != "") {*/
                 <a class="nav-link" href="?c=about_us">O nás <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Filmy
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu">
                     <a class="dropdown-item" href="?c=film&a=index">Všetky</a>
                     <a class="dropdown-item" href="?c=film&a=action">Akčné</a>
                     <a class="dropdown-item" href="?c=film&a=drama">Dráma</a>
@@ -34,11 +34,11 @@ if ($_SESSION['user'] != "") {*/
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a id="navname" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a id="ddName" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <?php
                    echo $user->getName() . ' ' . $user->getSurename() . '</a>';
                    ?>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu">
                     <?php
                     echo '<a id="navlog" class="dropdown-item" href="#">' . $user->getLog() . '</a>';
                         echo '<a id="navemail" class="dropdown-item" href="#">' . $user->getEmail() . '</a>';
@@ -53,10 +53,10 @@ if ($_SESSION['user'] != "") {*/
             <?php if($_SESSION['user'] != "") {
                     if($authController->getUser()->getUserType() == 2) {?>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Admin časť
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu">
                     <a class="dropdown-item" href="?c=admin">Spravuj filmy</a>
                     <a class="dropdown-item" href="?c=admin&a=users">Spravuj užívateľov</a>
                 </div>

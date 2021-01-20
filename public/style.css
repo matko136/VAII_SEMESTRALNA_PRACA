@@ -190,6 +190,16 @@ a#skoc {
     user-select: none;
 }
 
+#msg{
+    font-family: monospace;
+    text-align: center;
+    font-size: 50px;
+    margin-top: 10px;
+    background-color: red;
+    color: black;
+    opacity: 100%;
+}
+
 #usersDiv {
     position: absolute;
     display: block;
@@ -223,4 +233,8 @@ a#skoc {
     background-color: skyblue;
     color: black;
     opacity: 100%;
+}
+
+.validationMsg {
+    background-color: red;
 }

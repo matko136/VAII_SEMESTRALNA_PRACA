@@ -1,8 +1,9 @@
+<!DOCTYPE html>
+<html lang="sk">
 <?php
 /** @var string $contentHTML */
 /** @var \App\Controllers\AuthController $authController */
 ?>
-<html>
 <head>
     <meta charset="UTF-8">
     <title>Databáza filmov</title>

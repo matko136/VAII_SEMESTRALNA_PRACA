@@ -12,6 +12,10 @@ class SettingController extends AControllerBase
 
     public function index()
     {
-        return $this->html();
+        $user = $this->app->getAuthController()->getUser();
+        if ($user != null) {
+            return $this->html();
+        }
+        return $this->redirect(['msg' => 'Pre túto akciu sa prihláste'], "Home");
     }
 }

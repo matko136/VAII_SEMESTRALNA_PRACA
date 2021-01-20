@@ -97,7 +97,7 @@ function overlay(edit, id) {
         var img = document.getElementById('img' + id).src;
         var type_film = document.getElementById('film_type' + id).value;
     }
-    var html = `<div id="film_data_div"><form method="post" name="form">
+    var html = `<div id="film_data_div"><form id="formData" method="post" name="form">
         <label class="film_data" for="title">Zadajte titulok filmu:</label><br>
         <textarea cols="40" rows="2" input class="film_data" id="title" type="text" name="title" required maxlength="100">${title}</textarea><br><br>
         <label class="film_data" for="about_film">Zadajte popis</label><br>
@@ -145,53 +145,137 @@ function cancelOverlay() {
 }
 
 function addFilm() {
-    var title = document.getElementById('title').value;
-    var about_film = document.getElementById('about_film').value;
-    var img = document.getElementById('img').value;
-    var type = document.getElementById('selected_type').value;
-    $.ajax({
-        type: "post",
-        url: "?c=Admin&a=add",
-        data:
-            {
-                'img': img,
-                'title': title,
-                'about_film': about_film,
-                'film_type': type
-            },
-        cache: false,
-        success: function (msg, status, jqXHR) {
-        }
-    });
-    film.getFilms();
-    cancelOverlay();
+    var title = document.getElementById('title');
+    var about_film = document.getElementById('about_film');
+    var img = document.getElementById('img');
+    var type = document.getElementById('selected_type');
+    if(validInput(title, about_film, img, type)) {
+        $.ajax({
+            type: "post",
+            url: "?c=Admin&a=add",
+            data:
+                {
+                    'img': img.value,
+                    'title': title.value,
+                    'about_film': about_film.value,
+                    'film_type': type.value
+                },
+            cache: false,
+            success: function (msg, status, jqXHR) {
+            }
+        });
+        film.getFilms();
+        cancelOverlay();
+    }
 }
 
 function editFilm(id_film) {
-    var title = document.getElementById('title').value;
-    var about_film = document.getElementById('about_film').value;
-    var img = document.getElementById('img').value;
-    var type = document.getElementById('selected_type').value;
-    $.ajax({
-        type: "post",
-        url: "?c=Admin&a=edit",
-        data:
-            {
-                'id_film': id_film,
-                'img': img,
-                'title': title,
-                'about_film': about_film,
-                'film_type': type
-            },
-        cache: false,
-        success: function (msg, status, jqXHR) {
-        }
-    });
-    document.getElementById('title' + id_film).innerHTML = title;
-    document.getElementById('about' + id_film).innerHTML = about_film;
-    document.getElementById('img' + id_film).src = img;
-    document.getElementById('film_type' + id_film).value = type;
-    cancelOverlay();
+    var title = document.getElementById('title');
+    var about_film = document.getElementById('about_film');
+    var img = document.getElementById('img');
+    var type = document.getElementById('selected_type');
+    if(validInput(title, about_film, img, type)) {
+        $.ajax({
+            type: "post",
+            url: "?c=Admin&a=edit",
+            data:
+                {
+                    'id_film': id_film.value,
+                    'img': img.value,
+                    'title': title.value,
+                    'about_film': about_film.value,
+                    'film_type': type.value
+                },
+            cache: false,
+            success: function (msg, status, jqXHR) {
+            }
+        });
+        document.getElementById('title' + id_film).innerHTML = title.value;
+        document.getElementById('about' + id_film).innerHTML = about_film.value;
+        document.getElementById('img' + id_film).src = img.value;
+        document.getElementById('film_type' + id_film).value = type.value;
+        cancelOverlay();
+    }
     return false;
+}
+
+function isValidHttpUrl(string) {
+    let url;
+    try {
+        url = new URL(string);
+    } catch (_) {
+        return false;
+    }
+    return url.protocol === "http:" || url.protocol === "https:";
+}
+
+function validInput(title, about_film, img, type) {
+    var dataDiv = document.getElementById('formData');
+    var valid = true;
+    if(title.value === "") {
+        valid = false;
+        var msg = document.getElementById('titleVal');
+        if(msg == null) {
+            msg = document.createElement('p');
+            msg.setAttribute('class', 'validationMsg');
+            msg.setAttribute('id', 'titleVal');
+            msg.innerHTML = "Vyplňte titulok";
+            dataDiv.insertBefore(msg, title);
+        }
+    } else {
+        var msg = document.getElementById('titleVal');
+        if(msg !== null) {
+            msg.parentNode.removeChild(msg);
+        }
+    }
+    if(about_film.value === "") {
+        valid = false;
+        var msg = document.getElementById('about_filmVal');
+        if(msg == null) {
+            msg = document.createElement('p');
+            msg.setAttribute('class', 'validationMsg');
+            msg.setAttribute('id', 'about_filmVal');
+            msg.innerHTML = "Vyplňte popis filmu";
+            dataDiv.insertBefore(msg, about_film);
+        }
+    } else {
+        var msg = document.getElementById('about_filmVal');
+        if(msg !== null) {
+            msg.parentNode.removeChild(msg);
+        }
+    }
+    if(!isValidHttpUrl(img.value)) {
+        valid = false;
+        var msg = document.getElementById('imgVal');
+        if(msg == null) {
+            msg = document.createElement('p');
+            msg.setAttribute('class', 'validationMsg');
+            msg.setAttribute('id', 'imgVal');
+            msg.innerHTML = "Neplatná url obrázku";
+            dataDiv.insertBefore(msg, img);
+        }
+    } else {
+        var msg = document.getElementById('imgVal');
+        if(msg !== null) {
+            msg.parentNode.removeChild(msg);
+        }
+    }
+    if(type.value !== "1" && type.value !== "2") {
+        valid = false;
+        var msg = document.getElementById('typeVal');
+        if(msg == null) {
+            msg = document.createElement('p');
+            msg.setAttribute('class', 'validationMsg');
+            msg.setAttribute('id', 'typeVal');
+            msg.innerHTML = "Vyberte typ filmu";
+            dataDiv.insertBefore(msg, type);
+        }
+    } else {
+        var msg = document.getElementById('typeVal');
+        if(msg !== null) {
+            msg.parentNode.removeChild(msg);
+        }
+    }
+    return valid;
 }
 

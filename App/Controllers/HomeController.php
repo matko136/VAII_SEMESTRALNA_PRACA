@@ -10,9 +10,6 @@ class HomeController extends AControllerBase
 
     public function index()
     {
-        return $this->html(
-            [
-                'meno' => 'Patrik Hrkút'
-            ]);
+        return $this->html();
     }
 }

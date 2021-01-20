@@ -39,9 +39,7 @@ if($_SESSION['user'] == "") {
                         <form action="/VAII_SEMESTRALNA_PRACA?c=auth&a=login" method="post" name="form">
                             <input type="text" placeholder="Prihl. meno" name="log" required>
                             <input type="password" placeholder="Heslo" name="passwd" required>
-                            <!--<input type="hidden" value="Prihlasenie" name="submit">
-                            <a href="?c=auth&a=login">Prihlasenie</a>-->
-                            <input type="submit" value="Prihlasenie" name="submit"></a>
+                            <input type="submit" value="Prihlasenie" name="submit">
                         </form>
                     </div>
                 </li>
@@ -54,8 +52,8 @@ if($_SESSION['user'] == "") {
                             <input type="text" placeholder="Meno" name="name" required>
                             <input type="text" placeholder="Priezvisko" name="surename" required>
                             <input type="text" placeholder="Prihl. meno" name="log" required>
-                            <input type="password" placeholder="Heslo" name="passwd" required>
-                            <input type="text" placeholder="e-mail" name="email" required>
+                            <input type="password" placeholder="Heslo" name="passwd" minlength="8" required>
+                            <input type="email" placeholder="e-mail" name="email" required>
                             <input type="submit" value="Registracia" name="submit">
                         </form>
                     </div>

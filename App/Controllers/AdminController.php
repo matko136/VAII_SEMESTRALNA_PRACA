@@ -18,12 +18,10 @@ class AdminController extends AControllerBase
             if ($user->getUserType() == 2) {
                 return $this->html(Film::getAll());
             } else {
-                $notlogged = array('Not authorized');
-                return $this->json($notlogged);
+                return $this->redirect(['msg' => 'Pre túto akciu nie ste autorizovaný/á'], "Home");
             }
         } else {
-            $notlogged = array('Not logged');
-            return $this->json($notlogged);
+            return $this->redirect(['msg' => 'Pre túto akciu sa prihláste'], "Home");
         }
     }
 
@@ -33,12 +31,10 @@ class AdminController extends AControllerBase
             if($user->getUserType() == 2) {
                 return $this->html(User::getAll());
             } else {
-                $notlogged = array('Not authorized');
-                return $this->json($notlogged);
+                return $this->redirect(['msg' => 'Pre túto akciu nie ste autorizovaný/á'], "Home");
             }
         } else {
-            $notlogged = array('Not logged');
-            return $this->json($notlogged);
+            return $this->redirect(['msg' => 'Pre túto akciu sa prihláste'], "Home");
         }
     }
 
@@ -55,13 +51,11 @@ class AdminController extends AControllerBase
                 $film->setFilmType($form_data['film_type']);
                 $film->save();
             } else {
-                $notlogged = array('Not authorized');
-                return $this->json($notlogged);
+                return $this->redirect(['msg' => 'Pre túto akciu nie ste autorizovaný/á'], "Home");
             }
 
         } else {
-            $notlogged = array('Not logged');
-            return $this->json($notlogged);
+            return $this->redirect(['msg' => 'Pre túto akciu sa prihláste'], "Home");
         }
     }
 
@@ -74,12 +68,10 @@ class AdminController extends AControllerBase
                 $film = new Film($form_data['img'], $form_data['title'], $form_data['about_film'], $form_data['film_type']);
                 $film->save();
             } else {
-                $notlogged = array('Not authorized');
-                return $this->json($notlogged);
+                return $this->redirect(['msg' => 'Pre túto akciu nie ste autorizovaný/á'], "Home");
             }
         } else {
-            $notlogged = array('Not logged');
-            return $this->json($notlogged);
+            return $this->redirect(['msg' => 'Pre túto akciu sa prihláste'], "Home");
         }
     }
 
@@ -97,12 +89,10 @@ class AdminController extends AControllerBase
                 $film = Film::getOne($form_data['id_film']);
                 $film->delete();
             } else {
-                $notlogged = array('Not authorized');
-                return $this->json($notlogged);
+                return $this->redirect(['msg' => 'Pre túto akciu nie ste autorizovaný/á'], "Home");
             }
         } else {
-            $notlogged = array('Not logged');
-            return $this->json($notlogged);
+            return $this->redirect(['msg' => 'Pre túto akciu sa prihláste'], "Home");
         }
     }
 
@@ -115,12 +105,10 @@ class AdminController extends AControllerBase
                 $user->setUserType($form_data['user_type']);
                 $user->save();
             } else {
-                $notlogged = array('Not authorized');
-                return $this->json($notlogged);
+                return $this->redirect(['msg' => 'Pre túto akciu nie ste autorizovaný/á'], "Home");
             }
         } else {
-            $notlogged = array('Not logged');
-            return $this->json($notlogged);
+            return $this->redirect(['msg' => 'Pre túto akciu sa prihláste'], "Home");
         }
     }
 
@@ -137,12 +125,10 @@ class AdminController extends AControllerBase
                 $user = User::getOne($form_data['id_user']);
                 $user->delete();
             } else {
-                $notlogged = array('Not authorized');
-                return $this->json($notlogged);
+                return $this->redirect(['msg' => 'Pre túto akciu nie ste autorizovaný/á'], "Home");
             }
         } else {
-            $notlogged = array('Not logged');
-            return $this->json($notlogged);
+            return $this->redirect(['msg' => 'Pre túto akciu sa prihláste'], "Home");
         }
     }
 }
