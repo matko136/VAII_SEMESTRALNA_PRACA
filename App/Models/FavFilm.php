@@ -47,6 +47,7 @@ class FavFilm extends Model
         return $this->id_user;
     }
 
+
     static public function setPkColumn()
     {
         return 'id_film';

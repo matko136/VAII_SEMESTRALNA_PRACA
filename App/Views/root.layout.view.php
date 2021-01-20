@@ -20,9 +20,9 @@
 <body>
 <?php
 if(!$authController->isLog()) {
-    include "public" . DIRECTORY_SEPARATOR . "navbar.php";
+    include "navbar.php";
 } else {
-    include "public" . DIRECTORY_SEPARATOR . "navbar_log.php";
+    include "navbar_log.php";
 }
 ?>
 

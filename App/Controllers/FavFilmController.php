@@ -32,7 +32,7 @@ class FavFilmController extends AControllerBase
             $notlogged = array('NotLogged');
             return $this->json($notlogged);
         }
-        $dataa = FavFilm::getAll("id_user =" . $_SESSION['user']);
+        $dataa = FavFilm::getAll("id_user =?", [$_SESSION['user']]);
         $dataa[count($dataa)] = $_SESSION['user'];
         return $this->json($dataa);
     }
@@ -42,7 +42,7 @@ class FavFilmController extends AControllerBase
             $notlogged = array('NotLogged');
             return $this->json($notlogged);
         }
-        $dataa = FavFilm::getAll("id_user =" . $_SESSION['user'] . " and EXISTS(SELECT id_film from film where favorite_film.id_film = film.id_film and film_type=1)");
+        $dataa = FavFilm::getAll("id_user =? and EXISTS(SELECT id_film from film where favorite_film.id_film = film.id_film and film_type=1)", [$_SESSION['user']]);
         $dataa[count($dataa)] = $_SESSION['user'];
         return $this->json($dataa);
     }
@@ -52,7 +52,7 @@ class FavFilmController extends AControllerBase
             $notlogged = array('NotLogged');
             return $this->json($notlogged);
         }
-        $dataa = FavFilm::getAll("id_user =" . $_SESSION['user'] . " and EXISTS(SELECT id_film from film where favorite_film.id_film = film.id_film and film_type=2)");
+        $dataa = FavFilm::getAll("id_user =? and EXISTS(SELECT id_film from film where favorite_film.id_film = film.id_film and film_type=2)", [$_SESSION['user']]);
         $dataa[count($dataa)] = $_SESSION['user'];
         return $this->json($dataa);
     }
@@ -62,7 +62,7 @@ class FavFilmController extends AControllerBase
             $notlogged = array('NotLogged');
             return $this->json($notlogged);
         }
-        $dataa = FavFilm::getAll("id_user =" . $_SESSION['user'] . " and EXISTS(SELECT id_film from film where favorite_film.id_film = film.id_film and film_type=3)");
+        $dataa = FavFilm::getAll("id_user =? and EXISTS(SELECT id_film from film where favorite_film.id_film = film.id_film and film_type=3)", [$_SESSION['user']]);
         $dataa[count($dataa)] = $_SESSION['user'];
         return $this->json($dataa);
     }
@@ -77,7 +77,7 @@ class FavFilmController extends AControllerBase
         if(isset($form_data['id_user']) && isset($form_data['id_film'])) {
             $fav = new FavFilm($form_data['id_user'], $form_data['id_film']);
             $pks = array('id_user', 'id_film');
-            $fav->save($pks);
+            $fav->save(true);
         }
         return $this->nothing();
     }
@@ -89,8 +89,8 @@ class FavFilmController extends AControllerBase
             return $this->json($notlogged);
         }
         if(isset($form_data['id_user']) && isset($form_data['id_film'])) {
-            $fav = FavFilm::getOne("0", " id_user =" . $form_data['id_user'] . " and id_film =" . $form_data['id_film'] );
-            $fav->delete(" id_user =" . $form_data['id_user'] . " and id_film =" . $form_data['id_film']);
+            $fav = FavFilm::getOne($form_data['id_film'], "id_user", $form_data['id_user']);
+            $fav->delete("id_user");
         }
         return $this->nothing();
     }

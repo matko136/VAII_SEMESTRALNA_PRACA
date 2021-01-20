@@ -81,10 +81,9 @@ class AdminController extends AControllerBase
         if ($user != null) {
             if ($user->getUserType() == 2) {
                 $form_data = $this->app->getRequest()->getPost();
-                $favfilms = FavFilm::getAll("id_film =" . $form_data['id_film']);
+                $favfilms = FavFilm::getAll("id_film =?", [$form_data['id_film']]);
                 foreach ($favfilms as $fav) {
-                    $fav->delete("id_film=" . $form_data['id_film']);
-                    break;
+                    $fav->delete("id_user");
                 }
                 $film = Film::getOne($form_data['id_film']);
                 $film->delete();
@@ -117,10 +116,9 @@ class AdminController extends AControllerBase
         if ($user != null) {
             if ($user->getUserType() == 2) {
                 $form_data = $this->app->getRequest()->getPost();
-                $favfilms = FavFilm::getAll("id_user =" . $form_data['id_user']);
+                $favfilms = FavFilm::getAll("id_user =?", [$form_data['id_user']]);
                 foreach ($favfilms as $fav) {
-                    $fav->delete("id_user=" . $form_data['id_user']);
-                    break;
+                    $fav->delete("id_user");
                 }
                 $user = User::getOne($form_data['id_user']);
                 $user->delete();

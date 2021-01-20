@@ -43,7 +43,7 @@ class AuthController extends AControllerBase
         $form_data = $this->app->getRequest()->getPost();
         if(isset($form_data['submit'])) {
             /** @var \App\Models\User[] $data */
-            $data = User::getAll("log = " . "'" .$form_data['log'] . "'");
+            $data = User::getAll("log =?", [$form_data['log']]);
             if(count($data) == 1) {
                 $user = $data[0];
                 if(password_verify($form_data['passwd'], $user->getPasswd())) {
@@ -62,7 +62,7 @@ class AuthController extends AControllerBase
     public function reg() {
         $form_data = $this->app->getRequest()->getPost();
         if(isset($form_data['submit'])) {
-            $data = User::getAll("log = " . "'" . $form_data['log'] . "'");
+            $data = User::getAll("log =?", [$form_data['log']]);
             if(count($data) == 0) {
                 $user = new User($form_data['log'], $form_data['name'], $form_data['surename'], $form_data['email'], password_hash($form_data['passwd'], PASSWORD_DEFAULT), 1);
                 $user->save();

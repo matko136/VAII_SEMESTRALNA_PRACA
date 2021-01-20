@@ -1,10 +1,9 @@
+
 class Film {
     lastfavData = null;
-
     constructor() {
-
         this.getFilms();
-        //setInterval(() => this.getFilms(), 2000);
+        setInterval(() => this.getFilms(), 2000);
     }
 
     async getFilms() {
@@ -143,8 +142,7 @@ function removeFavFilm(id_user, id_film) {
         cache: false,
     });
     var rem = document.getElementById('rem' + id_film);
-    return rem.parentNode.removeChild(rem);
-    //this.getFilms();
+    rem.parentNode.removeChild(rem);
     return false;
 }
 

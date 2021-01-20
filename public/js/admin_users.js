@@ -1,9 +1,9 @@
 class User {
     lastData = null;
-
+    lastStates = null;
     constructor() {
         this.getUsers();
-        //setInterval(() => this.getFilms(), 100);
+        setInterval(() => this.getUsers(), 1000);
     }
 
     async getUsers() {
@@ -18,14 +18,22 @@ class User {
                 }
                 for (var i = 0; i < data.length; i++) {
                     var foundNew = true;
+                    var changeState = false;
                     for (var j = 0; j < this.lastData.length; j++) {
-                        if (data[i].id_film === this.lastData[j].id_film) {
+                        if (data[i].id_user === this.lastData[j].id_user) {
+                            if(this.lastStates[j] !== data[i].user_type) {
+                                changeState = true;
+                            }
                             deleted[j] = false;
                             foundNew = false;
                             break;
                         }
                     }
-                    if (foundNew == false) {
+                    if(changeState) {
+                        changeUsers = true;
+                        break;
+                    }
+                    if (foundNew === false) {
                         changeUsers = false;
                     } else {
                         changeUsers = true;
@@ -40,21 +48,28 @@ class User {
             }
 
             if (changeUsers) {
+                this.lastStates = new Array(data.length);
                 var list = document.getElementById('usersDiv');
+                list.innerHTML = "";
+                var count = 0;
                 data.forEach((user) => {
                     var type = user.user_type;
 
                     var firstSelectable = "";
-                    if(type == 1)
+                    if(type === "1") {
                         firstSelectable = "selected";
-
+                        this.lastStates[count] = "1";
+                    }
                     var secondSelectable = "";
-                    if(type == 2)
+                    if(type === "2") {
                         secondSelectable = "selected";
+                        this.lastStates[count] = "2";
+                    }
 
+                    count++;
                     var html = `<div id="rem${user.id_user}" class="userDiv">
                                     <div class="userDivCont">
-                                        <h1 id="info">Meno: ${user.name} ${user.surename}, Login: ${user.log} </h1>
+                                        <h1>Meno: ${user.name} ${user.surename}, Login: ${user.log} </h1>
                                         <label for "selected_type${user.id_user}">Zvoľte typ používateľa:</label>
                                         <select id="selected_type${user.id_user}" name="types">
                                             <option ${firstSelectable} value="1">Bežný užívateľ</option>

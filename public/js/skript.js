@@ -2,9 +2,8 @@ class Film {
     lastData = null;
     lastfavData = null;
     constructor() {
-
         this.getFilms();
-        //setInterval(() => this.getFilms(), 100);
+        setInterval(() => this.getFilms(), 2000);
     }
 
     async getFilms() {

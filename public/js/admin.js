@@ -1,11 +1,10 @@
-var film = null;
+
 class Film {
     lastData = null;
 
     constructor() {
-        film = this;
         this.getFilms();
-        //setInterval(() => this.getFilms(), 100);
+        setInterval(() => this.getFilms(), 1000);
     }
 
     async getFilms() {
@@ -33,7 +32,7 @@ class Film {
                             break;
                         }
                     }
-                    if (foundNew == false) {
+                    if (foundNew === false) {
                         changeFilms = false;
                     } else {
                         changeFilms = true;
@@ -78,7 +77,7 @@ function removeFilm(id_film) {
         cache: false,
     });
     var rem = document.getElementById('rem' + id_film);
-    return rem.parentNode.removeChild(rem);
+    rem.parentNode.removeChild(rem);
     return false;
 }
 
@@ -92,10 +91,10 @@ function overlay(edit, id) {
     var img = "";
     var type_film = "0";
     if(edit) {
-        var title = document.getElementById('title' + id).innerHTML;
-        var about = document.getElementById('about' + id).innerHTML;
-        var img = document.getElementById('img' + id).src;
-        var type_film = document.getElementById('film_type' + id).value;
+        title = document.getElementById('title' + id).innerHTML;
+        about = document.getElementById('about' + id).innerHTML;
+        img = document.getElementById('img' + id).src;
+        type_film = document.getElementById('film_type' + id).value;
     }
     var html = `<div id="film_data_div"><form id="formData" method="post" name="form">
         <label class="film_data" for="title">Zadajte titulok filmu:</label><br>
@@ -106,15 +105,15 @@ function overlay(edit, id) {
         <textarea cols="40" rows="2" class="film_data" id="img" type="text" name="img" required maxlength="1000">${img}</textarea><br><br>
         <label class="film_data" for="film_type">Vyberte typ filmu:</label><br>
         <select id="selected_type" name="types">`
-        if(type_film == "1")
+        if(type_film === "1")
             html += `<option selected value="1">Drama</option>`;
         else
             html += `<option value="1">Drama</option>`;
-        if(type_film == "2")
+        if(type_film === "2")
             html += `<option selected value="2">Action</option>`;
         else
             html += `<option value="2">Action</option>`;
-        if(type_film == "3")
+        if(type_film === "3")
             html += `<option selected value="3">Romantic</option>`;
         else
             html += `<option value="3">Romantic</option>`;
@@ -164,7 +163,6 @@ function addFilm() {
             success: function (msg, status, jqXHR) {
             }
         });
-        film.getFilms();
         cancelOverlay();
     }
 }
@@ -180,7 +178,7 @@ function editFilm(id_film) {
             url: "?c=Admin&a=edit",
             data:
                 {
-                    'id_film': id_film.value,
+                    'id_film': id_film,
                     'img': img.value,
                     'title': title.value,
                     'about_film': about_film.value,

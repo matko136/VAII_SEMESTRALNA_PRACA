@@ -60,11 +60,11 @@ abstract class Model implements \JsonSerializable
      * @return static[]
      * @throws \Exception
      */
-    static public function getAll(string $whereClause = NULL, array $whereParams = [], string $joinTable = NULL)
+    static public function getAll(string $whereClause = NULL, array $whereParams = [])
     {
         self::connect();
         try {
-            $sql = "SELECT * FROM " . self::getTableName() . ($joinTable=='' ? '' : " " . $joinTable) . ($whereClause=='' ? '' : " WHERE $whereClause");
+            $sql = "SELECT * FROM " . self::getTableName() . ($whereClause=='' ? '' : " WHERE $whereClause");
 
             $stmt = self::$connection->prepare($sql);
             $stmt->execute($whereParams);
@@ -90,16 +90,19 @@ abstract class Model implements \JsonSerializable
      * @param $id
      * @throws \Exception
      */
-    static public function getOne($id, string $whereClause = NULL)
+    static public function getOne($id, string $secondPk = NULL, $id2 = 0)
     {
         if ($id == null) return null;
 
         self::connect();
         try {
 
-            $sql = "SELECT * FROM " . self::getTableName() . ($whereClause=='' ? " WHERE " . self::getPkColumn() . "=?" : " WHERE $whereClause");
+            $sql = "SELECT * FROM " . self::getTableName() . " WHERE " . self::getPkColumn() . "=?" . ( $secondPk == '' ? '' : " and " . $secondPk . "=?");
             $stmt = self::$connection->prepare($sql);
-            $stmt->execute([$id]);
+            if($secondPk == '')
+                $stmt->execute([$id]);
+            else
+                $stmt->execute([$id, $id2]);
             $model = $stmt->fetch();
             if ($model) {
                 $data = array_fill_keys(self::getDbColumns(), null);
@@ -120,7 +123,7 @@ abstract class Model implements \JsonSerializable
      * Saves the current model to DB (if model id is set, updates it, else creates a new model)
      * @return mixed
      */
-    public function save(array $pkS = [], string $whereClause = NULL)
+    public function save($morePks = false)
     {
         self::connect();
         try {
@@ -128,17 +131,7 @@ abstract class Model implements \JsonSerializable
             foreach ($data as $key => &$item) {
                 $item = $this->$key;
             }
-            $notYet = true;
-            if(count($pkS) == 0){
-                if($data[self::getPkColumn()] != null)
-                    $notYet = false;
-            }
-            /*foreach ($pkS as $pk) {
-                if($data[$pk] == null) {
-                    $notYet = true;
-                }
-            }*/
-            if ($notYet) {
+            if ($data[self::getPkColumn()] == null || $morePks) {
                 $arrColumns = array_map(fn($item) => (':' . $item), array_keys($data));
                 $columns = implode(',', array_keys($data));
                 $params = implode(',', $arrColumns);
@@ -149,8 +142,7 @@ abstract class Model implements \JsonSerializable
             } else {
                 $arrColumns = array_map(fn($item) => ($item . '=:' . $item), array_keys($data));
                 $columns = implode(',', $arrColumns);
-
-                $sql = "UPDATE " . self::getTableName() . " SET $columns" .  ($whereClause=='' ? " WHERE " . self::getPkColumn() . "=:" .  self::getPkColumn() : " WHERE $whereClause");
+                $sql = "UPDATE " . self::getTableName() . " SET $columns" . " WHERE " . self::getPkColumn() . "=:" .  self::getPkColumn();
                 $stmt = self::$connection->prepare($sql);
                 $stmt->execute($data);
                 return $data[self::getPkColumn()];
@@ -164,20 +156,19 @@ abstract class Model implements \JsonSerializable
      * Deletes current model from DB
      * @throws \Exception If model not exists, throw an exception
      */
-    public function delete(string $whereClause = NULL)
+    public function delete(string $secondPk = NULL)
     {
         if ($this->{self::getPkColumn()} == null) {
             return;
         }
         self::connect();
         try {
-            $sql = "DELETE FROM " . self::getTableName() . ($whereClause=='' ? " WHERE " . self::getPkColumn() . "=?" : " WHERE $whereClause");
+            $sql = "DELETE FROM " . self::getTableName() . " WHERE " . self::getPkColumn() . "=?" . ($secondPk=='' ? "" : " and " . $secondPk . "=?");
             $stmt = self::$connection->prepare($sql);
-            if($whereClause=='') {
+            if($secondPk == '')
                 $stmt->execute([$this->{self::getPkColumn()}]);
-            } else {
-                $stmt->execute([]);
-            }
+            else
+                $stmt->execute([$this->{self::getPkColumn()}, $this->{$secondPk}]);
             if ($stmt->rowCount() == 0) {
                 throw new \Exception('Model not found!');
             }

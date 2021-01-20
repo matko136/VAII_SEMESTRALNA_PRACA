@@ -66,6 +66,3 @@ if ($_SESSION['user'] != "") {*/
     </div>
 </nav>
 <?php
-/*} else {
-    include "./navbar.php";
-}*/
