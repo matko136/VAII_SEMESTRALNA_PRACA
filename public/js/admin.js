@@ -258,7 +258,7 @@ function validInput(title, about_film, img, type) {
             msg.parentNode.removeChild(msg);
         }
     }
-    if(type.value !== "1" && type.value !== "2") {
+    if(type.value !== "1" && type.value !== "2" && type.value !== "3") {
         valid = false;
         var msg = document.getElementById('typeVal');
         if(msg == null) {

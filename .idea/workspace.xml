@@ -13,21 +13,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4f9432f-502e-43bf-a1d1-5bb647be4262" name="Default Changelist" comment="uprava voli sql injection - uprava metod na pracu s databazou, aktualizovanie obsahu cez setinterval">
+    <list default="true" id="d4f9432f-502e-43bf-a1d1-5bb647be4262" name="Default Changelist" comment="uprava kvoli sql injection - uprava metod na pracu s databazou, aktualizovanie obsahu cez setinterval">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/FavFilmController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/FavFilmController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Core/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Core/Model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Models/FavFilm.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Models/FavFilm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/root.layout.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/root.layout.view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/admin_users.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin_users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/fav_film.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/fav_film.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/skript.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/skript.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/navbar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/navbar_log.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/navbar_log.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,6 +90,8 @@
       <workItem from="1611011925930" duration="21329000" />
       <workItem from="1611057727269" duration="19970000" />
       <workItem from="1611082820890" duration="37766000" />
+      <workItem from="1611123513310" duration="3664000" />
+      <workItem from="1611133012588" duration="1019000" />
     </task>
     <task id="LOCAL-00001" summary="Prva verzia prerabana do mvc - pouzitie databazy na vyber filmov, pridanie controlerov na film, usera, autentifikaciu">
       <created>1610799057258</created>
@@ -201,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611108423389</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="uprava kvoli sql injection - uprava metod na pracu s databazou, aktualizovanie obsahu cez setinterval">
+      <created>1611123560609</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1611123560609</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,7 +242,8 @@
     <MESSAGE value="pridane funkcionality do adminskej casti - moznost editacie manazovanie pouzivatelov - vymazat alebo nastavit prava v aplikacii. Priadana ikonka stranky" />
     <MESSAGE value="pridanie generovania 3 nahodnych filmov na uvodnej stranke, uprava stylov" />
     <MESSAGE value="Kontrola autorizacie k akciam, klientska validacia cez js - nastavenie, pridanie/editovanie filmu, formulare - prihlasenie, registracia,uprava validnosti html, uprava css pravidiel" />
-    <option name="LAST_COMMIT_MESSAGE" value="Kontrola autorizacie k akciam, klientska validacia cez js - nastavenie, pridanie/editovanie filmu, formulare - prihlasenie, registracia,uprava validnosti html, uprava css pravidiel" />
+    <MESSAGE value="uprava kvoli sql injection - uprava metod na pracu s databazou, aktualizovanie obsahu cez setinterval" />
+    <option name="LAST_COMMIT_MESSAGE" value="uprava kvoli sql injection - uprava metod na pracu s databazou, aktualizovanie obsahu cez setinterval" />
   </component>
   <component name="WindowStateProjectService">
     <state x="540" y="175" key="#Servers" timestamp="1610934439283">
@@ -344,10 +342,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611005439536" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1611108427927">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1611123562450">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611108427927" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1611123562450" />
     <state x="859" y="397" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1610817662168">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
