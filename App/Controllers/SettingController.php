@@ -24,8 +24,13 @@ class SettingController extends AControllerBase
     public function delete()
     {
         $user = $this->app->getAuthController()->getUser();
-        if ($user != null)
+        if ($user != null) {
+            $favfilms = FavFilm::getAll("id_user =?", [$user->getIdUser()]);
+            foreach ($favfilms as $fav) {
+                $fav->delete("id_user");
+            }
             $user->delete();
+        }
         if (session_status() == PHP_SESSION_ACTIVE)
             session_destroy();
         return $this->redirect(['msg' => 'Konto bolo zmazané'], "Home");
