@@ -61,10 +61,10 @@ if ($_SESSION['user'] != "") {*/
                     <a class="dropdown-item" href="?c=admin&a=users">Spravuj užívateľov</a>
                 </div>
             </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="?c=game">Zahraj si <span class="sr-only">(current)</span></a>
-                        </li>
             <?php } } ?>
+            <li class="nav-item active">
+                <a class="nav-link" href="?c=game">Zahraj si <span class="sr-only">(current)</span></a>
+            </li>
         </ul>
     </div>
 </nav>

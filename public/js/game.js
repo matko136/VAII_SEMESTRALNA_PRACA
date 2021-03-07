@@ -138,12 +138,12 @@ class Food {
 
 let width = (($(window).width() * 0.8) - ($(window).width() * 0.8) % 50);
 let height = (($(window).height() * 0.8) - ($(window).height() * 0.8) % 50);
-let leftt = ($(window).width() - width) / 2;
-let topp = ($(window).height() - height) / 2;
 let rectSide = 50;
 let direction = directions.RIGHT;
 let requestedDirection = "non";
 let requestedStackDirection = "non";
+let leftt = 0;
+let topp = 0;
 var c;
 var ctx;
 var score = 0;
@@ -197,21 +197,33 @@ document.addEventListener('DOMContentLoaded', () => {
     ctxScore = Sscore.getContext("2d");
     c = document.getElementById("myCanvas");
     ctx = c.getContext("2d");
+    var topParent = c.parentNode.getBoundingClientRect().top;
+    var perc = 0.9;
+    width = (($(window).width() * perc) - ($(window).width() * perc) % 50);
+    height = ((($(window).height()-topParent) * perc) - ((($(window).height()-topParent) * perc) % 50));
+    leftt = ($(window).width() - width) / 2;
+    topp = (($(window).height()-topParent) - height) / 2;
+    Sscore.height = (topp*perc);
+    Sscore.width = 3*Sscore.height;
+    Sscore.style.top = ((topp - Sscore.height)/2) + "px";
+    Sscore.style.left = (leftt + (width/2) - (Sscore.width/2)) + "px";
     c.style.left = leftt + "px";
     c.style.top = topp + "px";
     c.width = width;
     c.height = height;
     c.style.position = "absolute";
     drawRect(0, 0, c.width, c.height, "white", ctx);
+    var startDiv = document.createElement('div');
+    startDiv.setAttribute("id", "startDiv");
     var speedLabel = document.createElement("label");
     speedLabel.innerHTML = "Choose speed: ";
-    speedLabel.setAttribute("style", "z-index:2; position:relative; top:" + (c.height/2) + "px; left:" + ((c.width/2)-70) + "px");
+    //speedLabel.setAttribute("style", "z-index:2; top:" + (c.height/2) + "px; left:" + ((c.width/2)-70) + "px");
     speedLabel.setAttribute("id", "speedLabel")
-    c.parentNode.append(speedLabel);
+    //c.parentNode.append(speedLabel);
     var speed = document.createElement("select");
     speed.setAttribute("id", "speed");
     speed.setAttribute("label", "Choose speed: ");
-    speed.setAttribute("style", "z-index:2; position:relative; top:" + c.height/2 + "px; left:" + ((c.width/2)-67) + "px");
+    //speed.setAttribute("style", "z-index:2; top:" + c.height/2 + "px; left:" + ((c.width/2)-67) + "px");
     speed.innerHTML = `<option value="10">1</option>
 <option selected value="9">2</option>
 <option value="8">3</option>
@@ -223,21 +235,29 @@ document.addEventListener('DOMContentLoaded', () => {
 <option value="2">9</option>
 <option value="1">10</option>`;
 
-    c.parentNode.append(speed);
+    //c.parentNode.append(speed);
 
 
     var inputSpeed = document.createElement('input');
     inputSpeed.setAttribute("type", "button");
     inputSpeed.setAttribute("value", "Start!");
-    inputSpeed.setAttribute("style", "z-index:2; position:relative; top:" + c.height/2 + "px; left:" + ((c.width/2)-65) + "px");
+    //inputSpeed.setAttribute("style", "z-index:2; top:" + c.height/2 + "px; left:" + ((c.width/2)-65) + "px");
     inputSpeed.setAttribute("id", "inputSpeed");
     inputSpeed.setAttribute("onclick", "start()");
 
 
+
+    startDiv.append(speedLabel);
+    startDiv.append(speed);
+    startDiv.append(inputSpeed);
+    startDiv.style.top = (topp + (height/2) - (103/2)) + "px";
+    startDiv.style.left = (leftt + (width/2) - (53.08/2)) + "px";
+    c.parentNode.append(startDiv);
+
     $("html").css({
         "touch-action": "pan-down"
     });
-    c.parentNode.append(inputSpeed);
+    //c.parentNode.append(inputSpeed);
     //let lastX = x;
     //let lastY = y;
 
@@ -258,26 +278,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function start() {
-    var apple = document.createElement('img');
-    var head_left = document.createElement('img');
-    var head_up = document.createElement('img');
-    var head_down = document.createElement('img');
-    var head_right = document.createElement('img');
-    head_left.setAttribute("src", "VAII_SEMESTRALNA_PRACA/public/head_left.png");
-    head_up.setAttribute("src", "VAII_SEMESTRALNA_PRACA/public/head_up.png");
-    head_up.setAttribute("width", "50px");
-    head_up.setAttribute("height", "50px");
-    head_down.setAttribute("src", "VAII_SEMESTRALNA_PRACA/public/head_down.png");
-    head_right.setAttribute("src", "VAII_SEMESTRALNA_PRACA/public/head_right.png");
-    apple.setAttribute('id', "apple");
-    apple.setAttribute("width", "50px");
-    apple.setAttribute("height", "50px");
-    apple.setAttribute("src", "VAII_SEMESTRALNA_PRACA/public/apple.png");
-    apple.setAttribute("alt", "red apple");
     let speed = document.getElementById("speed").value;
-    c.parentNode.removeChild(document.getElementById("speedLabel"));
+    /*c.parentNode.removeChild(document.getElementById("speedLabel"));
     c.parentNode.removeChild(document.getElementById("speed"));
-    c.parentNode.removeChild(document.getElementById("inputSpeed"));
+    c.parentNode.removeChild(document.getElementById("inputSpeed"));*/
+    c.parentNode.removeChild(document.getElementById("startDiv"))
     var refreshInterval = setInterval(() => {
         drawRect(0, 0, Sscore.width, Sscore.height, "white", ctxScore);
         ctxScore.font = "30px Comic Sans MS";
@@ -295,9 +300,7 @@ function start() {
             } while (isCollidingSnake(randX+((rectSide-rectSide/1.2)/2), randY+((rectSide-rectSide/1.2)/2), rectSide/1.2));
             food = new Food(randX, randY);
         }
-        /*if (Math.abs(head.getX() - bodyParts[0].getX()) > 50 || Math.abs(head.getY() - bodyParts[0].getY()) > 50) {
-            var h = 0;
-        }*/
+
         if (requestedDirection !== direction && requestedDirection !== "non" && !oppositesDirections(direction, requestedDirection)) {
             if (isAbleToChange(head.getX(), head.getY(), requestedDirection)) {
                 direction = requestedDirection;
@@ -316,22 +319,8 @@ function start() {
         drawRect(0, 0, c.width, c.height, "white", ctx);
         //lastX = x;
         //lastY = y;
-        moveBodyPart(head, direction, "orange", false);
-        switch(head.getDirection()) {
-            case "left":
-                ctx.drawImage(head_left, head.getX(), head.getY(), 50, 50);
-                break;
-            case "up":
-                ctx.drawImage(head_up, head.getX(), head.getY(), 50, 50);
-                break;
-            case "down":
-                ctx.drawImage(head_down, head.getX(), head.getY(), 50, 50);
-                break;
-            case "right":
-                ctx.drawImage(head_right, head.getX(), head.getY(), 50, 50);
-                break;
-        }
-        //var addNewBody = false;
+        moveBodyPart(head, direction, "orange");
+        var addNewBody = false;
         if(isCollision(food.getX(), food.getY(), head.getX()+rectSide/4, head.getY()+rectSide/4, rectSide/2)) {
             food = null;
             addNewBodyPart(bodyParts[bodyParts.length-1]);
@@ -339,8 +328,7 @@ function start() {
         }
 
         if(food !== null) {
-            ctx.drawImage(apple, food.getX(), food.getY(), 50, 50);
-            //drawRect(food.getX(), food.getY(), rectSide, rectSide, "brown", ctx);
+            drawRect(food.getX(), food.getY(), rectSide, rectSide, "brown", ctx);
         }
 
         if (bodyParts[0].getDirection() !== head.getLastDirection()) {
@@ -370,38 +358,49 @@ function start() {
             moveBodyPart(bodyParts[i], bodyParts[i].getDirection(), "green");
         }
 
-        //drawRect(head.getX(), head.getY(), rectSide, rectSide, "orange", ctx);
+        drawRect(head.getX(), head.getY(), rectSide, rectSide, "orange", ctx);
 
         if(isCollidingBody(head.getX()+((rectSide-rectSide/1.2)/2), head.getY()+((rectSide-rectSide/1.2)/2), rectSide/1.2, true)) {
             ctx.font = "30px Comic Sans MS";
             ctx.fillStyle = "red";
             ctx.textAlign = "center";
-            ctx.fillText("The End :)", c.width/2, c.height/2);
+            ctx.fillText("The End :)", 0+90, 0+30);
+            ctx.fillText("The End :)", 0+90, c.height-30);
+            ctx.fillText("The End :)", c.width-90, 30);
+            ctx.fillText("The End :)", c.width-90, c.height-30);
+            var endDiv = document.createElement('div');
+            endDiv.setAttribute("id", "endDiv");
             var input = document.createElement('input');
             input.setAttribute("type", "button");
             input.setAttribute("value", "Start new game!");
-            input.setAttribute("style", "z-index:2; position:relative; top:" + c.height/2 + "px; left:" + ((c.width/2)-250) + "px");
+            //input.setAttribute("style", "z-index:2; position:relative; top:" + c.height/2 + "px; left:" + ((c.width/2)-250) + "px");
             input.setAttribute("id", "restButton");
             input.setAttribute("onclick", "reload()");
 
             var input2 = document.createElement('input');
             input2.setAttribute("type", "button");
             input2.setAttribute("value", "Write score in score table");
-            input2.setAttribute("style", "z-index:2; position:relative; top:" + c.height/2 + "px; left:" + ((c.width/2)-220) + "px");
+            //input2.setAttribute("style", "z-index:2; position:relative; top:" + c.height/2 + "px; left:" + ((c.width/2)-220) + "px");
             input2.setAttribute("id", "addScoreee");
             input2.setAttribute("onclick", "overlay()");
 
             var input3 = document.createElement('input');
             input3.setAttribute("type", "button");
             input3.setAttribute("value", "Show score table");
-            input3.setAttribute("style", "z-index:2; position:relative; top:" + c.height/2 + "px; left:" + ((c.width/2)-190) + "px");
+            //input3.setAttribute("style", "z-index:2; position:relative; top:" + c.height/2 + "px; left:" + ((c.width/2)-190) + "px");
             input3.setAttribute("id", "showScoree");
             input3.setAttribute("onclick", "showScoreTable()");
             //input.innerText = `type="button" style="z-index:2; position:relative; top:${c.height/2}px; left:${c.width/2}px" value="newGame"/`;
             //input.innerHTML = `type="button" style="z-index:2; position:relative; top:${c.height/2}px; left:${c.width/2}px" value="newGame"/`
-            c.parentNode.append(input);
+            /*c.parentNode.append(input);
             c.parentNode.append(input2);
-            c.parentNode.append(input3);
+            c.parentNode.append(input3);*/
+            endDiv.append(input);
+            endDiv.append(input2);
+            endDiv.append(input3);
+            endDiv.style.top = (topp + (height/2) - (90/2)) + "px";
+            endDiv.style.left = (leftt + (width/2) - (194.81/2)) + "px";
+            c.parentNode.append(endDiv);
             //c.innerHTML += `<input type="button" style="z-index:2; position:relative; top:${c.height/2}px; left:${c.width/2}px" value="newGame"/>`
             clearInterval(refreshInterval);
         }
@@ -526,6 +525,10 @@ document.addEventListener('keydown', (e) => {
         moveDirection("down");
     } else if (e.code === "ArrowRight") {
         moveDirection("right");
+    } else if (e.code === "Escape") {
+        /*var rem = document.getElementById('overlay');
+    return rem.parentNode.removeChild(rem);*/
+        cancelOverlay();
     }
 });
 
@@ -567,7 +570,7 @@ function isAbleToChange(x, y, directionn) {
     return false;
 }
 
-function moveBodyPart(bodyPart, direction, color, draw=true) {
+function moveBodyPart(bodyPart, direction, color) {
     let x = bodyPart.getX();
     let y = bodyPart.getY();
     switch (direction) {
@@ -577,9 +580,7 @@ function moveBodyPart(bodyPart, direction, color, draw=true) {
                 bodyPart.setX(x - 5);
                 bodyPart.setLastY();
             }
-            if(draw) {
-                drawHorizontal(x, y, color);
-            }
+            drawHorizontal(x, y, color);
             break;
         case "up":
             if (y - 5 < 0) bodyPart.setY(height-(5-y));
@@ -587,9 +588,7 @@ function moveBodyPart(bodyPart, direction, color, draw=true) {
                 bodyPart.setY(y - 5);
                 bodyPart.setLastX();
             }
-            if(draw) {
-                drawVertical(x, y, color);
-            }
+            drawVertical(x, y, color);
             break;
         case "down":
             if (y + 5 > height-1) bodyPart.setY((y+5)-height);
@@ -597,9 +596,7 @@ function moveBodyPart(bodyPart, direction, color, draw=true) {
                 bodyPart.setY(y + 5);
                 bodyPart.setLastX();
             }
-            if(draw) {
-                drawVertical(x, y, color);
-            }
+            drawVertical(x, y, color);
             break;
         case "right":
             if (x + 5 > c.width-1) bodyPart.setX((x+5)-width);
@@ -607,9 +604,7 @@ function moveBodyPart(bodyPart, direction, color, draw=true) {
                 bodyPart.setX(x + 5);
                 bodyPart.setLastY();
             }
-            if(draw) {
-                drawHorizontal(x, y, color);
-            }
+            drawHorizontal(x, y, color);
             break;
     }
 }
@@ -631,11 +626,12 @@ function addScore() {
         success: function (msg, status, jqXHR) {
         }
     });
+    document.getElementById('addScoreee').parentNode.removeChild(document.getElementById('addScoreee'));
     showScoreTable();
 }
 
 async function showScoreTable() {
-    var html = `<table class="table table-bordered table-dark"><thead>
+    var html = `<table class="table table-bordered table-dark" id="scoreTable"><thead>
     <tr>
       <th scope="col">#</th>
       <th scope="col">Nick</th>
@@ -663,27 +659,48 @@ async function showScoreTable() {
                 <td>${data[i].nickname}</td>
                 <td>${data[i].score}</td>
             </tr>`;
+            if(i+1 == 10)
+                break;
         }
         html+=` </tbody>
                 </table>`;
         html += `<input class="film_data" type="button" onclick="cancelOverlay()" value="Cancel" name="overLay_cancel">`;
-        if(document.getElementById("indiv") !== null)
-            document.getElementById("indiv").innerHTML = html;
-        else {
-            var over = document.createElement("div");
-            over.setAttribute("style", "z-index:2");
-            var first = c;//$('#row').children().first();
-            var input = document.createElement('div');
-            input.setAttribute('id', 'indiv');
-            input.innerHTML = html;
-            over.setAttribute('class', 'overlay');
-            over.setAttribute('id', "overlay");
-            over.appendChild(input);
-            c.parentNode.insertBefore(over, first);
-            var inp2 = document.createElement('div');
-            inp2.setAttribute('id', "overlayback");
-            over.insertBefore(inp2, input);
-        }
+        if(document.getElementById("indivGame") !== null)
+            cancelOverlay();
+        //document.getElementById("indivGame").innerHTML = html;
+        //else {
+        var over = document.createElement("div");
+        over.setAttribute("style", "z-index:2");
+        var first = c;//$('#row').children().first();
+        var input = document.createElement('div');
+        input.setAttribute('id', 'indivGame');
+        input.innerHTML = html;
+        over.setAttribute('class', 'overlay');
+        over.setAttribute('id', "overlay");
+        //var table = document.createElement("scoreTable");
+        var numberOfScore = data.length;
+        if(numberOfScore >= 10 )
+            numberOfScore = 10;
+        var topTable = (($(window).height()/2)-(((numberOfScore*49)+58)/2));
+        var topTablePx = topTable + "px";
+        if(topTable < 0)
+            topTablePx = "0px";
+        //input.style.top =  (($(window).height()/2)-(((data.length*49)+58)/2)) + "px";//(($(window).height()/2) - (table.offsetHeight/2)) + "px";
+        input.style.top = topTablePx;
+        /*var le=(($(window).width()/2) - (table.offsetWidth/2)) + "px";
+        var to=(($(window).height()/2) - (table.offsetHeight/2)) + "px";*/
+        over.appendChild(input);
+        c.parentNode.insertBefore(over, first);
+        var inp2 = document.createElement('div');
+        inp2.setAttribute('id', "overlayback");
+        over.insertBefore(inp2, input);
+        // }
+        /*var indivGa = document.createElement("indivGame");
+        var table = document.createElement("scoreTable");
+        var le=(($(window).width()/2) - (table.offsetWidth/2)) + "px";
+        var to=(($(window).height()/2) - (table.offsetHeight/2)) + "px";
+        indivGa.style.top =  (($(window).height()/2) - (table.offsetHeight/2)) + "px";
+        var gaTo = indivGa.top;*/
     }
 }
 
@@ -692,11 +709,12 @@ function overlay() {
     over.setAttribute("style", "z-index:2");
     var first = c;//$('#row').children().first();
     var input = document.createElement('div');
-    input.setAttribute('id', 'indiv');
+    input.setAttribute('id', 'indivGame');
+    input.style.top =  (($(window).height()/2)-(260/2)) + "px";
     var html = `<div id="film_data_div"><form id="formData" method="post" name="form">
         <label class="film_data" for="title">Enter nickname:</label><br>
         <input class="film_data" id="title" type="text" name="title" required maxlength="30"></input><br><br>`
-        html += `</select><br><br>
+    html += `</select><br><br>
             <input class="film_data" type="button" onclick="addScore()" value="Submit" name="film_save">
             <input class="film_data" type="button" onclick="cancelOverlay()" value="Cancel" name="overLay_cancel">
             </form></div>`;
@@ -712,5 +730,6 @@ function overlay() {
 
 function cancelOverlay() {
     var rem = document.getElementById('overlay');
-    return rem.parentNode.removeChild(rem);
+    if(rem !== null)
+        rem.parentNode.removeChild(rem);
 }

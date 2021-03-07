@@ -67,18 +67,21 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function removeFilm(id_film) {
-    $.ajax({
-        type: "post",
-        url: "?c=Admin&a=delete",
-        data:
-            {
-                'id_film': id_film
-            },
-        cache: false,
-    });
-    var rem = document.getElementById('rem' + id_film);
-    rem.parentNode.removeChild(rem);
-    return false;
+    if(confirm("Are you sure to delete this film?")) {
+        $.ajax({
+            type: "post",
+            url: "?c=Admin&a=delete",
+            data:
+                {
+                    'id_film': id_film
+                },
+            cache: false,
+        });
+        var rem = document.getElementById('rem' + id_film);
+        rem.parentNode.removeChild(rem);
+        return false;
+
+    }
 }
 
 function overlay(edit, id) {
@@ -140,7 +143,8 @@ function overlay(edit, id) {
 
 function cancelOverlay() {
     var rem = document.getElementById('overlay');
-    return rem.parentNode.removeChild(rem);
+    if(rem !== null)
+        rem.parentNode.removeChild(rem);
 }
 
 function addFilm() {
@@ -168,33 +172,35 @@ function addFilm() {
 }
 
 function editFilm(id_film) {
-    var title = document.getElementById('title');
-    var about_film = document.getElementById('about_film');
-    var img = document.getElementById('img');
-    var type = document.getElementById('selected_type');
-    if(validInput(title, about_film, img, type)) {
-        $.ajax({
-            type: "post",
-            url: "?c=Admin&a=edit",
-            data:
-                {
-                    'id_film': id_film,
-                    'img': img.value,
-                    'title': title.value,
-                    'about_film': about_film.value,
-                    'film_type': type.value
-                },
-            cache: false,
-            success: function (msg, status, jqXHR) {
-            }
-        });
-        document.getElementById('title' + id_film).innerHTML = title.value;
-        document.getElementById('about' + id_film).innerHTML = about_film.value;
-        document.getElementById('img' + id_film).src = img.value;
-        document.getElementById('film_type' + id_film).value = type.value;
-        cancelOverlay();
+    if(confirm("Are you sure to edit this film?")) {
+        var title = document.getElementById('title');
+        var about_film = document.getElementById('about_film');
+        var img = document.getElementById('img');
+        var type = document.getElementById('selected_type');
+        if (validInput(title, about_film, img, type)) {
+            $.ajax({
+                type: "post",
+                url: "?c=Admin&a=edit",
+                data:
+                    {
+                        'id_film': id_film,
+                        'img': img.value,
+                        'title': title.value,
+                        'about_film': about_film.value,
+                        'film_type': type.value
+                    },
+                cache: false,
+                success: function (msg, status, jqXHR) {
+                }
+            });
+            document.getElementById('title' + id_film).innerHTML = title.value;
+            document.getElementById('about' + id_film).innerHTML = about_film.value;
+            document.getElementById('img' + id_film).src = img.value;
+            document.getElementById('film_type' + id_film).value = type.value;
+            cancelOverlay();
+        }
+        return false;
     }
-    return false;
 }
 
 function isValidHttpUrl(string) {
@@ -276,4 +282,9 @@ function validInput(title, about_film, img, type) {
     }
     return valid;
 }
+
+document.addEventListener('keydown', (e) => {
+    if (e.code === "Escape")
+        cancelOverlay();
+});
 

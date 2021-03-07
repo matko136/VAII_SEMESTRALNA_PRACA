@@ -10,6 +10,7 @@ class User {
         try {
             let response = await fetch('?c=user&a=index');
             let data = await response.json();
+
             var changeUsers = true;
             if (this.lastData !== null) {
                 var deleted = new Array(this.lastData.length);
@@ -48,6 +49,10 @@ class User {
             }
 
             if (changeUsers) {
+                let response2 = await fetch('?c=user&a=current_user');
+                let data2 = await response2.json();
+                let typeOfCurUser = data2['user_type'];
+
                 this.lastStates = new Array(data.length);
                 var list = document.getElementById('usersDiv');
                 list.innerHTML = "";
@@ -65,25 +70,29 @@ class User {
                         secondSelectable = "selected";
                         this.lastStates[count] = "2";
                     }
-                    var thirdSelectable = "";
+
                     if(type === "3") {
-                        thirdSelectable = "selected";
                         this.lastStates[count] = "3";
                     }
 
                     count++;
                     var html = `<div id="rem${user.id_user}" class="userDiv">
                                     <div class="userDivCont">
-                                        <h1>Meno: ${user.name} ${user.surename}, Login: ${user.log} </h1>
-                                        <label for "selected_type${user.id_user}">Zvoľte typ používateľa:</label>
+                                        <h1>Meno: ${user.name} ${user.surename}, Login: ${user.log} </h1>`;
+                    if(type === "2" && typeOfCurUser === "2") {
+                        html += `<h2 style="background-color:white; font-family: 'Bodoni MT'">Typ používateľa: Administrátor</h2><br>`;
+                    } else if(type === "3") {
+                        html += `<h2 style="background-color:white; font-family: 'Bodoni MT'">Typ používateľa: Super Administrátor</h2><br>`;
+                    } else {
+                        html+= `<label for "selected_type${user.id_user}">Zvoľte typ používateľa:</label>
                                         <select id="selected_type${user.id_user}" name="types">
                                             <option ${firstSelectable} value="1">Bežný užívateľ</option>
-                                            <option ${secondSelectable} value="2">Administrátor</option>
-                                            <option ${thirdSelectable} value="3">Super administrátor</option></select><br>
-                                        <input onclick="editUserType(${user.id_user})" type="button" value="Uložiť údaje">
+                                            <option ${secondSelectable} value="2">Administrátor</option></select><br>
+                                <input onclick="editUserType(${user.id_user})" type="button" value="Uložiť údaje">
                                         <input onclick="remUser(${user.id_user})" type="button" value="Vymazať užívateľa">
                                     </div>
                                 </div>`;
+                    }
                     list.innerHTML += html;
                 });
                 this.lastData = data;
@@ -148,7 +157,7 @@ function remUser(id) {
         var data = {
             'id_user': id
         }
-        fetch("??c=Admin&a=deleteUser", {
+        fetch("?c=Admin&a=deleteUser", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -160,10 +169,11 @@ function remUser(id) {
         })
             .then(function (data) {
                 document.getElementById('msg').innerHTML = `<h1>${data['msg']}</h1>`;
+                if(data['success'] === 'yes') {
+                    var rem = document.getElementById('rem' + id);
+                    return rem.parentNode.removeChild(rem);
+                }
             });
-
-        var rem = document.getElementById('rem' + id);
-        return rem.parentNode.removeChild(rem);
     }
 }
 

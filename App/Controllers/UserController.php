@@ -25,6 +25,16 @@ class UserController extends AControllerBase
         }
     }
 
+    public function current_user() {
+        $user = $this->app->getAuthController()->getUser();
+        if($user->getUserType() == 2 || $user->getUserType() == 3) {
+            return $this->json($user);
+        } else {
+            $notlogged = array('Not authorized');
+            return $this->json($notlogged);
+        }
+    }
+
     public function add() {
     }
 }

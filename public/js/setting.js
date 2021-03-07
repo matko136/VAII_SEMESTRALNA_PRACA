@@ -117,3 +117,8 @@ function validateEmail(email)
     var re = /\S+@\S+\.\S+/;
     return re.test(email);
 }
+
+function delAcc() {
+    if(confirm("Are you sure to delete your account?"))
+        window.location = "?c=Setting&a=delete";
+}

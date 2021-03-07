@@ -26,7 +26,9 @@
                 <label id="labNewPass" for="name">Zadajte nové heslo:</label>
                 <input id="newpasswd" type="password" name="passwd_new" required><br><br>
                 <p id="edit_pass_info"></p>
-                <input type="button" onclick="editPasswd()" value="Zmeniť heslo" name="passwd_chng">
+                <input type="button" onclick="editPasswd()" value="Zmeniť heslo" name="passwd_chng"><br><br>
+                <label id="labDelAcc" for="name">Pre zmazanie účtu stlačte tlačidlo: </label>
+                <input type="button" onclick="delAcc()" value="Zmazať účet" name="accDel">
             </form>
         </div>
     </div>

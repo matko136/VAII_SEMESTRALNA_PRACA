@@ -13,20 +13,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4f9432f-502e-43bf-a1d1-5bb647be4262" name="Default Changelist" comment="uprava kvoli sql injection - uprava metod na pracu s databazou, aktualizovanie obsahu cez setinterval">
-      <change afterPath="$PROJECT_DIR$/App/Controllers/GameController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Models/Score.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Views/Game/index.view.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/game.js" afterDir="false" />
+    <list default="true" id="d4f9432f-502e-43bf-a1d1-5bb647be4262" name="Default Changelist" comment="pridana hra hadik, uprava upozornenia pred zmenou alebo mazanim udajov a spravovania uzivatelov">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/SettingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/SettingController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/Admin/index.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/Admin/index.view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/navbar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/Game/index.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/Game/index.view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/Setting/index.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/Setting/index.view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Views/navbar_log.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/navbar_log.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/root.layout.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/root.layout.view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/admin_users.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin_users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/rand.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/rand.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/setting.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/setting.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -129,7 +127,7 @@
       <workItem from="1614769740411" duration="325000" />
       <workItem from="1614806757080" duration="4910000" />
       <workItem from="1615063518774" duration="10565000" />
-      <workItem from="1615143966968" duration="525000" />
+      <workItem from="1615143966968" duration="10566000" />
     </task>
     <task id="LOCAL-00001" summary="Prva verzia prerabana do mvc - pouzitie databazy na vyber filmov, pridanie controlerov na film, usera, autentifikaciu">
       <created>1610799057258</created>
@@ -236,7 +234,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611123560609</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="pridana hra hadik, uprava upozornenia pred zmenou alebo mazanim udajov a spravovania uzivatelov">
+      <created>1615144787727</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1615144787727</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -281,7 +286,8 @@
     <MESSAGE value="pridanie generovania 3 nahodnych filmov na uvodnej stranke, uprava stylov" />
     <MESSAGE value="Kontrola autorizacie k akciam, klientska validacia cez js - nastavenie, pridanie/editovanie filmu, formulare - prihlasenie, registracia,uprava validnosti html, uprava css pravidiel" />
     <MESSAGE value="uprava kvoli sql injection - uprava metod na pracu s databazou, aktualizovanie obsahu cez setinterval" />
-    <option name="LAST_COMMIT_MESSAGE" value="uprava kvoli sql injection - uprava metod na pracu s databazou, aktualizovanie obsahu cez setinterval" />
+    <MESSAGE value="pridana hra hadik, uprava upozornenia pred zmenou alebo mazanim udajov a spravovania uzivatelov" />
+    <option name="LAST_COMMIT_MESSAGE" value="pridana hra hadik, uprava upozornenia pred zmenou alebo mazanim udajov a spravovania uzivatelov" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -370,6 +376,61 @@
           <line>110</line>
           <option name="timeStamp" value="285" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/App/Controllers/UserController.php</url>
+          <line>28</line>
+          <option name="timeStamp" value="288" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/App/Controllers/UserController.php</url>
+          <line>29</line>
+          <option name="timeStamp" value="289" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/App/Controllers/UserController.php</url>
+          <line>30</line>
+          <option name="timeStamp" value="290" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/App/Controllers/UserController.php</url>
+          <line>31</line>
+          <option name="timeStamp" value="291" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/App/Controllers/UserController.php</url>
+          <line>32</line>
+          <option name="timeStamp" value="292" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/App/Controllers/SettingController.php</url>
+          <line>25</line>
+          <option name="timeStamp" value="293" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/App/Controllers/SettingController.php</url>
+          <line>26</line>
+          <option name="timeStamp" value="294" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/App/Controllers/SettingController.php</url>
+          <line>27</line>
+          <option name="timeStamp" value="295" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/App/Controllers/SettingController.php</url>
+          <line>28</line>
+          <option name="timeStamp" value="296" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/App/Controllers/SettingController.php</url>
+          <line>29</line>
+          <option name="timeStamp" value="297" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/App/Controllers/SettingController.php</url>
+          <line>30</line>
+          <option name="timeStamp" value="298" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/public/js/skript.js</url>
           <line>88</line>
@@ -432,7 +493,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/public/js/game.js</url>
-          <line>562</line>
+          <line>565</line>
           <option name="timeStamp" value="270" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -447,7 +508,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/public/js/admin_users.js</url>
-          <line>112</line>
+          <line>102</line>
           <option name="timeStamp" value="281" />
         </line-breakpoint>
       </breakpoints>

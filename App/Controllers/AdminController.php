@@ -102,7 +102,7 @@ class AdminController extends AControllerBase
                 $input = json_decode(file_get_contents('php://input'), true);
                 $userr = User::getOne($input['id_user']);
                 if($userr->getUserType() == 2 && $user->getUserType() != 3) {
-                    return $this->json(array('msg' => 'Nie je možné meniť údaje iného administrátora', 'success' => 'no'));
+                    return $this->json(array('msg' => 'Nie je možné meniť údaje iného administrátora pokiaľ nie ste super administrátor', 'success' => 'no'));
                 }
                 if($input['user_type'] != '1' && $input['user_type'] != '2')
                     return $this->json(array('msg' => 'Zle zadanný typ užívateľa', 'success' => 'no'));
@@ -124,7 +124,7 @@ class AdminController extends AControllerBase
                 $input = json_decode(file_get_contents('php://input'), true);
                 $userr = User::getOne($input['id_user']);
                 if(($userr->getUserType() == 2 || $userr->getUserType() == 3) && $user->getUserType() != 3) {
-                    return $this->json(array('msg' => 'Nie je možné vymazať iného administrátora', 'success' => 'no'));
+                    return $this->json(array('msg' => 'Nie je možné vymazať iného administrátora pokiaľ nie ste super administrátor', 'success' => 'no'));
                 }
                 $favfilms = FavFilm::getAll("id_user =?", [$input['id_user']]);
                 foreach ($favfilms as $fav) {
