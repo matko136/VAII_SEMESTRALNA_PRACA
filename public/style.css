@@ -3,6 +3,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    z-index: 1;
 }
 
 
@@ -242,3 +243,33 @@ a#skoc {
     width: 325px;
     height: 443px;
 }
+
+.wrapper{
+    z-index: 2;
+    position: absolute;
+    top: 0px;
+
+    /* Give them all the available space */
+    width: 100%;
+    height: 100%;
+
+    /* Remove the margins if any */
+    margin: 0;
+
+    /* Allow them to scroll down the document */
+    overflow-y: hidden;
+}
+
+/*#inputSpeed {
+    position:relative;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+#gameDiv {
+    position: absolute;
+}
+
+#myCanvas {
+    transform: translate(-50%);
+}*/

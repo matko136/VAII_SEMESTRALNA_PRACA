@@ -2,7 +2,7 @@
 <script src = "VAII_SEMESTRALNA_PRACA/public/js/admin.js" ></script>
 <?php /** @var \App\Controllers\AuthController $authController */ ?>
 <?php if ($authController->getUser() != NULL) {
-    if($authController->getUser()->getUserType() == 2) {?>
+    if($authController->getUser()->getUserType() == 2 || $authController->getUser()->getUserType() == 3) {?>
     <div id="films" class="films">
         <div class="row" id="row">
         </div>

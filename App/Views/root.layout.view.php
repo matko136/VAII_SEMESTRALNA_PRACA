@@ -26,9 +26,11 @@ if(!$authController->isLog()) {
 }
 ?>
 
-
+<div id="msg"></div>
 <div class="web-content">
     <?= $contentHTML ?>
 </div>
+
+
 </body>
 </html>

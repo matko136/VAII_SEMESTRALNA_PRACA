@@ -58,6 +58,9 @@ if($_SESSION['user'] == "") {
                         </form>
                     </div>
                 </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="?c=game">Zahraj si <span class="sr-only">(current)</span></a>
+                </li>
             </ul>
         </div>
     </nav>

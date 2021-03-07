@@ -65,6 +65,11 @@ class User {
                         secondSelectable = "selected";
                         this.lastStates[count] = "2";
                     }
+                    var thirdSelectable = "";
+                    if(type === "3") {
+                        thirdSelectable = "selected";
+                        this.lastStates[count] = "3";
+                    }
 
                     count++;
                     var html = `<div id="rem${user.id_user}" class="userDiv">
@@ -73,7 +78,8 @@ class User {
                                         <label for "selected_type${user.id_user}">Zvoľte typ používateľa:</label>
                                         <select id="selected_type${user.id_user}" name="types">
                                             <option ${firstSelectable} value="1">Bežný užívateľ</option>
-                                            <option ${secondSelectable} value="2">Administrátor</option></select><br>
+                                            <option ${secondSelectable} value="2">Administrátor</option>
+                                            <option ${thirdSelectable} value="3">Super administrátor</option></select><br>
                                         <input onclick="editUserType(${user.id_user})" type="button" value="Uložiť údaje">
                                         <input onclick="remUser(${user.id_user})" type="button" value="Vymazať užívateľa">
                                     </div>
@@ -89,23 +95,45 @@ class User {
 }
 
 function editUserType(id) {
-    var type = document.getElementById('selected_type' + id).value;
-    $.ajax({
-        type: "post",
-        url: "?c=Admin&a=editUserType",
-        data:
-            {
-                'id_user': id,
-                'user_type': type
-            },
-        cache: false,
-        success: function (msg, status, jqXHR) {
+    if(confirm("Are you sure to edit this user's data?"))
+    {
+        var type = document.getElementById('selected_type' + id).value;
+        var data = {
+            'id_user': id,
+            'user_type': type
         }
-    });
+        fetch("?c=Admin&a=editUserType", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then(function (response) {
+            return response.json();
+        })
+            .then(function (data) {
+                document.getElementById('msg').innerHTML = `<h1>${data['msg']}</h1>`;
+            });
+        /*$.ajax({
+            type: "post",
+            url: "?c=Admin&a=editUserType",
+            data:
+                {
+                    'id_user': id,
+                    'user_type': type
+                },
+            cache: false,
+            success: function (msg, status, jqXHR) {
+                document.write(msg);
+            }
+        });*/
+    }
 }
 
 function remUser(id) {
-    $.ajax({
+
+    /*$.ajax({
         type: "post",
         url: "?c=Admin&a=deleteUser",
         data:
@@ -115,9 +143,28 @@ function remUser(id) {
         cache: false,
         success: function (msg, status, jqXHR) {
         }
-    });
-    var rem = document.getElementById('rem' + id);
-    return rem.parentNode.removeChild(rem);
+    });*/
+    if(confirm("Are you sure to delete this user?")) {
+        var data = {
+            'id_user': id
+        }
+        fetch("??c=Admin&a=deleteUser", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then(function (response) {
+            return response.json();
+        })
+            .then(function (data) {
+                document.getElementById('msg').innerHTML = `<h1>${data['msg']}</h1>`;
+            });
+
+        var rem = document.getElementById('rem' + id);
+        return rem.parentNode.removeChild(rem);
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {

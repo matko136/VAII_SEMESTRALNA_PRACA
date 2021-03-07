@@ -51,7 +51,7 @@ if ($_SESSION['user'] != "") {*/
                 </div>
             </li>
             <?php if($_SESSION['user'] != "") {
-                    if($authController->getUser()->getUserType() == 2) {?>
+                    if($authController->getUser()->getUserType() == 2 || $authController->getUser()->getUserType() == 3) {?>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Admin časť
@@ -61,6 +61,9 @@ if ($_SESSION['user'] != "") {*/
                     <a class="dropdown-item" href="?c=admin&a=users">Spravuj užívateľov</a>
                 </div>
             </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="?c=game">Zahraj si <span class="sr-only">(current)</span></a>
+                        </li>
             <?php } } ?>
         </ul>
     </div>
