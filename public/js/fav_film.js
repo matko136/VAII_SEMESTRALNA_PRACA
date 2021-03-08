@@ -2,6 +2,7 @@
 class Film {
     lastfavData = null;
     constructor() {
+        document.getElementById("loading").style.display = "block";
         this.getFilms();
         setInterval(() => this.getFilms(), 2000);
     }
@@ -119,6 +120,7 @@ class Film {
                         }
                     }
                 });
+                document.getElementById("loading").style.display = "none";
             }
         } catch (e) {
             console.error('Chyba' + e.message);

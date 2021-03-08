@@ -3,6 +3,7 @@ class Film {
     lastData = null;
 
     constructor() {
+        document.getElementById("loading").style.display = "block";
         this.getFilms();
         setInterval(() => this.getFilms(), 1000);
     }
@@ -55,6 +56,7 @@ class Film {
                     list.innerHTML += html;
                 });
                 this.lastData = data;
+                document.getElementById("loading").style.display = "none";
             }
         } catch (e) {
             console.error('Chyba' + e.message);

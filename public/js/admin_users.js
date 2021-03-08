@@ -2,6 +2,7 @@ class User {
     lastData = null;
     lastStates = null;
     constructor() {
+        document.getElementById("loading").style.display = "block";
         this.getUsers();
         setInterval(() => this.getUsers(), 1000);
     }
@@ -96,6 +97,7 @@ class User {
                     list.innerHTML += html;
                 });
                 this.lastData = data;
+                document.getElementById("loading").style.display = "none";
             }
         } catch (e) {
             console.error('Chyba' + e.message);

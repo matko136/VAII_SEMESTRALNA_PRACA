@@ -18,6 +18,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </head>
 <body>
+<div id="loading" style="background-color:white">
+    <img id="loading-image" src="VAII_SEMESTRALNA_PRACA/public/giphy.gif" alt="Loading..." />
+</div>
 <?php
 if(!$authController->isLog()) {
     include "navbar.php";
@@ -31,6 +34,8 @@ if(!$authController->isLog()) {
     <?= $contentHTML ?>
 </div>
 
-
+<script>
+    document.getElementById("loading").style.display = "none"
+</script>
 </body>
 </html>
