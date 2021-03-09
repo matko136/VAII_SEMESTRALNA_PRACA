@@ -13,14 +13,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4f9432f-502e-43bf-a1d1-5bb647be4262" name="Default Changelist" comment="oprava controllera vymazania konta">
+    <list default="true" id="d4f9432f-502e-43bf-a1d1-5bb647be4262" name="Default Changelist" comment="pridanie kolieska nacitania kym sa obsah nacita">
+      <change afterPath="$PROJECT_DIR$/public/giphy.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/root.layout.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/root.layout.view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/admin_users.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin_users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/fav_film.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/fav_film.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/skript.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/skript.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/game.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +119,9 @@
       <workItem from="1614806757080" duration="4910000" />
       <workItem from="1615063518774" duration="10565000" />
       <workItem from="1615143966968" duration="12426000" />
-      <workItem from="1615162233041" duration="1078000" />
+      <workItem from="1615162233041" duration="1295000" />
+      <workItem from="1615202580780" duration="294000" />
+      <workItem from="1615314743511" duration="73000" />
     </task>
     <task id="LOCAL-00001" summary="Prva verzia prerabana do mvc - pouzitie databazy na vyber filmov, pridanie controlerov na film, usera, autentifikaciu">
       <created>1610799057258</created>
@@ -251,7 +249,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615157561782</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="pridanie kolieska nacitania kym sa obsah nacita">
+      <created>1615164450432</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1615164450432</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -299,7 +304,8 @@
     <MESSAGE value="pridana hra hadik, uprava upozornenia pred zmenou alebo mazanim udajov a spravovania uzivatelov" />
     <MESSAGE value="Zmena pravomoci administratorov pri zmene typu dalsich pouzivatelov, pridana moznost vymazat ucet v nastaveniach, upozornenia pred dolezitymi rozhodnutiami" />
     <MESSAGE value="oprava controllera vymazania konta" />
-    <option name="LAST_COMMIT_MESSAGE" value="oprava controllera vymazania konta" />
+    <MESSAGE value="pridanie kolieska nacitania kym sa obsah nacita" />
+    <option name="LAST_COMMIT_MESSAGE" value="pridanie kolieska nacitania kym sa obsah nacita" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

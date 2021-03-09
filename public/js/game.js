@@ -443,7 +443,7 @@ function addNewBodyPart(bodyPart) {
         case "right":
             newX = oldX-50;
             if(oldX < rectSide)
-                newY = width-(rectSide-oldX);
+                newX = width-(rectSide-oldX);
             newY = oldY;
             newDirection = directions.RIGHT;
             break;
