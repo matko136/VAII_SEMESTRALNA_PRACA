@@ -13,8 +13,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4f9432f-502e-43bf-a1d1-5bb647be4262" name="Default Changelist" comment="pridanie kolieska nacitania kym sa obsah nacita">
-      <change afterPath="$PROJECT_DIR$/public/giphy.gif" afterDir="false" />
+    <list default="true" id="d4f9432f-502e-43bf-a1d1-5bb647be4262" name="Default Changelist" comment="oprava generovania x pozicie noveho clanku hada pri aktualnom smere posledneho clanku hada vpravo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/game.js" afterDir="false" />
     </list>
@@ -121,7 +120,7 @@
       <workItem from="1615143966968" duration="12426000" />
       <workItem from="1615162233041" duration="1295000" />
       <workItem from="1615202580780" duration="294000" />
-      <workItem from="1615314743511" duration="73000" />
+      <workItem from="1615314743511" duration="1053000" />
     </task>
     <task id="LOCAL-00001" summary="Prva verzia prerabana do mvc - pouzitie databazy na vyber filmov, pridanie controlerov na film, usera, autentifikaciu">
       <created>1610799057258</created>
@@ -256,7 +255,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615164450432</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="oprava generovania x pozicie noveho clanku hada pri aktualnom smere posledneho clanku hada vpravo">
+      <created>1615314892947</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1615314892947</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -305,7 +311,8 @@
     <MESSAGE value="Zmena pravomoci administratorov pri zmene typu dalsich pouzivatelov, pridana moznost vymazat ucet v nastaveniach, upozornenia pred dolezitymi rozhodnutiami" />
     <MESSAGE value="oprava controllera vymazania konta" />
     <MESSAGE value="pridanie kolieska nacitania kym sa obsah nacita" />
-    <option name="LAST_COMMIT_MESSAGE" value="pridanie kolieska nacitania kym sa obsah nacita" />
+    <MESSAGE value="oprava generovania x pozicie noveho clanku hada pri aktualnom smere posledneho clanku hada vpravo" />
+    <option name="LAST_COMMIT_MESSAGE" value="oprava generovania x pozicie noveho clanku hada pri aktualnom smere posledneho clanku hada vpravo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

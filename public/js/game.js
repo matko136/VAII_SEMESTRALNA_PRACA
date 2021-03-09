@@ -580,7 +580,7 @@ function moveBodyPart(bodyPart, direction, color) {
                 bodyPart.setX(x - 5);
                 bodyPart.setLastY();
             }
-            drawHorizontal(x, y, color);
+            drawHorizontal(bodyPart.getX(), bodyPart.getY(), color);
             break;
         case "up":
             if (y - 5 < 0) bodyPart.setY(height-(5-y));
@@ -588,7 +588,7 @@ function moveBodyPart(bodyPart, direction, color) {
                 bodyPart.setY(y - 5);
                 bodyPart.setLastX();
             }
-            drawVertical(x, y, color);
+            drawVertical(bodyPart.getX(), bodyPart.getY(), color);
             break;
         case "down":
             if (y + 5 > height-1) bodyPart.setY((y+5)-height);
@@ -596,7 +596,7 @@ function moveBodyPart(bodyPart, direction, color) {
                 bodyPart.setY(y + 5);
                 bodyPart.setLastX();
             }
-            drawVertical(x, y, color);
+            drawVertical(bodyPart.getX(), bodyPart.getY(), color);
             break;
         case "right":
             if (x + 5 > c.width-1) bodyPart.setX((x+5)-width);
@@ -604,7 +604,7 @@ function moveBodyPart(bodyPart, direction, color) {
                 bodyPart.setX(x + 5);
                 bodyPart.setLastY();
             }
-            drawHorizontal(x, y, color);
+            drawHorizontal(bodyPart.getX(), bodyPart.getY(), color);
             break;
     }
 }
